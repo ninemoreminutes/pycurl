@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.9 2001/08/21 10:10:25 kjetilja Exp $
+# $Id: test_gtk.py,v 1.10 2001/08/21 10:28:58 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -9,14 +9,12 @@ import pycurl
 
 
 def progress(download_t, download_d, upload_t, upload_d):
-    global round, pbar
     threads_enter()
+    global round, pbar
     if download_t == 0:
-        pbar.set_activity_mode(1)
         round = round + 0.1
         if round >= 1.0:  round = 0.0
     else:
-        pbar.set_activity_mode(0)
         round = float(download_d) / float(download_t)
     pbar.update(round)
     threads_leave()
@@ -47,6 +45,7 @@ class Test(threading.Thread):
         self.curl.perform()
         self.curl.cleanup()        
         self.target_file.close()
+        progress(1.0, 1.0, 0, 0)
         
 
 # Check command line args
