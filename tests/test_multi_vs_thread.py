@@ -1,4 +1,4 @@
-# $Id: test_multi_vs_thread.py,v 1.4 2002/08/12 13:08:46 kjetilja Exp $
+# $Id: test_multi_vs_thread.py,v 1.5 2002/08/14 10:34:05 kjetilja Exp $
 # vi:ts=4:et
 
 import os, sys, time
@@ -80,11 +80,17 @@ def test_multi():
 
     clock2 = time.time()
 
-    # get data
+    # stir state machine into action
     while 1:
         ret, num_handles = m.perform()
-        if num_handles == 0:
-            break
+        if ret != pycurl.CALL_MULTI_PERFORM: break
+
+    # get data
+    while num_handles:
+        m.select(1)
+        while 1:
+            ret, num_handles = m.perform()
+            if ret != pycurl.CALL_MULTI_PERFORM: break
 
     clock3 = time.time()
 
