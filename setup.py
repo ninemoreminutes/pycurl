@@ -1,11 +1,11 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.62 2002/09/13 13:44:32 kjetilja Exp $
+# $Id: setup.py,v 1.63 2002/09/30 17:19:39 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
-VERSION = "7.10-pre3"
+VERSION = "7.10-pre4"
 
 import os, sys, string
 import distutils
