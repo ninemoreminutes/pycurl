@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.48 2002/03/07 11:39:28 kjetilja Exp $ */
+/* $Id: curl.c,v 1.49 2002/03/08 11:12:03 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -596,8 +596,8 @@ do_setopt(CurlObject *self, PyObject *args)
 	switch(option) {
 	case CURLOPT_WRITEFUNCTION:
 	    if (self->writeheader_set == 1) {
-	      PyErr_SetString(ErrorObject, "cannot combine WRITEFUNCTION with WRITEHEADER option.");
-	      return NULL;
+	        PyErr_SetString(ErrorObject, "cannot combine WRITEFUNCTION with WRITEHEADER option.");
+	        return NULL;
 	    }
 	    Py_INCREF(obj);
 	    Py_XDECREF(self->w_cb);
@@ -655,6 +655,7 @@ do_perform(CurlObject *self, PyObject *args)
 {
     int res;
 
+    /* Sanity checks */
     if (!PyArg_ParseTuple(args, ":perform")) {
 	return NULL;
     }
