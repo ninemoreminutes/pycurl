@@ -1,4 +1,4 @@
-# $Id: gtkhtml_demo.py,v 1.11 2002/08/28 10:13:53 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.12 2002/08/28 10:58:20 kjetilja Exp $
 
 import sys
 import os
@@ -101,6 +101,7 @@ class HtmlWindow(GtkHTML):
         html.load_empty()
         handle = html.begin()
         self.request_url(html, url, handle)
+        self.urlentry.set_text(url)
         # Render incoming objects
         while self.num_obj > 0:
             if len(self.render) == 0:
@@ -186,7 +187,7 @@ html.connect('submit', html.submit)
 entry.connect('activate', html.entry_activate, html)
 vbox.pack_start(entry, expand=FALSE)
 entry.show()
-
+html.urlentry = entry
 html.set_usize(800, 600)
 
 sw = GtkScrolledWindow()
