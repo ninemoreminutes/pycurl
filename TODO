@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.76 2004/02/11 13:35:27 kjetilja Exp $
+# $Id: TODO,v 1.77 2004/03/16 10:09:19 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
@@ -13,17 +13,6 @@ BUGS:
 DEPRECATED LIBCURL FEATURES:
 
     * Use curl_formadd() instead of the deprecated curl_formparse().
-
-    * PASSWDFUNCTION/PASSWDDAT/curl_passwd_callback are not used
-      since 7.10.8 and will be removed in a future release.
-
-
-ADD NEW LIBCURL FEATURES:
-
-    * Add support for missing libcurl 7.10.6 features:
-
-      - Add support for CURLOPT_SSL_CTX_FUNCTION and CURLOPT_SSL_CTX_DATA
-        (can we do this without having to wrap the ssl-context structure?).
 
 
 NEW FEATURES:
