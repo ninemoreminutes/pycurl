@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_gtk.py,v 1.19 2002/09/04 20:58:07 mfx Exp $
+# $Id: test_gtk.py,v 1.20 2002/11/12 19:52:55 mfx Exp $
 
 import sys, threading
 from gtk import *
@@ -8,8 +8,12 @@ import pycurl
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
-import signal
-signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+try:
+    import signal
+    from signal import SIGPIPE, SIG_IGN
+    signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+except ImportError:
+    pass
 
 
 class ProgressBar:

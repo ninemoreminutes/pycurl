@@ -1,14 +1,18 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: retriever.py,v 1.7 2002/09/04 21:01:09 mfx Exp $
+# $Id: retriever.py,v 1.8 2002/11/12 19:52:55 mfx Exp $
 
 import sys, threading, Queue
 import pycurl
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
-import signal
-signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+try:
+    import signal
+    from signal import SIGPIPE, SIG_IGN
+    signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+except ImportError:
+    pass
 
 
 class WorkerThread(threading.Thread):

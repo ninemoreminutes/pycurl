@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.31 2002/10/18 12:13:55 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.32 2002/11/12 19:52:55 mfx Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -10,8 +10,12 @@ import pycurl
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
-import signal
-signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+try:
+    import signal
+    from signal import SIGPIPE, SIG_IGN
+    signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+except ImportError:
+    pass
 
 # Number of concurrent connections to the web-server
 NUM_THREADS = 4
