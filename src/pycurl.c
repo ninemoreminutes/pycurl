@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.10 2003/07/09 12:50:37 mfx Exp $ */
+/* $Id: pycurl.c,v 1.11 2003/07/28 17:26:54 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -34,6 +34,7 @@
 #  define WIN32 1
 #endif
 #include <Python.h>
+#define CURL_OLDSTYLE 1     /* needed for curl_formparse - FIXME */
 #include <curl/curl.h>
 #include <curl/multi.h>
 #undef NDEBUG
