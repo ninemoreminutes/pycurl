@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.51 2002/03/08 13:51:45 kjetilja Exp $ */
+/* $Id: curl.c,v 1.52 2002/03/08 14:12:39 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -831,6 +831,7 @@ do_init(PyObject *arg)
     self->postquote = NULL;
     self->prequote = NULL;
     self->httppost = NULL;
+    self->writeheader_set = 0;
 
     /* Set callback pointers to NULL */
     self->w_cb = NULL;
