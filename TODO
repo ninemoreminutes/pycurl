@@ -1,10 +1,12 @@
-# $Id: TODO,v 1.95 2005/03/04 14:43:04 kjetilja Exp $
+# $Id: TODO,v 1.96 2005/03/06 14:03:07 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
 
 NEW FEATURES/IMPROVEMENTS:
+
+    * Add all error constants to the pycurl namespace.
 
     * Add docs to the high-level interface.
 
