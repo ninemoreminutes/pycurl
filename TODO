@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.71 2004/01/13 13:11:56 kjetilja Exp $
+# $Id: TODO,v 1.72 2004/02/10 14:38:47 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
@@ -27,12 +27,6 @@ ADD NEW LIBCURL FEATURES:
     * Add support for missing libcurl 7.10.8 features [MOSTLY DONE]:
 
       - CURL_HTTP_VERSION_* constants [FIXME - name clash]
-
-    * Add support for missing libcurl 7.11.0 features:
-
-      - Large file support: INFILESIZE_LARGE, RESUME_FROM_LARGE and MAXFILESIZE_LARGE
-      - CURLOPT_FTPSSL
-      - CURLOPT_NETRC_FILE
 
 
 NEW FEATURES:
