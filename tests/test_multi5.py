@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi5.py,v 1.5 2002/08/29 14:39:21 mfx Exp $
+# $Id: test_multi5.py,v 1.6 2002/09/09 10:21:50 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -29,7 +29,7 @@ SELECT_TIMEOUT = 10
 # Stir the state machine into action
 while 1:
     ret, num_handles = m.perform()
-    if ret != pycurl.CALL_MULTI_PERFORM: break
+    if ret != pycurl.E_CALL_MULTI_PERFORM: break
 
 # Keep going until all the connections have terminated
 while num_handles:
@@ -38,7 +38,7 @@ while num_handles:
     m.select(SELECT_TIMEOUT)
     while 1:
         ret, num_handles = m.perform()
-        if ret != pycurl.CALL_MULTI_PERFORM: break
+        if ret != pycurl.E_CALL_MULTI_PERFORM: break
 
 # Cleanup
 m.remove_handle(c3)
