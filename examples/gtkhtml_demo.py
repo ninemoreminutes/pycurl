@@ -1,4 +1,4 @@
-# $Id: gtkhtml_demo.py,v 1.4 2002/08/27 16:27:31 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.5 2002/08/27 16:33:16 kjetilja Exp $
 
 import sys
 import os
@@ -83,9 +83,9 @@ class HtmlWindow(GtkHTML):
 			html.end(handle, HTML_STREAM_OK)
 			buf.close()
 
-	def submit(self, *args):
+	def submit(self, html, method, path, params):
 		print 'Submit is not supported yet'
-		print args
+		print method, path, params
 
 	def request_url(self, html, url, handle):
 		url = urllib.basejoin(history[-1], url)
