@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi5.py,v 1.6 2002/09/09 10:21:50 kjetilja Exp $
+# $Id: test_multi5.py,v 1.7 2002/09/26 11:11:05 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -11,9 +11,9 @@ c3 = pycurl.Curl()
 c1.setopt(c1.URL, 'http://www.python.org')
 c2.setopt(c2.URL, 'http://curl.haxx.se')
 c3.setopt(c3.URL, 'http://slashdot.org')
-c1.body = file("doc1", "w")
-c2.body = file("doc2", "w")
-c3.body = file("doc3", "w")
+c1.body = open("doc1", "w")
+c2.body = open("doc2", "w")
+c3.body = open("doc3", "w")
 c1.setopt(c1.WRITEFUNCTION, c1.body.write)
 c2.setopt(c2.WRITEFUNCTION, c2.body.write)
 c3.setopt(c3.WRITEFUNCTION, c3.body.write)
