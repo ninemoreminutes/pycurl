@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.11 2002/12/29 13:44:55 mfx Exp $
+# $Id: test_multi_vs_thread.py,v 1.12 2003/01/25 09:59:28 mfx Exp $
 
 import os, sys, time
 from threading import Thread, RLock
@@ -94,14 +94,16 @@ def test_multi():
     # stir state machine into action
     while 1:
         ret, num_handles = m.perform()
-        if ret != pycurl.E_CALL_MULTI_PERFORM: break
+        if ret != pycurl.E_CALL_MULTI_PERFORM:
+            break
 
     # get data
     while num_handles:
         m.select(1)
         while 1:
             ret, num_handles = m.perform()
-            if ret != pycurl.E_CALL_MULTI_PERFORM: break
+            if ret != pycurl.E_CALL_MULTI_PERFORM:
+                break
 
     clock3 = time.time()
 

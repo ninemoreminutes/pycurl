@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi.py,v 1.6 2002/10/17 14:06:04 kjetilja Exp $
+# $Id: test_multi.py,v 1.7 2003/01/25 09:59:28 mfx Exp $
 
 import pycurl
 
@@ -14,7 +14,7 @@ m.add_handle(c1)
 m.add_handle(c2)
 while 1:
     ret, num_handles = m.perform()
-    if num_handles == 0:
+    if ret != pycurl.E_CALL_MULTI_PERFORM:
         break
 m.remove_handle(c2)
 m.remove_handle(c1)

@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_stringio.py,v 1.4 2002/08/29 14:39:21 mfx Exp $
+# $Id: test_stringio.py,v 1.5 2003/01/25 09:59:28 mfx Exp $
 
 import sys
 try:
@@ -9,9 +9,9 @@ except ImportError:
     from StringIO import StringIO
 import pycurl
 
-url = 'http://curl.haxx.se/dev/'
+url = "http://curl.haxx.se/dev/"
 
-print 'Testing', pycurl.version
+print "Testing", pycurl.version
 
 body = StringIO()
 c = pycurl.Curl()

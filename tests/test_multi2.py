@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi2.py,v 1.9 2003/01/21 16:36:59 mfx Exp $
+# $Id: test_multi2.py,v 1.10 2003/01/25 09:59:28 mfx Exp $
 
 import os, sys, time
 try:
@@ -43,7 +43,7 @@ for url in urls:
 # get data
 while 1:
     ret, num_handles = m.perform()
-    if num_handles == 0:
+    if ret != pycurl.E_CALL_MULTI_PERFORM:
         break
     # currently no more I/O is pending, could do something in the meantime
     # (display a progress bar, etc.)
