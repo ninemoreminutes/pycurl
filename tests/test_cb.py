@@ -1,9 +1,6 @@
-# $Id: test_cb.py,v 1.10 2002/06/05 10:53:20 kjetilja Exp $
+# $Id: test_cb.py,v 1.11 2002/08/06 19:59:54 mfx Exp $
 
-## System modules
 import sys
-
-## PycURL module
 import pycurl
 
 ## Callback function invoked when body data is ready
@@ -16,7 +13,7 @@ def header(buf):
     # Print header data to stderr
     sys.stderr.write(buf)
 
-c = pycurl.init()
+c = Curl()
 c.setopt(pycurl.URL, 'http://www.python.org/')
 c.setopt(pycurl.WRITEFUNCTION, body)
 c.setopt(pycurl.HEADERFUNCTION, header)
@@ -25,4 +22,4 @@ c.setopt(pycurl.MAXREDIRS, 5)
 c.perform()
 c.setopt(pycurl.URL, 'http://curl.haxx.se/')
 c.perform()
-c.cleanup()
+c.close()

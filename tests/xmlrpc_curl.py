@@ -1,4 +1,4 @@
-# $Id: xmlrpc_curl.py,v 1.8 2002/06/05 10:53:20 kjetilja Exp $
+# $Id: xmlrpc_curl.py,v 1.9 2002/08/06 19:59:54 mfx Exp $
 
 import xmlrpclib, pycurl
 try:  import cStringIO as StringIO
@@ -11,7 +11,7 @@ class CURLTransport(xmlrpclib.Transport):
     xmlrpc_h = [ "User-Agent: PycURL XML-RPC", "Content-Type: text/xml" ]
 
     def __init__(self, username=None, password=None):
-        self.c = pycurl.init()
+        self.c = pycurl.Curl()
         self.c.setopt(pycurl.POST, 1)
         self.c.setopt(pycurl.HTTPHEADER, self.xmlrpc_h)
         if username != None and password != None:

@@ -1,10 +1,6 @@
-# $Id: basicfirst.py,v 1.4 2002/07/18 10:55:16 mfx Exp $
+# $Id: basicfirst.py,v 1.5 2002/08/06 19:59:54 mfx Exp $
 
 import sys
-
-# update sys.path when running in the build directory
-from util import get_sys_path
-sys.path = get_sys_path()
 import pycurl
 
 url = 'http://curl.haxx.se/dev/'
@@ -17,12 +13,12 @@ def body_callback(buf):
 
 print 'Testing', pycurl.version
 
-c = pycurl.init()
-c.setopt(pycurl.URL, url)
-c.setopt(pycurl.WRITEFUNCTION, body_callback)
-c.setopt(pycurl.HTTPHEADER, ["I-am-a-silly-programmer: yes indeed you are",
-                             "User-Agent: Python interface for libcURL"])
+c = pycurl.Curl()
+c.setopt(c.URL, url)
+c.setopt(c.WRITEFUNCTION, body_callback)
+c.setopt(c.HTTPHEADER, ["I-am-a-silly-programmer: yes indeed you are",
+                        "User-Agent: Python interface for libcURL"])
 c.perform()
-c.cleanup()
+c.close()
 
 print contents
