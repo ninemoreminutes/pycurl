@@ -1,4 +1,4 @@
-# $Id: test.py,v 1.6 2002/04/16 11:05:49 kjetilja Exp $
+# $Id: test.py,v 1.7 2002/06/05 10:53:20 kjetilja Exp $
 
 ## System modules
 import sys
@@ -16,7 +16,6 @@ class Test(threading.Thread):
         self.curl = pycurl.init()
         self.curl.setopt(pycurl.URL, url)
         self.curl.setopt(pycurl.FILE, ofile)
-        self.curl.setopt(pycurl.NOPROGRESS, 1)
         self.curl.setopt(pycurl.FOLLOWLOCATION, 1)
         self.curl.setopt(pycurl.MAXREDIRS, 5)
 

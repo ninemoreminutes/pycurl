@@ -1,4 +1,4 @@
-# $Id: xmlrpc_curl.py,v 1.7 2002/02/22 10:41:29 kjetilja Exp $
+# $Id: xmlrpc_curl.py,v 1.8 2002/06/05 10:53:20 kjetilja Exp $
 
 import xmlrpclib, pycurl
 try:  import cStringIO as StringIO
@@ -40,7 +40,6 @@ if __name__ == "__main__":
     server = xmlrpclib.ServerProxy("http://betty.userland.com",
                                    transport=CURLTransport())
     print server
-
     try:
         print server.examples.getStateName(41)
     except xmlrpclib.Error, v:

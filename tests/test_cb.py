@@ -1,4 +1,4 @@
-# $Id: test_cb.py,v 1.9 2001/10/15 15:45:29 kjetilja Exp $
+# $Id: test_cb.py,v 1.10 2002/06/05 10:53:20 kjetilja Exp $
 
 ## System modules
 import sys
@@ -20,7 +20,6 @@ c = pycurl.init()
 c.setopt(pycurl.URL, 'http://www.python.org/')
 c.setopt(pycurl.WRITEFUNCTION, body)
 c.setopt(pycurl.HEADERFUNCTION, header)
-c.setopt(pycurl.NOPROGRESS, 1)
 c.setopt(pycurl.FOLLOWLOCATION, 1)
 c.setopt(pycurl.MAXREDIRS, 5)
 c.perform()
