@@ -1,5 +1,6 @@
-# $Id: retriever.py,v 1.4 2002/08/26 10:11:39 kjetilja Exp $
+#! /usr/bin/env python
 # vi:ts=4:et
+# $Id: retriever.py,v 1.5 2002/08/29 14:36:52 mfx Exp $
 
 import sys, threading, Queue
 import pycurl

@@ -1,4 +1,6 @@
-# $Id: gtkhtml_demo.py,v 1.17 2002/08/29 09:42:23 kjetilja Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: gtkhtml_demo.py,v 1.18 2002/08/29 14:36:52 mfx Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *

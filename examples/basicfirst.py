@@ -1,4 +1,6 @@
-# $Id: basicfirst.py,v 1.1 2002/08/16 16:23:06 kjetilja Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: basicfirst.py,v 1.2 2002/08/29 14:36:52 mfx Exp $
 
 import sys
 import pycurl
