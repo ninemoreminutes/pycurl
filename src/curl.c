@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.84 2002/06/20 13:06:38 kjetilja Exp $ */
+/* $Id: curl.c,v 1.85 2002/06/20 22:53:28 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -60,7 +60,7 @@ staticforward PyTypeObject Curl_Type;
     PyErr_SetObject(ErrorObject, v); \
     Py_DECREF(v); \
     return NULL; \
-} while (0);
+} while (0)
 
 /* --------------------------------------------------------------------- */
 
