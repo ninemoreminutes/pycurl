@@ -1,6 +1,6 @@
-# $Id: TODO,v 1.25 2002/04/15 12:19:21 kjetilja Exp $
+# $Id: TODO,v 1.26 2002/04/23 13:36:32 mfx Exp $
 
 * duphandle() is not supported
 * Once set, callbacks cannot be subsequently disabled for a given handle
-* The multi interface is not supported, should make something that 
+* The multi interface is not supported, should make something that
   peacefully co-exists with the select module
