@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.103 2004/02/11 13:31:43 kjetilja Exp $
+# $Id: setup.py,v 1.104 2004/02/14 13:05:45 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -200,5 +200,5 @@ if LooseVersion(distutils.__version__) < LooseVersion("1.0.3"):
 if __name__ == "__main__":
     for o in ext.extra_objects:
         assert os.path.isfile(o), o
+    # We can live with the deprecationwarning for a while
     apply(setup, (), setup_args)
-
