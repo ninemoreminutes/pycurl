@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.35 2001/12/06 11:44:12 kjetilja Exp $ */
+/* $Id: curl.c,v 1.36 2002/02/19 13:25:29 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -701,7 +701,7 @@ do_getinfo(CurlObject *self, PyObject *args)
 static char co_cleanup_doc [] = "cleanup() -> None.  End curl session.\n";
 static char co_setopt_doc [] = "setopt(option, parameter) -> None.  Set curl session options.  Throws pycurl.error exception upon failure.\n";
 static char co_perform_doc [] = "perform() -> None.  Perform a file transfer.  Throws pycurl.error exception upon failure.\n";
-static char co_getinfo_doc [] = "getinfo(info, parameter) -> None.  Extract information from a curl session.  Throws pycurl.error upon failure.\n";
+static char co_getinfo_doc [] = "getinfo(info, parameter) -> res.  Extract and return information from a curl session.  Throws pycurl.error exception upon failure.\n";
 
 
 static PyMethodDef curlobject_methods[] = {
