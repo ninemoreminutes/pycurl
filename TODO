@@ -1,8 +1,6 @@
-# $Id: TODO,v 1.46 2003/01/08 15:36:57 kjetilja Exp $
+# $Id: TODO,v 1.47 2003/01/13 12:56:15 kjetilja Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
     * A high-level interface to pycurl, like the standard urllib (see
       the file 'doc/examples/curl.py' for a simple example)
-    * Make Curl objects and CurlMulti objects into new-style objects
-      to allow subclassing.
