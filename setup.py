@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.20 2001/11/29 11:27:52 kjetilja Exp $
+# $Id: setup.py,v 1.21 2001/11/30 12:25:24 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -9,7 +9,7 @@ from distutils.core import setup
 from distutils.extension import Extension
 from string import strip, split
 
-# Windows users have to configure the next thress path params
+# Windows users have to configure the next three path params
 # to match their libcurl installation.  The paths set here are
 # just examples and thus unlikely to match your installation.
 W32_INCLUDE = r'C:\User\clib\libcurl\include'
