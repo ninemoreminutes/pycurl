@@ -1,6 +1,10 @@
-# $Id: TODO,v 1.49 2003/01/22 13:16:41 kjetilja Exp $
+# $Id: TODO,v 1.50 2003/03/22 15:28:44 kjetilja Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
+
+    * A nicer mechanism to decrease the reference count on container
+      objects and classes passed as options to setopt (this has to be
+      hacked in ugly ways now)
 
     * A high-level interface to pycurl, like the standard urllib (see
       the file 'doc/examples/curl.py' for a simple example)
