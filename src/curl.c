@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.28 2001/10/12 14:44:27 kjetilja Exp $ */
+/* $Id: curl.c,v 1.29 2001/11/04 16:42:12 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -517,12 +517,16 @@ do_setopt(CurlObject *self, PyObject *args)
 	}
     }
 
+    PyErr_Clear();
+
     /* Handle the case of function objects for callbacks */
 
     if (PyArg_ParseTuple(args, "iO!:setopt", &option, &PyFunction_Type, &obj) ||
 	PyArg_ParseTuple(args, "iO!:setopt", &option, &PyCFunction_Type, &obj) ||
 	PyArg_ParseTuple(args, "iO!:setopt", &option, &PyMethod_Type, &obj))
       {
+	PyErr_Clear();
+
 	switch(option) {
 	case CURLOPT_WRITEFUNCTION:
 	    Py_INCREF(obj);
@@ -567,6 +571,8 @@ do_setopt(CurlObject *self, PyObject *args)
 	Py_INCREF(Py_None);
 	return Py_None;
     }
+
+    PyErr_Clear();
 
     /* Failed to match any of the function signatures -- return error */
     PyErr_SetString(PyExc_TypeError, "invalid arguments to setopt");
