@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.23 2004/01/07 12:02:43 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.24 2004/01/13 12:59:38 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -908,7 +908,7 @@ debug_callback(CURL *curlobj,
 }
 
 
-#if (LIBCURL_VERSION_NUM >= 0x070a06)
+#if 0 && (LIBCURL_VERSION_NUM >= 0x070a06)
 static CURLcode
 ssl_ctx_callback(CURL *curlobj, void *ssl_ctx, void *userptr)
 {
