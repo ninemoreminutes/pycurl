@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.14 2003/01/23 13:58:17 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.15 2003/01/24 09:56:34 kjetilja Exp $
 
 import sys
 import pycurl
@@ -25,7 +25,7 @@ num_conn = min(num_conn, len(urls))
 assert 1 <= num_conn <= 10000, "invalid number of connections"
 
 # Make a queue with (url, filename) tuples
-fileno = 0
+fileno = 1
 queue = []
 for u in urls:
     queue.append((u, "data_%d" % fileno))
