@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.62 2002/04/15 13:11:02 kjetilja Exp $ */
+/* $Id: curl.c,v 1.63 2002/04/15 13:14:25 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -566,7 +566,7 @@ do_setopt(CurlObject *self, PyObject *args)
 		    return PyErr_NoMemory();
 		strcpy(buf, str);
 		res = curl_formparse(buf, &self->httppost, &last);
-		if (res != 0) {
+		if (res != CURLE_OK) {
 		    curl_formfree(self->httppost);
                     CURLERROR();
 		}
@@ -939,7 +939,7 @@ do_global_init(PyObject *self, PyObject *args)
 	}
 
 	res = curl_global_init(option);
-	if (res != 0) {
+	if (res != CURLE_OK) {
 	    PyErr_SetString(ErrorObject, "unable to set global option");
 	    return NULL;
 	}
