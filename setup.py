@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.55 2002/08/21 23:26:10 mfx Exp $
+# $Id: setup.py,v 1.56 2002/08/29 14:50:21 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -88,8 +88,9 @@ setup_args = get_kw(
             os.path.join("examples", "basicfirst.py"),
             os.path.join("examples", "curl.py"),
             os.path.join("examples", "retriever.py"),
-            os.path.join("examples", "sfquery.py"),
             os.path.join("examples", "xmlrpc_curl.py"),
+            os.path.join("examples", "sfquery.py"),
+            os.path.join("examples", "gtkhtml_demo.py"),
         ]),
     ],
     ext_modules=[ext],
