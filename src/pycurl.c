@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.78 2005/02/17 10:13:24 mfx Exp $ */
+/* $Id: pycurl.c,v 1.79 2005/02/17 10:39:59 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1321,14 +1321,14 @@ do_curl_setopt(CurlObject *self, PyObject *args)
                 }
                 if (PyTuple_GET_SIZE(listitem) != 2) {
                     curl_formfree(post);
-                    PyErr_SetString(PyExc_TypeError, "tuple must contain two items (name and value)");
+                    PyErr_SetString(PyExc_TypeError, "tuple must contain two strings (name, value)");
                     return NULL;
                 }
                 /* FIXME: Only support strings as names and values for now */
                 if (PyString_AsStringAndSize(PyTuple_GET_ITEM(listitem, 0), &nstr, &nlen) != 0 ||
                     PyString_AsStringAndSize(PyTuple_GET_ITEM(listitem, 1), &cstr, &clen) != 0) {
                     curl_formfree(post);
-                    PyErr_SetString(PyExc_TypeError, "tuple items must be strings");
+                    PyErr_SetString(PyExc_TypeError, "tuple must contain two strings (name, value)");
                     return NULL;
                 }
                 /* INFO: curl_formadd() internally does memdup() the data, so
