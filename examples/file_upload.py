@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: file_upload.py,v 1.4 2005/02/13 08:28:01 mfx Exp $
+# $Id: file_upload.py,v 1.5 2005/02/13 08:53:13 mfx Exp $
 
 import os, sys
 import pycurl
@@ -36,10 +36,9 @@ if 1:
 else:
     c.setopt(pycurl.READFUNCTION, open(filename, 'rb').read)
 
-# Set size of file to be uploaded, we use xxx_LARGE option in case that
-# file size is greater than 2GB
+# Set size of file to be uploaded.
 filesize = os.path.getsize(filename)
-c.setopt(pycurl.INFILESIZE_LARGE, filesize)
+c.setopt(pycurl.INFILESIZE, filesize)
 
 # Start transfer
 print 'Uploading file %s to url %s' % (filename, url)
