@@ -1,9 +1,9 @@
-# $Id: xmlrpc_curl.py,v 1.4 2002/02/21 11:24:28 kjetilja Exp $
+# $Id: xmlrpc_curl.py,v 1.5 2002/02/21 15:16:24 kjetilja Exp $
 
 import xmlrpclib, pycurl, cStringIO
 
 class CURLTransport(xmlrpclib.Transport):
-    """Handles an cURL HTTP transaction to an XML-RPC server."""
+    """Handles a cURL HTTP transaction to an XML-RPC server."""
 
     xmlrpc_h = [ "User-Agent: PycURL XML-RPC", "Content-Type: text/xml" ]
 
