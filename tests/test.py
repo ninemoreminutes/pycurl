@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test.py,v 1.15 2003/04/21 18:46:10 mfx Exp $
+# $Id: test.py,v 1.16 2004/12/26 17:31:53 mfx Exp $
 
 import sys, threading, time
 import pycurl
 
-# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
-# documentation `libcurl-the-guide' for more info.
+# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see
+# the libcurl tutorial for more info.
 try:
     import signal
     from signal import SIGPIPE, SIG_IGN
