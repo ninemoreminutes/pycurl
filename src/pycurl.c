@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.42 2004/05/18 11:28:02 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.43 2004/05/18 11:28:37 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -38,8 +38,6 @@
 #include <curl/multi.h>
 #undef NDEBUG
 #include <assert.h>
-
-#define SUPPORTED_LIBCURL_VERSION 0x070b02
 
 /* Ensure we have updated versions */
 #if !defined(PY_VERSION_HEX) || (PY_VERSION_HEX < 0x02020000)
