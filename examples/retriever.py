@@ -1,4 +1,4 @@
-# $Id: retriever.py,v 1.3 2002/08/24 19:33:04 mfx Exp $
+# $Id: retriever.py,v 1.4 2002/08/26 10:11:39 kjetilja Exp $
 # vi:ts=4:et
 
 import sys, threading, Queue
@@ -37,7 +37,7 @@ try:
     num_workers = int(sys.argv[2])
 except:
     # File or number of workers was not specified, show usage string
-    print "Usage: %s <file with URLs to fetch> <number of workers>" % sys.argv[0]
+    print "Usage: %s <file with URLs to fetch> <number of worker threads>" % sys.argv[0]
     raise SystemExit
 
 # Initialize thread array and the file number used to store documents
