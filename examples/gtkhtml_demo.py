@@ -1,4 +1,4 @@
-# $Id: gtkhtml_demo.py,v 1.12 2002/08/28 10:58:20 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.13 2002/08/28 12:12:14 kjetilja Exp $
 
 import sys
 import os
@@ -100,6 +100,7 @@ class HtmlWindow(GtkHTML):
         history.append(url)
         html.load_empty()
         handle = html.begin()
+        url = url.strip()
         self.request_url(html, url, handle)
         self.urlentry.set_text(url)
         # Render incoming objects
