@@ -1,7 +1,15 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: curl.py,v 1.4 2002/10/14 16:01:24 kjetilja Exp $
+# $Id: curl.py,v 1.5 2002/11/20 11:16:00 kjetilja Exp $
 
+# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
+# documentation `libcurl-the-guide' for more info.
+try:
+    import signal
+    from signal import SIGPIPE, SIG_IGN
+    signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+except ImportError:
+    pass
 try:
     from cStringIO import StringIO
 except ImportError:
@@ -19,6 +27,7 @@ class Curl:
         self.url = url
         self.data = data
         self.c.setopt(pycurl.URL, self.url)
+        self.c.setopt(pycurl.NOSIGNAL, 1)
         self.c.setopt(pycurl.HEADERFUNCTION, self.server_reply.write)
 
         if file is None:
@@ -38,9 +47,11 @@ class Curl:
     def add_header(self, *args):
         self.h.append(args[0] + ': ' +args[1])
 
-    def retrieve(self):
+    def retrieve(self, timeout=30):
         if self.h:
             self.c.setopt(pycurl.HTTPHEADER, self.h)
+        self.c.setopt(pycurl.CONNECTTIMEOUT, timeout)
+        self.c.setopt(pycurl.TIMEOUT, timeout)
         self.c.perform()
         self.fp.seek(0,0)
         return (self.fp, self.info())
