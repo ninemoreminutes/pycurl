@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.45 2002/03/05 16:43:40 kjetilja Exp $ */
+/* $Id: curl.c,v 1.46 2002/03/05 16:51:10 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -525,8 +525,7 @@ do_setopt(CurlObject *self, PyObject *args)
 		res = curl_formparse(buf, &self->httppost, &last);
 		if (res != 0) {
 		    curl_formfree(self->httppost);
-		    PyErr_SetString(ErrorObject, self->error);
-		    return NULL;
+                    CURLERROR();
 		}
 	    }
 	    res = curl_easy_setopt(self->handle, CURLOPT_HTTPPOST, self->httppost);
