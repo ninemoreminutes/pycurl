@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.77 2004/03/16 10:09:19 kjetilja Exp $
+# $Id: TODO,v 1.78 2004/04/30 15:12:27 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
@@ -8,11 +8,6 @@ BUGS:
 
     * Find the GC tracking bug which cause Python to fail an assertion
       (this could be a problem in curl also).
-
-
-DEPRECATED LIBCURL FEATURES:
-
-    * Use curl_formadd() instead of the deprecated curl_formparse().
 
 
 NEW FEATURES:

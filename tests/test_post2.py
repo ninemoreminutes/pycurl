@@ -1,12 +1,12 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_post2.py,v 1.11 2003/04/21 18:46:11 mfx Exp $
+# $Id: test_post2.py,v 1.12 2004/04/30 15:12:28 kjetilja Exp $
 
 import pycurl
 
 
-pf = ['field1=this is a test using httppost & stuff', 'field2=value2']
+pf = [('field1', 'this is a test using httppost & stuff'), ('field2', 'value2')]
 
 c = pycurl.Curl()
 c.setopt(c.URL, 'http://www.contactor.se/~dast/postit.cgi')
