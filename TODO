@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.73 2004/02/10 14:42:05 kjetilja Exp $
+# $Id: TODO,v 1.74 2004/02/10 15:05:58 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
@@ -24,10 +24,6 @@ ADD NEW LIBCURL FEATURES:
 
       - Add support for CURLOPT_SSL_CTX_FUNCTION and CURLOPT_SSL_CTX_DATA
         (can we do this without having to wrap the ssl-context structure?).
-
-    * Add support for missing libcurl 7.10.8 features [MOSTLY DONE]:
-
-      - CURL_HTTP_VERSION_* constants [FIXME - name clash]
 
 
 NEW FEATURES:
