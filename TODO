@@ -1,8 +1,10 @@
-# $Id: TODO,v 1.62 2003/07/30 18:08:50 mfx Exp $
+# $Id: TODO,v 1.63 2003/07/30 18:15:01 mfx Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
     * Use curl_formadd() instead of the deprecated curl_formparse().
+
+    * Add support for CURLOPT_SSL_CTX_FUNCTION and CURLOPT_SSL_CTX_DATA.
 
     * The current curl HLI only works on Python 2.2 or better. Either
       fix this, or change the docs and setup.py accordingly.
