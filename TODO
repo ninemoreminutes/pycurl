@@ -1,13 +1,7 @@
-# $Id: TODO,v 1.79 2004/04/30 15:15:03 kjetilja Exp $
+# $Id: TODO,v 1.80 2004/05/03 08:47:39 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
-
-
-BUGS:
-
-    * Find the GC tracking bug which cause Python to fail an assertion
-      (this could be a problem in curl also).
 
 
 NEW FEATURES:
