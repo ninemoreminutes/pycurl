@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.79 2003/01/15 11:58:09 mfx Exp $
+# $Id: setup.py,v 1.80 2003/01/21 16:31:32 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -42,23 +42,24 @@ def scan_argv(s, default):
 
 # transform an environment variable (e.g. "LIB") to library_dirs[]
 def add_libdirs(envvar, sep, delete=0, fatal=1):
-    r = 0
     env = os.environ
-    if 1 and env.get(envvar):
-        for dir in string.split(env.get(envvar), sep):
-            dir = string.strip(dir)
-            if not dir:
-                continue
-            if os.path.isdir(dir):
-                if dir not in library_dirs:
-                    library_dirs.append(dir)
-            else:
-                r = -1
-                if fatal:
-                    print "FATAL: unknown directory %s in environment variable %s" % (dir, envvar)
-                    raise SystemExit
-        if delete:
-            del env[envvar]
+    if not env.get(envvar):
+        return 0
+    r = 0
+    for dir in string.split(env.get(envvar), sep):
+        dir = string.strip(dir)
+        if not dir:
+            continue
+        if os.path.isdir(dir):
+            if dir not in library_dirs:
+                library_dirs.append(dir)
+        else:
+            r = -1
+            if fatal:
+                print "FATAL: bad directory %s in environment variable %s" % (dir, envvar)
+                raise SystemExit
+    if delete:
+        del env[envvar]
     return r
 
 
