@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.26 2005/03/11 13:22:14 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.27 2005/03/15 13:10:30 kjetilja Exp $
 
 #
 # Usage: python retriever-multi.py <file with URLs to fetch> [<# of
@@ -88,7 +88,6 @@ while num_processed < num_urls:
         ret, num_handles = m.perform()
         if ret != pycurl.E_CALL_MULTI_PERFORM:
             break
-    print ret
     # Check for curl objects which have terminated, and add them to the freelist
     while 1:
         num_q, ok_list, err_list = m.info_read()
