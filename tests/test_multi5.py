@@ -1,4 +1,4 @@
-# $Id: test_multi5.py,v 1.1 2002/08/14 08:46:03 kjetilja Exp $
+# $Id: test_multi5.py,v 1.2 2002/08/14 09:20:10 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -31,6 +31,8 @@ while 1:
 
 # Keep going until all the connections have terminated
 while num_handles:
+    # The select method uses fdset internally to determine which file descriptors
+    # to check.
     m.select(SELECT_TIMEOUT)
     while 1:
         ret, num_handles = m.perform()
