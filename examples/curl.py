@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: curl.py,v 1.7 2002/11/21 10:42:38 kjetilja Exp $
+# $Id: curl.py,v 1.8 2002/11/26 14:31:18 kjetilja Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
@@ -78,7 +78,7 @@ class Curl:
         m['request-size'] = str(self.c.getinfo(pycurl.REQUEST_SIZE))
         m['content-length-download'] = str(self.c.getinfo(pycurl.CONTENT_LENGTH_DOWNLOAD))
         m['content-length-upload'] = str(self.c.getinfo(pycurl.CONTENT_LENGTH_UPLOAD))
-        m['content-type'] = self.c.getinfo(pycurl.CONTENT_TYPE) or ''
+        m['content-type'] = (self.c.getinfo(pycurl.CONTENT_TYPE) or '').strip(';')
         return m
 
     def get_server_reply(self):
