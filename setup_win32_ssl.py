@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup_win32_ssl.py,v 1.24 2004/12/22 14:28:08 mfx Exp $
+# $Id: setup_win32_ssl.py,v 1.25 2004/12/24 01:28:52 mfx Exp $
 
 import os, sys, string
 assert sys.platform == "win32", "Only for building on Win32 with SSL and zlib"
@@ -18,9 +18,13 @@ setup_args["name"] = "pycurl-ssl"
 
 for l in ("libeay32.lib", "ssleay32.lib",):
     ext.extra_objects.append(os.path.join(OPENSSL_DIR, "out32", l))
-ext.extra_objects.append(r"c:\src\pool\zlib-1.2.2\pool\win32\vc6\zlib.lib")
-ext.extra_objects.append(r"c:\src\pool\c-ares-20041212\pool\win32\vc6\ares.lib")
-ext.extra_objects.append(r"c:\src\pool\libidn-0.5.12\pool\win32\vc6\idn.lib")
+
+pool = "\\" + r"pool\win32\vc6" + "\\"
+if string.find(sys.version, "MSC v.1310") >= 0:
+    pool = "\\" + r"pool\win32\vc71" + "\\"
+ext.extra_objects.append(r"c:\src\pool\zlib-1.2.2" + pool + "zlib.lib")
+ext.extra_objects.append(r"c:\src\pool\c-ares-20041212" + pool + "ares.lib")
+ext.extra_objects.append(r"c:\src\pool\libidn-0.5.12" + pool + "idn.lib")
 
 
 if __name__ == "__main__":
