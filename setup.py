@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.97 2003/07/28 17:26:54 mfx Exp $
+# $Id: setup.py,v 1.98 2003/08/16 17:39:46 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -42,7 +42,7 @@ def scan_argv(s, default):
 
 
 # append contents of an environment variable to library_dirs[]
-def add_libdirs(envvar, sep, fatal=1):
+def add_libdirs(envvar, sep, fatal=0):
     v = os.environ.get(envvar)
     if not v:
         return
@@ -72,8 +72,8 @@ if sys.platform == "win32":
     extra_link_args.extend(["gdi32.lib", "winmm.lib", "ws2_32.lib",])
     add_libdirs("LIB", ";")
     if string.find(sys.version, "MSC") >= 0:
+        extra_compile_args.append("-O2")
         extra_compile_args.append("-GF")        # enable read-only string pooling
-        extra_compile_args.append("-Gy")        # separate functions for linker
         extra_compile_args.append("-WX")        # treat warnings as errors
         extra_link_args.append("/opt:nowin98")  # use small section alignment
 else:
