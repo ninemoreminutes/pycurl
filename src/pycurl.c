@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.32 2004/04/14 14:16:57 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.33 2004/04/21 12:11:05 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1061,14 +1061,23 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         return Py_None;
     }
 
-#if (PY_VERSION_HEX >= 0x02020000)
     /* Handle the case of long arguments (used by large varables) */
     if (PyLong_Check(obj)) {
- #if (LIBCURL_VERSION_NUM >= 0x070b01)
+#if (LIBCURL_VERSION_NUM >= 0x070b01)
+  #if (PY_VERSION_HEX >= 0x02020000)
         curl_off_t longdata = PyLong_AsLongLong(obj);
- #else
+  #else
+  #warning "Longs are not properly supported by this Python version, this may affect largefile support"
+        curl_off_t longdata = PyLong_AsLong(obj);
+  #endif
+#else
+  #if (PY_VERSION_HEX >= 0x02020000)
         off_t longdata = PyLong_AsLongLong(obj);
- #endif
+  #else
+  #warning "Longs are not properly supported by this Python version, this may affect largefile support"
+        off_t longdata = PyLong_AsLong(obj);
+  #endif
+#endif
         if (option < CURLOPTTYPE_OFF_T) {
             PyErr_SetString(PyExc_TypeError, "longs are not supported for this option");
             return NULL;
@@ -1080,12 +1089,6 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         Py_INCREF(Py_None);
         return Py_None;
     }
-#else
-    if (PyLong_Check(obj)) {
-         PyErr_SetString(PyExc_TypeError, "longs are not supported with Python < 2.2");
-         return NULL;
-    }
-#endif
 
     /* Handle the case of file objects */
     if (PyFile_Check(obj)) {
