@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: curl.py,v 1.8 2002/11/26 14:31:18 kjetilja Exp $
+# $Id: curl.py,v 1.9 2003/01/13 15:23:27 mfx Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.

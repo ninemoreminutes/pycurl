@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: basicfirst.py,v 1.2 2002/08/29 14:36:52 mfx Exp $
+# $Id: basicfirst.py,v 1.3 2003/01/13 15:23:26 mfx Exp $
 
 import sys
 import pycurl

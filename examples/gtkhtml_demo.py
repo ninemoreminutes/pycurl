@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.32 2002/11/12 19:52:55 mfx Exp $
+# $Id: gtkhtml_demo.py,v 1.33 2003/01/13 15:23:27 mfx Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *

@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever.py,v 1.9 2002/12/11 11:08:52 kjetilja Exp $
+# $Id: retriever.py,v 1.10 2003/01/13 15:23:27 mfx Exp $
 
 import sys, threading, Queue
 import pycurl
