@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.167 2002/10/30 12:21:25 mfx Exp $ */
+/* $Id: curl.c,v 1.168 2002/11/12 13:21:43 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -36,8 +36,8 @@
 #if !defined(PY_VERSION_HEX) || (PY_VERSION_HEX < 0x010502f0)
 #  error "Need Python version 1.5.2 or greater to compile pycurl."
 #endif
-#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070a01)
-#  error "Need libcurl version 7.10.1 or greater to compile pycurl."
+#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070a02)
+#  error "Need libcurl version 7.10.2 or greater to compile pycurl."
 #endif
 
 /* Beginning with Python 2.2 we support Cyclic Garbarge Collection */
