@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.42 2002/02/27 09:27:10 kjetilja Exp $ */
+/* $Id: curl.c,v 1.43 2002/02/27 17:20:43 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -8,6 +8,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+
+/* Ensure we have an updated libcurl */
+#if LIBCURL_VERSION_NUM < 0x070904
+  #error "Need curl version 7.9.4 or greater to compile pycurl."
+#endif
 
 static PyObject *ErrorObject;
 
