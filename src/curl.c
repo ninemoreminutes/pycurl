@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.185 2003/01/14 13:20:12 mfx Exp $ */
+/* $Id: curl.c,v 1.186 2003/01/15 11:58:33 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1324,6 +1324,7 @@ do_multi_new(PyObject *dummy, PyObject *args)
     return self;
 }
 
+
 static void
 util_multi_close(CurlMultiObject *self)
 {
@@ -1335,6 +1336,7 @@ util_multi_close(CurlMultiObject *self)
         curl_multi_cleanup(multi_handle);
     }
 }
+
 
 static void
 do_multi_dealloc(CurlMultiObject *self)
@@ -1360,6 +1362,7 @@ do_multi_dealloc(CurlMultiObject *self)
     Py_TRASHCAN_SAFE_END(self)
 #endif
 }
+
 
 static PyObject *
 do_multi_close(CurlMultiObject *self, PyObject *args)
