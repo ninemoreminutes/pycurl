@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.30 2002/10/18 12:11:29 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.31 2002/10/18 12:13:55 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -243,16 +243,13 @@ vbox.pack_start(sw)
 sep = GtkHSeparator()
 vbox.pack_start(sep, expand=FALSE)
 
-#status = GtkLabel('')
-#status.set_justify(JUSTIFY_LEFT)
-#status.set_alignment(0.0, 0.5)
-
 status = GnomeAppBar()
 win.set_statusbar(status)
+html.statusbar = status
+
 win.create_menus(menus)
 win.create_toolbar(toolbar)
 
-html.statusbar = status
 html.load_empty()
 win.show_all()
 
