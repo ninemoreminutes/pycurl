@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.73 2005/02/08 11:46:06 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.74 2005/02/10 10:17:15 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -883,7 +883,7 @@ ioctl_callback(CURL *curlobj, int cmd, void *stream)
     PyThreadState *tmp_state;
     PyObject *arglist;
     PyObject *result = NULL;
-    int ret = 0;       /* always success */
+    int ret = CURLIOE_FAILRESTART;       /* assume error */
 
     UNUSED(curlobj);
 
