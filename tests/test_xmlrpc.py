@@ -1,4 +1,6 @@
-# $Id: test_xmlrpc.py,v 1.5 2002/08/06 19:59:54 mfx Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_xmlrpc.py,v 1.6 2002/08/29 14:39:21 mfx Exp $
 
 ## XML-RPC lib included in python2.2
 import xmlrpclib

@@ -1,4 +1,6 @@
-# $Id: test_fileupload.py,v 1.4 2002/08/06 20:07:00 mfx Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_fileupload.py,v 1.5 2002/08/29 14:39:20 mfx Exp $
 # Python code to http post a file using the following form
 # Written by Amit Mongia
 """

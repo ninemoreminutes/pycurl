@@ -1,5 +1,6 @@
-# $Id: test_multi3.py,v 1.7 2002/08/12 13:08:46 kjetilja Exp $
+#! /usr/bin/env python
 # vi:ts=4:et
+# $Id: test_multi3.py,v 1.8 2002/08/29 14:39:21 mfx Exp $
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
 

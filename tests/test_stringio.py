@@ -1,4 +1,6 @@
-# $Id: test_stringio.py,v 1.3 2002/08/06 19:59:54 mfx Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_stringio.py,v 1.4 2002/08/29 14:39:21 mfx Exp $
 
 import sys
 try:

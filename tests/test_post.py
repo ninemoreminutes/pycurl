@@ -1,4 +1,6 @@
-# $Id: test_post.py,v 1.7 2002/08/12 13:43:00 kjetilja Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_post.py,v 1.8 2002/08/29 14:39:21 mfx Exp $
 
 import urllib
 import pycurl

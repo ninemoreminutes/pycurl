@@ -1,4 +1,6 @@
-# $Id: test_multi5.py,v 1.4 2002/08/14 14:17:20 mfx Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_multi5.py,v 1.5 2002/08/29 14:39:21 mfx Exp $
 
 import sys, select, time
 import pycurl

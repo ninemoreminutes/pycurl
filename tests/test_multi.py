@@ -1,4 +1,6 @@
-# $Id: test_multi.py,v 1.4 2002/08/12 13:08:46 kjetilja Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_multi.py,v 1.5 2002/08/29 14:39:21 mfx Exp $
 
 import pycurl
 

@@ -1,4 +1,6 @@
-# $Id: test_cb.py,v 1.12 2002/08/06 20:07:00 mfx Exp $
+#! /usr/bin/env python
+# vi:ts=4:et
+# $Id: test_cb.py,v 1.13 2002/08/29 14:39:20 mfx Exp $
 
 import sys
 import pycurl

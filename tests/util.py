@@ -1,5 +1,5 @@
-# $Id: util.py,v 1.2 2002/07/18 10:55:17 mfx Exp $
 # vi:ts=4:et
+# $Id: util.py,v 1.3 2002/08/29 14:39:21 mfx Exp $
 
 import os, sys
 

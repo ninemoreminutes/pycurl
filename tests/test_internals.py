@@ -1,5 +1,6 @@
-# $Id: test_internals.py,v 1.10 2002/08/21 23:29:46 mfx Exp $
+#! /usr/bin/env python
 # vi:ts=4:et
+# $Id: test_internals.py,v 1.11 2002/08/29 14:39:20 mfx Exp $
 
 #
 # a simple self-test

@@ -1,5 +1,6 @@
-# $Id: test_multi_vs_thread.py,v 1.6 2002/08/14 14:16:48 mfx Exp $
+#! /usr/bin/env python
 # vi:ts=4:et
+# $Id: test_multi_vs_thread.py,v 1.7 2002/08/29 14:39:21 mfx Exp $
 
 import os, sys, time
 from threading import Thread, RLock
