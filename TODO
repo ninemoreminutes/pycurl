@@ -1,8 +1,7 @@
-# $Id: TODO,v 1.43 2002/11/12 16:15:24 kjetilja Exp $
+# $Id: TODO,v 1.44 2002/11/19 12:07:49 kjetilja Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
-    * Support curl_multi_info_read (need to hack libcurl here too)
     * Documentation (finish the stuff in the doc/ directory)
     * A high-level interface to pycurl, like the standard urllib (see
       the file 'doc/examples/curl.py' for a simple example)
