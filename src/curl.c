@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.81 2002/06/19 12:54:18 kjetilja Exp $ */
+/* $Id: curl.c,v 1.82 2002/06/19 13:49:10 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1216,6 +1216,10 @@ DL_EXPORT(void)
     insint(d, "NETRC_OPTIONAL", CURL_NETRC_OPTIONAL);
     insint(d, "NETRC_IGNORED", CURL_NETRC_IGNORED);
     insint(d, "NETRC_REQUIRED", CURL_NETRC_REQUIRED);
+
+    /* TIMECONDITION constants for setopt */
+    insint(d, "TIMECOND_IFMODSINCE", TIMECOND_IFMODSINCE);
+    insint(d, "TIMECOND_IFUNMODSINCE", TIMECOND_IFUNMODSINCE);
 
     /* global_init options */
     insint(d, "GLOBAL_ALL", CURL_GLOBAL_ALL);
