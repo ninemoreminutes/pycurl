@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.102 2002/07/02 13:28:00 kjetilja Exp $ */
+/* $Id: curl.c,v 1.103 2002/07/02 13:48:13 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -15,6 +15,17 @@
  * See file COPYING for license information.
  *
  */
+
+/* 
+    TODO for the multi interface:
+    - fix the deallocation race, just apply the same stuff as for deallocation
+      of curl objects (handles and state attributes)
+    - add interface to the multi_read method, otherwise it's hard to use this
+      for anything
+    - also try to figure out how to solve the problem of having deallocated
+      curl objects in an active curl-multi stack (this causes a segfault when
+      the multi-stack is cleaned up) 
+*/ 
 
 #undef NDEBUG
 #include <assert.h>
@@ -1088,7 +1099,6 @@ statichere PyTypeObject CurlMulti_Type = {
      * You can safely ignore any compiler warnings.
      */
 };
-
 
 /* --------------------------------------------------------------------- */
 
