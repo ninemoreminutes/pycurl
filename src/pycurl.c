@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.53 2004/06/21 14:57:17 mfx Exp $ */
+/* $Id: pycurl.c,v 1.54 2004/06/23 09:00:31 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -658,7 +658,12 @@ read_callback(char *ptr, size_t size, size_t nmemb, void *stream)
     PyThreadState *tmp_state;
     PyObject *arglist;
     PyObject *result = NULL;
-    size_t ret = 0;     /* assume error */
+
+#if (LIBCURL_VERSION_NUM > 0x070c00)
+    size_t ret = CURL_READFUNC_ABORT;     /* assume error, this actuallay works */
+#else
+    size_t ret = 0;     /* assume error, this cause things to hang */
+#endif
     int total_size;
 
     /* acquire thread */
