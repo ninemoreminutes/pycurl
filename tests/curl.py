@@ -1,4 +1,4 @@
-# $Id: curl.py,v 1.7 2002/07/11 19:19:06 mfx Exp $
+# $Id: curl.py,v 1.8 2002/07/18 10:58:18 mfx Exp $
 
 ## System modules
 try:
@@ -49,7 +49,7 @@ class Curl:
 
     def info(self):
         self.server_reply.seek(0,0)
-        self.server_reply.readline() # FIXME: won't work well on non-http headers 
+        self.server_reply.readline() # FIXME: won't work well on non-http headers
         m = mimetools.Message(self.server_reply)
         m['http-code'] = str(self.c.getinfo(pycurl.HTTP_CODE))
         m['total-time'] = str(self.c.getinfo(pycurl.TOTAL_TIME))

@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.132 2002/07/16 09:36:52 mfx Exp $ */
+/* $Id: curl.c,v 1.133 2002/07/18 10:57:49 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -366,6 +366,7 @@ do_curl_dealloc(CurlObject *self)
     Py_XDECREF(self->dict);
     self->dict = NULL;
     util_curl_cleanup(self);
+
 #if defined(USE_GC)
     PyObject_GC_Del(self);
 #elif (PY_VERSION_HEX >= 0x01060000)
@@ -1215,6 +1216,7 @@ do_multi_dealloc(CurlMultiObject *self)
     Py_XDECREF(self->dict);
     self->dict = NULL;
     util_multi_cleanup(self);
+
 #if defined(USE_GC)
     PyObject_GC_Del(self);
 #elif (PY_VERSION_HEX >= 0x01060000)
