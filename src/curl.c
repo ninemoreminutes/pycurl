@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.75 2002/06/18 12:55:51 kjetilja Exp $ */
+/* $Id: curl.c,v 1.76 2002/06/18 14:08:47 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -530,6 +530,7 @@ do_setopt(CurlObject *self, PyObject *args)
             PyErr_SetString(PyExc_TypeError, "second argument must be open file");
             return NULL;
         }
+        Py_INCREF(obj);
         res = curl_easy_setopt(self->handle, option, fp);
         /* Check for errors */
         if (res == CURLE_OK) {
