@@ -1,7 +1,12 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.21 2004/12/26 17:31:53 mfx Exp $
+# $Id: retriever-multi.py,v 1.22 2004/12/26 17:43:22 mfx Exp $
+
+#
+# Usage: python retriever_multi.py <file with URLs to fetch> [<# of
+#          concurrent connections>]
+#
 
 import string, sys
 import pycurl
@@ -103,7 +108,7 @@ while num_processed < num_urls:
             break
     # Currently no more I/O is pending, could do something in the meantime
     # (display a progress bar, etc.).
-    # We just use select() to wait until some more data is available.
+    # We just call select() to sleep until some more data is available.
     m.select()
 
 
