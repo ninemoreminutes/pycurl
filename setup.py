@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.42 2002/06/26 14:50:35 kjetilja Exp $
+# $Id: setup.py,v 1.43 2002/06/27 14:15:31 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -50,7 +50,7 @@ setup (name="pycurl",
        author_email="kjetilja@cs.uit.no",
        url="http://pycurl.sourceforge.net/",
        data_files = [(os.path.join('doc', 'pycurl'),
-                    ['README', 'COPYING', 'INSTALL'])],
+                    ['README', 'COPYING', 'INSTALL', 'TODO'])],
        ext_modules=[Extension(name="pycurl",
                               sources=[os.path.join("src", "curl.c")],
                               include_dirs=include_dirs,
