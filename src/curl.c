@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.41 2002/02/26 16:42:03 kjetilja Exp $ */
+/* $Id: curl.c,v 1.42 2002/02/27 09:27:10 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -367,7 +367,7 @@ do_setopt(CurlObject *self, PyObject *args)
 		return NULL;
 	    }
 	/* Free previously allocated memory to option */
-	opt_masked = option & 0xff;
+	opt_masked = option % CURLOPTTYPE_OBJECTPOINT;
 	if (self->options[opt_masked] != NULL) {
 	    free(self->options[opt_masked]);
 	}
