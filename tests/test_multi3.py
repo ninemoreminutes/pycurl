@@ -1,4 +1,4 @@
-# $Id: test_multi3.py,v 1.4 2002/07/15 05:23:01 mfx Exp $
+# $Id: test_multi3.py,v 1.5 2002/07/18 10:55:17 mfx Exp $
 # vi:ts=4:et
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
@@ -8,6 +8,10 @@ try:
     from cStringIO import StringIO
 except ImportError:
     from StringIO import StringIO
+
+# update sys.path when running in the build directory
+from util import get_sys_path
+sys.path = get_sys_path()
 import pycurl
 
 

@@ -1,4 +1,4 @@
-# $Id $
+# $Id: util.py,v 1.2 2002/07/18 10:55:17 mfx Exp $
 # vi:ts=4:et
 
 import os, sys

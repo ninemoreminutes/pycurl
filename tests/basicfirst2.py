@@ -1,6 +1,10 @@
-# $Id: basicfirst2.py,v 1.3 2002/03/08 11:06:38 kjetilja Exp $
+# $Id: basicfirst2.py,v 1.4 2002/07/18 10:55:16 mfx Exp $
 
 import sys
+
+# update sys.path when running in the build directory
+from util import get_sys_path
+sys.path = get_sys_path()
 import pycurl
 
 

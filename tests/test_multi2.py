@@ -1,4 +1,4 @@
-# $Id: test_multi2.py,v 1.4 2002/07/08 19:20:39 mfx Exp $
+# $Id: test_multi2.py,v 1.5 2002/07/18 10:55:16 mfx Exp $
 # vi:ts=4:et
 
 import os, sys, time
@@ -6,6 +6,10 @@ try:
     from cStringIO import StringIO
 except ImportError:
     from StringIO import StringIO
+
+# update sys.path when running in the build directory
+from util import get_sys_path
+sys.path = get_sys_path()
 import pycurl
 
 
