@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi2.py,v 1.10 2003/01/25 09:59:28 mfx Exp $
+# $Id: test_multi2.py,v 1.11 2003/01/25 10:51:04 mfx Exp $
 
-import os, sys, time
+import os, sys
 try:
     from cStringIO import StringIO
 except ImportError:
@@ -47,7 +47,7 @@ while 1:
         break
     # currently no more I/O is pending, could do something in the meantime
     # (display a progress bar, etc.)
-    time.sleep(0.01)
+    m.select()
 
 # close handles
 for c in m.handles:
