@@ -1,4 +1,4 @@
-# $Id: test_multi4.py,v 1.5 2002/08/14 10:25:30 kjetilja Exp $
+# $Id: test_multi4.py,v 1.6 2002/08/14 14:17:20 mfx Exp $
 
 import sys, select, time
 import pycurl
@@ -40,10 +40,10 @@ while num_handles:
 m.remove_handle(c3)
 m.remove_handle(c2)
 m.remove_handle(c1)
-m.cleanup()
+m.close()
 c1.body.close()
 c2.body.close()
 c3.body.close()
-c1.cleanup()
-c2.cleanup()
-c3.cleanup()
+c1.close()
+c2.close()
+c3.close()
