@@ -1,4 +1,4 @@
-# $Id: test_multi3.py,v 1.2 2002/07/05 17:12:14 mfx Exp $
+# $Id: test_multi3.py,v 1.3 2002/07/08 19:20:39 mfx Exp $
 # vi:ts=4:et
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
@@ -17,7 +17,6 @@ urls = (
     "http://pycurl.sourceforge.net",
     "http://pycurl.sourceforge.net/THIS_HANDLE_IS_CLOSED",
 )
-
 
 # init
 m = pycurl.multi_init()

@@ -1,4 +1,4 @@
-# $Id: test_multi2.py,v 1.3 2002/07/05 17:09:39 mfx Exp $
+# $Id: test_multi2.py,v 1.4 2002/07/08 19:20:39 mfx Exp $
 # vi:ts=4:et
 
 import os, sys, time
@@ -23,7 +23,6 @@ try:
 except IndexError:
     # No file was specified
     pass
-
 
 # init
 m = pycurl.multi_init()
