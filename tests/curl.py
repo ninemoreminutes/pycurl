@@ -1,4 +1,4 @@
-# $Id: curl.py,v 1.1 2002/06/27 18:11:46 kjetilja Exp $
+# $Id: curl.py,v 1.2 2002/07/01 08:12:43 kjetilja Exp $
 
 ## System modules
 try:
@@ -43,6 +43,7 @@ class Curl:
             self.c.setopt(pycurl.HTTPHEADER, self.h)
         self.c.perform()
         self.status = self.c.getinfo(pycurl.HTTP_CODE)
+        return self.status
 
     def close(self):
         self.c.cleanup()
