@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.11 2003/01/21 16:33:56 mfx Exp $
+# $Id: retriever-multi.py,v 1.12 2003/01/22 13:14:05 kjetilja Exp $
 
 import sys
 import pycurl
@@ -61,12 +61,17 @@ while processed < len(urls):
             break
     # Check for curl objects which have terminated, and add them to the freelist
     while 1:
-        num_q, handles = multi.info_read(num_conn)
-        for h in handles:
+        num_q, ok, err = multi.info_read(num_conn)
+        for h in ok:
             h.f.close()
             multi.remove_handle(h)
             freelist.append(h)
-        processed += len(handles)
+        for errno, errmsg, h in err:
+            h.f.close()
+            multi.remove_handle(h)
+            freelist.append(h)
+            print 'Failed:', h, errno, errmsg
+        processed += len(ok) + len(err)
         if num_q == 0:
             break
 
