@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.4 2001/08/21 08:35:27 kjetilja Exp $
+# $Id: test_gtk.py,v 1.5 2001/08/21 09:42:14 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -20,6 +20,14 @@ def progress(download_t, download_d, upload_t, upload_d):
         round = float(download_d) / float(download_t)
     pbar.update(round)
     return 0 # Anything else indicates an error
+
+
+def close_app(*args):
+    global t, win
+    t.join()
+    win.destroy()
+    mainquit()
+    return TRUE
 
 
 class Test(threading.Thread):
@@ -51,7 +59,7 @@ vbox = GtkVBox(spacing=5)
 vbox.set_border_width(10)
 win.vbox.pack_start(vbox)
 vbox.show()
-label = GtkLabel("Download progress")
+label = GtkLabel("Downloading %s" % sys.argv[1])
 label.set_alignment(0, 0.5)
 vbox.pack_start(label, expand=FALSE)
 label.show()
@@ -59,6 +67,8 @@ pbar = GtkProgressBar()
 pbar.set_usize(200, 20)
 vbox.pack_start(pbar)
 pbar.show()
+win.connect("destroy", close_app)
+win.connect("delete_event", close_app)
 
 # Start thread for fetching url
 round = 0.0
