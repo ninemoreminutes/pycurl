@@ -1,9 +1,11 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.57 2002/08/29 17:48:24 mfx Exp $
+# $Id: setup.py,v 1.58 2002/09/04 19:21:35 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
+
+VERSION = "7.9.8.4"
 
 import os, sys
 import distutils
@@ -71,7 +73,7 @@ ext = Extension(
 
 setup_args = get_kw(
     name="pycurl",
-    version="7.9.8.4",
+    version=VERSION,
     description="PycURL -- cURL library module for Python",
     author="Kjetil Jacobsen, Markus F.X.J. Oberhumer",
     author_email="kjetilja@cs.uit.no, markus@oberhumer.com",
