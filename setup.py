@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.107 2004/05/03 09:04:50 kjetilja Exp $
+# $Id: setup.py,v 1.108 2004/05/05 19:17:41 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -63,7 +63,7 @@ if sys.platform == "win32":
     # Windows users have to configure the CURL_DIR path parameter to match
     # their cURL source installation.  The path set here is just an example
     # and thus unlikely to match your installation.
-    CURL_DIR = r"c:\src\build\curl-%s" % VERSION
+    CURL_DIR = r"c:\src\build\curl-7.11.2"
     CURL_DIR = scan_argv("--curl-dir=", CURL_DIR)
     print "Using curl directory:", CURL_DIR
     assert os.path.isdir(CURL_DIR), "please check CURL_DIR in setup.py"
@@ -106,9 +106,11 @@ else:
     if sys.platform[:-1] == "darwin":
         extra_link_args.append("-flat_namespace")
 
+
 # Find out whether to support GC or not, default to using the GC
-USE_GC = scan_argv("--use-gc=", 1)
-define_macros.append(("USE_GC", USE_GC))
+USE_GC = scan_argv("--use-gc=", "1")
+if USE_GC == "0":
+    define_macros.append(("WITHOUT_GC", "1"))
 
 
 ###############################################################################
