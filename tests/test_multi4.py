@@ -1,4 +1,4 @@
-# $Id: test_multi4.py,v 1.3 2002/08/12 13:08:46 kjetilja Exp $
+# $Id: test_multi4.py,v 1.4 2002/08/12 13:19:02 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -21,20 +21,22 @@ m.add_handle(c1)
 m.add_handle(c2)
 m.add_handle(c3)
 
-SELECT_TIMEOUT = 0.1
+# Number of seconds to wait for a timeout to happen
+SELECT_TIMEOUT = 10
 
+# Stir the state machine into action
 while 1:
     ret, num_handles = m.perform()
-    if ret != pycurl.CALL_MULTI_PERFORM:
-        break
+    if ret != pycurl.CALL_MULTI_PERFORM: break
 
+# Keep going until all the connections have terminated
 while num_handles:
     apply(select.select, m.fdset() + (SELECT_TIMEOUT,))
     while 1:
         ret, num_handles = m.perform()
-        if ret != pycurl.CALL_MULTI_PERFORM:
-            break
+        if ret != pycurl.CALL_MULTI_PERFORM: break
 
+# Cleanup
 m.remove_handle(c3)
 m.remove_handle(c2)
 m.remove_handle(c1)
