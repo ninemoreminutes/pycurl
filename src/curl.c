@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.150 2002/08/14 10:59:34 mfx Exp $ */
+/* $Id: curl.c,v 1.151 2002/08/14 13:58:37 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1656,8 +1656,8 @@ static char co_copy_doc [] = "copy() -> New curl object. FIXME\n";
 #endif
 static char co_perform_doc [] = "perform() -> None.  Perform a file transfer.  Throws pycurl.error exception upon failure.\n";
 static char co_setopt_doc [] = "setopt(option, parameter) -> None.  Set curl session options.  Throws pycurl.error exception upon failure.\n";
-static char co_getinfo_doc [] = "getinfo(info) -> res.  Extract and return information from a curl session.  Throws pycurl.error exception upon failure.\n";
-static char co_multi_fdset_doc [] = "fdset() -> List.  Returns a list of three lists that can be passed to the select.select() method .\n";
+static char co_getinfo_doc [] = "getinfo(info) -> Res.  Extract and return information from a curl session.  Throws pycurl.error exception upon failure.\n";
+static char co_multi_fdset_doc [] = "fdset() -> Tuple.  Returns a tuple of three lists that can be passed to the select.select() method .\n";
 
 static PyMethodDef curlobject_methods[] = {
     {"cleanup", (PyCFunction)do_curl_cleanup, METH_VARARGS, co_cleanup_doc},
