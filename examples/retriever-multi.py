@@ -1,12 +1,13 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.8 2003/01/15 14:35:28 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.9 2003/01/15 14:40:38 kjetilja Exp $
 
 import sys
 import pycurl
 try:
     import signal
+    from signal import SIGPIPE, SIG_IGN
     signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 except ImportError:
     pass

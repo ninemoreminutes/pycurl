@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.34 2003/01/15 14:35:28 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.35 2003/01/15 14:40:38 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -13,6 +13,7 @@ import pycurl
 # documentation `libcurl-the-guide' for more info.
 try:
     import signal
+    from signal import SIGPIPE, SIG_IGN
     signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 except ImportError:
     pass

@@ -1,12 +1,13 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: curl.py,v 1.10 2003/01/15 14:35:28 kjetilja Exp $
+# $Id: curl.py,v 1.11 2003/01/15 14:40:38 kjetilja Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
 try:
     import signal
+    from signal import SIGPIPE, SIG_IGN
     signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 except ImportError:
     pass
