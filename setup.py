@@ -1,14 +1,14 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.77 2003/01/01 04:10:16 mfx Exp $
+# $Id: setup.py,v 1.78 2003/01/14 14:01:45 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
 PACKAGE = "pycurl"
 VERSION = "7.10.3"
 
-import glob, os, sys, string
+import glob, os, re, sys, string
 import distutils
 from distutils.core import setup
 from distutils.extension import Extension
@@ -63,7 +63,9 @@ else:
     print "Using %s (%s)" % (CURL_CONFIG, d)
     for e in split_quoted(os.popen("%s --cflags" % CURL_CONFIG).read()):
         if e[:2] == "-I":
-            include_dirs.append(e[2:])
+            # do not add /usr/include
+            if not re.search(r"^\/+usr\/+include\/*$", e[2:]):
+                include_dirs.append(e[2:])
         else:
             extra_compile_args.append(e)
     for e in split_quoted(os.popen("%s --libs" % CURL_CONFIG).read()):
