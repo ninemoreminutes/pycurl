@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.26 2002/10/17 10:00:22 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.27 2002/10/17 14:10:51 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -169,7 +169,9 @@ class HtmlWindow(GtkHTML):
         self.load_url(html, url)
 
     def request_url(self, html, url, handle):
-        url = urllib.basejoin(self.current_doc, url)
+        if self.current_doc:
+            url = urllib.basejoin(self.current_doc, url)
+        self.current_doc = url 
         self.statusbar.set_text("Requesting URL: %s" % url)
         self.queue.put((url, handle))
         self.num_obj += 1
