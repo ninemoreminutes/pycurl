@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.216 2003/05/07 15:27:42 kjetilja Exp $ */
+/* $Id: curl.c,v 1.217 2003/05/15 13:15:34 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2432,6 +2432,9 @@ init_pycurl(void)
     insint_c(d, "HTTP200ALIASES", CURLOPT_HTTP200ALIASES);
 #if (LIBCURL_VERSION_NUM >= 0x070a04)
     insint_c(d, "UNRESTRICTED_AUTH", CURLOPT_UNRESTRICTED_AUTH);
+#endif
+#if (LIBCURL_VERSION_NUM >= 0x070a05)
+    insint_c(d, "FTP_USE_EPRT", CURLOPT_FTP_USE_EPRT);
 #endif
 
     /* CURL_NETRC_OPTION: constants for setopt(NETRC, x) */
