@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.28 2002/10/17 14:19:51 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.29 2002/10/18 08:35:23 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -220,7 +220,7 @@ entry.connect('activate', html.entry_activate, html)
 vbox.pack_start(entry, expand=FALSE)
 entry.show()
 html.urlentry = entry
-html.set_usize(800, 600)
+html.set_usize(640, 480)
 
 sw = GtkScrolledWindow()
 sw.set_policy(POLICY_AUTOMATIC, POLICY_AUTOMATIC)
