@@ -1,12 +1,10 @@
-# $Id: TODO,v 1.91 2004/12/22 14:26:13 mfx Exp $
+# $Id: TODO,v 1.92 2005/02/08 11:46:05 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
 
 NEW FEATURES/IMPROVEMENTS:
-
-    * Add CURLOPT_IOCTLFUNCTION and CURLOPT_IOCTLDATA.
 
     * Support more of the CURLFORM_* API in HTTPPOST?
 
