@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.189 2003/01/21 15:12:43 kjetilja Exp $ */
+/* $Id: curl.c,v 1.190 2003/01/21 15:34:34 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1996,18 +1996,19 @@ do_version_info(PyObject *dummy, PyObject *args)
         return NULL;
     }
 
-    for (i = 0; vi->protocols[i] != NULL; )
-        i++;
+    for (i = 0; vi->protocols[i] != NULL; i++);
     protocols = PyTuple_New(i);
-    if (protocols == NULL)
+    if (protocols == NULL) {
         return NULL;
+    }
     for (i = 0; vi->protocols[i] != NULL; i++) {
         PyTuple_SET_ITEM(protocols, i, vi_str(vi->protocols[i]));
     }
-
     t = PyTuple_New(9);
-    if (t == NULL)
+    if (t == NULL) {
         return NULL;
+    }
+
     PyTuple_SET_ITEM(t, 0, PyInt_FromLong((long) vi->age));
     PyTuple_SET_ITEM(t, 1, vi_str(vi->version));
     PyTuple_SET_ITEM(t, 2, PyInt_FromLong((long) vi->version_num));
