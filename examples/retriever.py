@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: retriever.py,v 1.5 2002/08/29 14:36:52 mfx Exp $
+# $Id: retriever.py,v 1.6 2002/09/02 09:56:37 kjetilja Exp $
 
 import sys, threading, Queue
 import pycurl
@@ -19,6 +19,7 @@ class WorkerThread(threading.Thread):
                 break
             f = open(filename, "wb")
             curl = pycurl.Curl()
+            curl.setopt(pycurl.HTTPHEADER, ["User-Agent: PycURL"])
             curl.setopt(pycurl.FOLLOWLOCATION, 1)
             curl.setopt(pycurl.MAXREDIRS, 5)
             curl.setopt(pycurl.URL, url)
