@@ -1,12 +1,9 @@
-# $Id: gtkhtml_demo.py,v 1.15 2002/08/28 13:18:22 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.16 2002/08/28 14:11:18 kjetilja Exp $
 
-import sys
-import os
-import urllib, urlparse
+import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
 from gnome.ui import *
 from gtkhtml import *
-import cStringIO, threading, Queue, time
 import pycurl
 
 # URL history
