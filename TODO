@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.78 2004/04/30 15:12:27 kjetilja Exp $
+# $Id: TODO,v 1.79 2004/04/30 15:15:03 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
@@ -20,3 +20,5 @@ NEW FEATURES:
     * Add more options to the undocumented and currently mostly useless
       Curl.unsetopt() method. Have to carefully check the libcurl source
       code for each option we want to support.
+
+    * Support more of the CURLFORM_* API in HTTPPOST.
