@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.10 2001/08/21 10:28:58 kjetilja Exp $
+# $Id: test_gtk.py,v 1.11 2001/08/21 11:55:15 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -22,8 +22,7 @@ def progress(download_t, download_d, upload_t, upload_d):
 
 
 def close_app(*args):
-    global t, win
-    win.destroy()
+    args[0].destroy()
     mainquit()
     return TRUE
 
@@ -74,8 +73,7 @@ win.connect("delete_event", close_app)
 
 # Start thread for fetching url
 round = 0.0
-t = Test(sys.argv[1], open(sys.argv[2], 'w'))
-t.start()
+Test(sys.argv[1], open(sys.argv[2], 'w')).start()
 
 # Start GTK mainloop
 threads_enter()
