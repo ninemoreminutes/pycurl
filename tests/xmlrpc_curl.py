@@ -1,3 +1,5 @@
+# $Id: xmlrpc_curl.py,v 1.2 2002/02/21 10:33:32 kjetilja Exp $
+
 import xmlrpclib, pycurl, cStringIO
 
 class CURLTransport(xmlrpclib.Transport):
