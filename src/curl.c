@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.142 2002/08/08 15:44:37 kjetilja Exp $ */
+/* $Id: curl.c,v 1.143 2002/08/08 15:45:53 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -11,6 +11,7 @@
  *  Matt King <matt at gnik.com>
  *  Conrad Steenberg <conrad at hep.caltech.edu>
  *  Amit Mongia <amit_mongia at hotmail.com>
+ *  Eric S. Raymond <esr at thyrsus.com>
  *
  * See file COPYING for license information.
  *
