@@ -1,6 +1,9 @@
-# $Id: TODO,v 1.58 2003/05/07 16:05:04 esr Exp $
+# $Id: TODO,v 1.59 2003/05/15 13:50:05 mfx Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
+
+    * The current curl HLI only works on Python 2.2 or better. Either
+      fix this, or change the docs and setup.py accordingly.
 
     * A nicer mechanism to decrease the reference count on container
       objects and classes passed as options to setopt (this has to be
