@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.10 2003/01/21 15:58:45 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.11 2003/01/21 16:33:56 mfx Exp $
 
 import sys
 import pycurl
@@ -31,7 +31,7 @@ for u in urls:
     queue.append((u, "data_%d" % fileno))
     fileno += 1
 
-# Preallocate a list of curl objects 
+# Preallocate a list of curl objects
 freelist = []
 for c in range(num_conn):
     curl = pycurl.Curl()
