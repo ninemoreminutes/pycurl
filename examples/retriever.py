@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever.py,v 1.12 2003/01/15 14:40:38 kjetilja Exp $
+# $Id: retriever.py,v 1.13 2003/01/27 13:15:51 kjetilja Exp $
 
 import sys, threading, Queue
 import pycurl
@@ -36,6 +36,7 @@ class WorkerThread(threading.Thread):
             curl.setopt(pycurl.WRITEDATA, f)
             curl.setopt(pycurl.NOSIGNAL, 1)
             curl.setopt(pycurl.CONNECTTIMEOUT, 30)
+            curl.setopt(pycurl.TIMEOUT, 300)
             try:
                 curl.perform()
             except:
