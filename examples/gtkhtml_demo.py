@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.18 2002/08/29 14:36:52 mfx Exp $
+# $Id: gtkhtml_demo.py,v 1.19 2002/08/29 14:47:38 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -118,7 +118,7 @@ class HtmlWindow(GtkHTML):
 
     def submit(self, html, method, path, params):
         if method != 'GET':
-            print "Submit currently only works for GET requests"
+            print "Submit currently only works for GET requests, not POST"
             return
         if params != None: path += "?" + params
         url = urllib.basejoin(history[-1], path)
