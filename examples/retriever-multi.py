@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.4 2003/01/10 14:10:36 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.5 2003/01/10 14:25:45 kjetilja Exp $
 
 import sys
 import pycurl
@@ -52,8 +52,8 @@ while processed < len(urls):
         for h in handles:
             curls[h].close()
             freelist.append(h)
-            processed += 1
             multi.remove_handle(h)
+        processed += len(handles)
         del handles
         if num_q == 0:
             break
