@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.24 2001/12/06 11:28:04 kjetilja Exp $
+# $Id: setup.py,v 1.25 2001/12/12 09:28:47 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -40,6 +40,10 @@ else:
     extra_link_args = libs
     runtime_library_dirs = []
     extra_objects = []
+
+    # Add extra compile flag for MacOS X
+    if sys.platform[:-1] == "darwin":
+        extra_link_args.append('-flat_namespace')
 
 ###############################################################################
 
