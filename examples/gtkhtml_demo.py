@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.23 2002/09/09 09:55:39 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.24 2002/09/16 08:15:28 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -8,12 +8,10 @@ from gnome.ui import *
 from gtkhtml import *
 import pycurl
 
-
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
 import signal
 signal.signal(signal.SIGPIPE, signal.SIG_IGN)
-
 
 # URL history
 history = []
@@ -54,7 +52,7 @@ directory_listing = """
 <a href="%s">Parent directory</a><p>
 """
 
-# Images used for directory listings (stolen from mc)
+# Images used for directory listings (reference those used in mc)
 I_DIRECTORY = '<img src="file:///usr/share/pixmaps/mc/i-directory.png" align=middle>'
 I_REGULAR = '<img src="file:///usr/share/pixmaps/mc/i-regular.png" align=middle>'
 
@@ -101,6 +99,8 @@ class WorkerThread(threading.Thread):
                     b.write('<hr></body></html>')
                     self.render.append((b, handle))
                     continue
+                else:
+                    url = 'file://%s' % path
             curl.setopt(pycurl.WRITEFUNCTION, b.write)
             curl.setopt(pycurl.URL, url)
             try:
@@ -110,6 +110,7 @@ class WorkerThread(threading.Thread):
             except:
                 msg = "Error retrieving URL: %s" % url
                 b.write(internal_error % msg)
+            print curl.getinfo(pycurl.CONTENT_TYPE)
             # Flag empty documents to the renderer
             if b.tell() == 0:
                 b.close()
