@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi.py,v 1.5 2002/08/29 14:39:21 mfx Exp $
+# $Id: test_multi.py,v 1.6 2002/10/17 14:06:04 kjetilja Exp $
 
 import pycurl
 
@@ -8,7 +8,8 @@ m = pycurl.CurlMulti()
 c1 = pycurl.Curl()
 c2 = pycurl.Curl()
 c1.setopt(c1.URL, 'http://curl.haxx.se')
-c2.setopt(c2.URL, 'http://python.org')
+c2.setopt(c2.URL, 'http://cnn.com')
+c2.setopt(c2.FOLLOWLOCATION, 1)
 m.add_handle(c1)
 m.add_handle(c2)
 while 1:
