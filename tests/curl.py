@@ -1,4 +1,4 @@
-# $Id: curl.py,v 1.6 2002/07/11 13:40:38 kjetilja Exp $
+# $Id: curl.py,v 1.7 2002/07/11 19:19:06 mfx Exp $
 
 ## System modules
 try:
@@ -23,7 +23,7 @@ class Curl:
         self.c.setopt(pycurl.URL, self.url)
         self.c.setopt(pycurl.HEADERFUNCTION, self.server_reply.write)
 
-        if file == None:
+        if file is None:
             self.fp = StringIO()
             self.c.setopt(pycurl.WRITEFUNCTION, self.fp.write)
         else:
@@ -35,12 +35,13 @@ class Curl:
 
     def set_url(self, url):
         self.c.setopt(pycurl.URL, url)
+        self.url = url
 
     def add_header(self, *args):
         self.h.append(args[0] + ': ' +args[1])
 
     def retrieve(self):
-        if self.h != []:
+        if self.h:
             self.c.setopt(pycurl.HTTPHEADER, self.h)
         self.c.perform()
         self.fp.seek(0,0)
