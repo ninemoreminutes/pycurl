@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.210 2003/04/29 14:13:27 mfx Exp $ */
+/* $Id: curl.c,v 1.211 2003/05/01 18:38:11 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -529,6 +529,20 @@ do_curl_close(CurlObject *self, PyObject *args)
     util_curl_close(self);
     Py_INCREF(Py_None);
     return Py_None;
+}
+
+
+static PyObject *
+do_curl_errstr(CurlObject *self, PyObject *args)
+{
+    if (!PyArg_ParseTuple(args, ":errstr")) {
+        return NULL;
+    }
+    if (get_thread_state(self) != NULL) {
+        PyErr_SetString(ErrorObject, "cannot invoke errstr, perform() is running");
+        return NULL;
+    }
+    return PyString_FromString(self->error);
 }
 
 
@@ -1776,6 +1790,7 @@ static char co_close_doc [] = "close() -> None.  Close handle and end curl sessi
 #if 0
 static char co_copy_doc [] = "copy() -> New curl object. FIXME\n";
 #endif
+static char co_errstr_doc [] = "errstr() -> String.  Return the internal libcurl error buffer string.\n";
 static char co_perform_doc [] = "perform() -> None.  Perform a file transfer.  Throws pycurl.error exception upon failure.\n";
 static char co_setopt_doc [] = "setopt(option, parameter) -> None.  Set curl session options.  Throws pycurl.error exception upon failure.\n";
 static char co_getinfo_doc [] = "getinfo(info) -> Res.  Extract and return information from a curl session.  Throws pycurl.error exception upon failure.\n";
@@ -1789,6 +1804,7 @@ static PyMethodDef curlobject_methods[] = {
 #if 0
     {"copy", (PyCFunction)do_curl_copy, METH_VARARGS, co_copy_doc},
 #endif
+    {"errstr", (PyCFunction)do_curl_errstr, METH_VARARGS, co_errstr_doc},
     {"perform", (PyCFunction)do_curl_perform, METH_VARARGS, co_perform_doc},
     {"setopt", (PyCFunction)do_curl_setopt, METH_VARARGS, co_setopt_doc},
     {"getinfo", (PyCFunction)do_curl_getinfo, METH_VARARGS, co_getinfo_doc},
