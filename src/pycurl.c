@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.3 2003/05/21 19:20:35 mfx Exp $ */
+/* $Id: pycurl.c,v 1.4 2003/05/27 21:42:23 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2409,6 +2409,9 @@ initpycurl(void)
 #endif
 #if (LIBCURL_VERSION_NUM >= 0x070a05)
     insint_c(d, "FTP_USE_EPRT", CURLOPT_FTP_USE_EPRT);
+#endif
+#if (LIBCURL_VERSION_NUM >= 0x070a06)
+    insint_c(d, "HTTPDIGEST", CURLOPT_HTTPDIGEST);
 #endif
 
     /* CURL_NETRC_OPTION: constants for setopt(NETRC, x) */
