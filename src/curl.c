@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.57 2002/04/15 11:10:20 kjetilja Exp $ */
+/* $Id: curl.c,v 1.58 2002/04/15 12:03:26 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -57,7 +57,9 @@ self_cleanup(CurlObject *self)
     int i;
 
     if (self->handle != NULL) {
+        Py_BEGIN_ALLOW_THREADS
 	curl_easy_cleanup(self->handle);
+        Py_END_ALLOW_THREADS
         self->handle = NULL;
     }
     if (self->httpheader != NULL) {
@@ -293,8 +295,28 @@ static
 int debug_callback(CURL *curlobj,
 		   curl_infotype type,
 		   char *buffer,
+		   int size,
 		   void *data)
 {
+    PyObject *arglist;
+    PyObject *result;
+    CurlObject *self;
+
+    self = (CurlObject *)data;
+    arglist = Py_BuildValue("(is#)", type, buffer, size);
+
+    /* Check whether we got a file object or a curl object */
+    if (self->state == NULL) {
+	return 0;
+    }
+
+    PyEval_AcquireThread(self->state);
+    result = PyEval_CallObject(self->d_cb, arglist);
+    Py_DECREF(arglist);
+    if (result == NULL) {
+	PyErr_Print();
+    }
+    PyEval_ReleaseThread(self->state);
     return 0;
 }
 
@@ -651,6 +673,7 @@ do_setopt(CurlObject *self, PyObject *args)
 	    Py_XDECREF(self->d_cb);
 	    self->d_cb = obj;
 	    curl_easy_setopt(self->handle, CURLOPT_DEBUGFUNCTION, debug_callback);
+	    curl_easy_setopt(self->handle, CURLOPT_DEBUGDATA, self);
 	    break;
 	default:
 	    /* None of the list options were recognized, throw exception */
