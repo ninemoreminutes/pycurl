@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.40 2002/02/26 13:15:22 kjetilja Exp $ */
+/* $Id: curl.c,v 1.41 2002/02/26 16:42:03 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -129,10 +129,12 @@ write_callback(void *ptr,
 	PyErr_Print();
 	write_size = -1;
     }
-    else if (result == Py_None)               /* None means success */
+    else if (result == Py_None) {               /* None means success */
         write_size = (int)(size * nmemb);
-    else
+    }
+    else {
         write_size = (int)PyInt_AsLong(result);
+    }
     Py_XDECREF(result);
     PyEval_ReleaseThread(self->state);
     return write_size;
@@ -160,10 +162,12 @@ header_callback(void *ptr,
 	PyErr_Print();
 	write_size = -1;
     }
-    else if (result == Py_None)               /* None means success */
+    else if (result == Py_None) {               /* None means success */
         write_size = (int)(size * nmemb);
-    else
+    }
+    else {
         write_size = (int)PyInt_AsLong(result);
+    }
     Py_XDECREF(result);
     PyEval_ReleaseThread(self->state);
     return write_size;
@@ -192,10 +196,12 @@ progress_callback(void *client,
 	PyErr_Print();
 	ret = -1;
     }
-    else if (result == Py_None)               /* None means success */
+    else if (result == Py_None) {               /* None means success */
         ret = 0;
-    else
+    }
+    else {
 	ret = (int)PyInt_AsLong(result);
+    }
     Py_XDECREF(result);
     PyEval_ReleaseThread(self->state);
     return ret;
