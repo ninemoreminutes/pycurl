@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi4.py,v 1.12 2003/01/25 09:59:28 mfx Exp $
+# $Id: test_multi4.py,v 1.13 2003/04/21 18:46:10 mfx Exp $
 
 import sys, select, time
 import pycurl

@@ -1,7 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-
-# $Id: setup.py,v 1.84 2003/04/15 02:36:09 mfx Exp $
+# $Id: setup.py,v 1.85 2003/04/21 18:46:09 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 

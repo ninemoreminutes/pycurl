@@ -1,7 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-
-# $Id: setup_win32_ssl.py,v 1.10 2003/04/16 05:18:58 mfx Exp $
+# $Id: setup_win32_ssl.py,v 1.11 2003/04/21 18:46:09 mfx Exp $
 
 import os, sys, string
 assert sys.platform == "win32", "Only for building on Win32 with SSL and zlib"

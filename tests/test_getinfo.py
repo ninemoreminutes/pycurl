@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_getinfo.py,v 1.16 2003/01/25 09:59:28 mfx Exp $
+# $Id: test_getinfo.py,v 1.17 2003/04/21 18:46:10 mfx Exp $
 
 import time
 import pycurl

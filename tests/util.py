@@ -1,5 +1,6 @@
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: util.py,v 1.3 2002/08/29 14:39:21 mfx Exp $
+# $Id: util.py,v 1.4 2003/04/21 18:46:11 mfx Exp $
 
 import os, sys
 

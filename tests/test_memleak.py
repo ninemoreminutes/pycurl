@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_memleak.py,v 1.2 2003/01/17 15:52:24 mfx Exp $
+# $Id: test_memleak.py,v 1.3 2003/04/21 18:46:10 mfx Exp $
 
 #
 # just a simple self-test

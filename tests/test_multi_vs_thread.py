@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.13 2003/02/25 12:39:17 kjetilja Exp $
+# $Id: test_multi_vs_thread.py,v 1.14 2003/04/21 18:46:11 mfx Exp $
 
 import os, sys, time
 from threading import Thread, RLock

@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi3.py,v 1.11 2003/02/25 12:36:23 kjetilja Exp $
+# $Id: test_multi3.py,v 1.12 2003/04/21 18:46:10 mfx Exp $
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
 

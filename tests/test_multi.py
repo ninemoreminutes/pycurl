@@ -1,6 +1,7 @@
 #! /usr/bin/env python
+# -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi.py,v 1.8 2003/02/25 12:36:23 kjetilja Exp $
+# $Id: test_multi.py,v 1.9 2003/04/21 18:46:10 mfx Exp $
 
 import pycurl
 
