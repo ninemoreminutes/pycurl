@@ -1,4 +1,4 @@
-# $Id: test_multi_vs_thread.py,v 1.3 2002/08/06 19:59:54 mfx Exp $
+# $Id: test_multi_vs_thread.py,v 1.4 2002/08/12 13:08:46 kjetilja Exp $
 # vi:ts=4:et
 
 import os, sys, time
@@ -82,7 +82,7 @@ def test_multi():
 
     # get data
     while 1:
-        num_handles = m.perform()
+        ret, num_handles = m.perform()
         if num_handles == 0:
             break
 

@@ -1,4 +1,4 @@
-# $Id: test_multi4.py,v 1.2 2002/08/12 12:43:57 kjetilja Exp $
+# $Id: test_multi4.py,v 1.3 2002/08/12 13:08:46 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -21,12 +21,19 @@ m.add_handle(c1)
 m.add_handle(c2)
 m.add_handle(c3)
 
-num_handles = m.perform()
+SELECT_TIMEOUT = 0.1
+
+while 1:
+    ret, num_handles = m.perform()
+    if ret != pycurl.CALL_MULTI_PERFORM:
+        break
 
 while num_handles:
-
-    apply(select.select, m.fdset() + (1,))
-    num_handles = m.perform()
+    apply(select.select, m.fdset() + (SELECT_TIMEOUT,))
+    while 1:
+        ret, num_handles = m.perform()
+        if ret != pycurl.CALL_MULTI_PERFORM:
+            break
 
 m.remove_handle(c3)
 m.remove_handle(c2)

@@ -1,4 +1,4 @@
-# $Id: test_multi2.py,v 1.6 2002/08/06 19:59:54 mfx Exp $
+# $Id: test_multi2.py,v 1.7 2002/08/12 13:08:46 kjetilja Exp $
 # vi:ts=4:et
 
 import os, sys, time
@@ -41,7 +41,7 @@ for url in urls:
 
 # get data
 while 1:
-    num_handles = m.perform()
+    ret, num_handles = m.perform()
     if num_handles == 0:
         break
     # currently no more I/O is pending, could do something in the meantime

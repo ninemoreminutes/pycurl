@@ -1,4 +1,4 @@
-# $Id: test_multi.py,v 1.3 2002/08/06 19:59:54 mfx Exp $
+# $Id: test_multi.py,v 1.4 2002/08/12 13:08:46 kjetilja Exp $
 
 import pycurl
 
@@ -10,7 +10,7 @@ c2.setopt(c2.URL, 'http://python.org')
 m.add_handle(c1)
 m.add_handle(c2)
 while 1:
-    num_handles = m.perform()
+    ret, num_handles = m.perform()
     if num_handles == 0:
         break
 m.remove_handle(c2)
