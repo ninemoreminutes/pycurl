@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.65 2002/04/16 08:28:26 kjetilja Exp $ */
+/* $Id: curl.c,v 1.66 2002/04/16 11:40:31 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -983,9 +983,9 @@ static char module_doc [] =
 \n\
 Functions:\n\
 \n\
-init() -- Return a new curl object.  Implicitly calls global_init() if not called.\n\
-global_init(option) -- Initialize curl environment.\n\
-global_cleanup() -- Cleanup curl environment.\n\
+global_init(option) -> None.  Initialize curl environment.\n\
+global_cleanup() -> None.  Cleanup curl environment.\n\
+init() -> New curl object.  Create a new curl object.\n\
 ";
 
 
