@@ -1,4 +1,4 @@
-# $Id: test_cb.py,v 1.8 2001/08/20 10:54:27 kjetilja Exp $
+# $Id: test_cb.py,v 1.9 2001/10/15 15:45:29 kjetilja Exp $
 
 ## System modules
 import sys
@@ -10,14 +10,11 @@ import pycurl
 def body(buf):
     # Print body data to stdout
     sys.stdout.write(buf)
-    return len(buf)
 
 ## Callback function invoked when header data is ready
 def header(buf):
     # Print header data to stderr
     sys.stderr.write(buf)
-    return len(buf)
-
 
 c = pycurl.init()
 c.setopt(pycurl.URL, 'http://www.python.org/')
