@@ -1,4 +1,4 @@
-# $Id: test_fileupload.py,v 1.3 2002/08/06 19:59:54 mfx Exp $
+# $Id: test_fileupload.py,v 1.4 2002/08/06 20:07:00 mfx Exp $
 # Python code to http post a file using the following form
 # Written by Amit Mongia
 """
@@ -40,8 +40,8 @@ file = "file=@C:\upload.gif"
 # Enter the url to upload the file to
 put_url = 'http://mywebsite.com/uploadfile/using/codeword/'
 
-t = test()
-c = Curl()
+t = Test()
+c = pycurl.Curl()
 c.setopt(pycurl.URL, put_url)
 c.setopt(pycurl.WRITEFUNCTION, t.body_callback)
 c.setopt(pycurl.HTTPPOST, [token, file])

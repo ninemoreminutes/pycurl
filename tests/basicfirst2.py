@@ -1,4 +1,4 @@
-# $Id: basicfirst2.py,v 1.5 2002/08/06 19:59:54 mfx Exp $
+# $Id: basicfirst2.py,v 1.6 2002/08/06 20:07:00 mfx Exp $
 
 import sys
 import pycurl
@@ -13,7 +13,7 @@ class Test:
 print 'Testing', pycurl.version
 
 t = Test()
-c = Curl()
+c = pycurl.Curl()
 c.setopt(c.URL, 'http://curl.haxx.se/dev/')
 c.setopt(c.WRITEFUNCTION, t.body_callback)
 c.setopt(c.HTTPHEADER, ["I-am-a-silly-programmer: yes indeed you are",
