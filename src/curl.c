@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.63 2002/04/15 13:14:25 kjetilja Exp $ */
+/* $Id: curl.c,v 1.64 2002/04/15 14:13:06 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -56,6 +56,9 @@ self_cleanup(CurlObject *self)
 {
     int i;
 
+    if (self->handle == NULL) {
+        return;
+    }
     if (self->handle != NULL) {
         Py_BEGIN_ALLOW_THREADS
 	curl_easy_cleanup(self->handle);
