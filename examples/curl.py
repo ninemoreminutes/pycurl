@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: curl.py,v 1.3 2002/09/09 10:07:54 kjetilja Exp $
+# $Id: curl.py,v 1.4 2002/10/14 16:01:24 kjetilja Exp $
 
 try:
     from cStringIO import StringIO
@@ -81,5 +81,7 @@ class Curl:
 if __name__ == "__main__":
     c = Curl('http://curl.haxx.se/')
     file, info = c.retrieve()
-    print info, file.read()
+    print file.read()
+    print '='*74 + '\n'
+    print info
     c.close()
