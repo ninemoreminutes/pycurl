@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.16 2003/01/25 11:13:52 mfx Exp $
+# $Id: retriever-multi.py,v 1.17 2003/01/27 13:14:41 kjetilja Exp $
 
 import sys
 assert sys.version[:3] >= "2.2", "requires Python 2.2 or better"
@@ -54,6 +54,7 @@ for i in range(num_conn):
     c.setopt(pycurl.FOLLOWLOCATION, 1)
     c.setopt(pycurl.MAXREDIRS, 5)
     c.setopt(pycurl.CONNECTTIMEOUT, 30)
+    c.setopt(pycurl.TIMEOUT, 300)
     c.setopt(pycurl.NOSIGNAL, 1)
     m.handles.append(c)
 
