@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.50 2002/07/17 17:32:30 mfx Exp $
+# $Id: setup.py,v 1.51 2002/07/18 06:39:29 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -10,6 +10,7 @@ import distutils
 from distutils.core import setup
 from distutils.extension import Extension
 from distutils.util import split_quoted
+from distutils.version import LooseVersion
 
 include_dirs = []
 define_macros = []
@@ -91,7 +92,7 @@ This module provides Python bindings for the cURL library.""",
 )
 
 ##print distutils.__version__
-if distutils.__version__ >= "1.0.2":
+if LooseVersion(distutils.__version__) > LooseVersion("1.0.1"):
     setup_args["platforms"] = "All"
 
 apply(setup, (), setup_args)
