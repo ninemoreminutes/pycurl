@@ -83,7 +83,7 @@ while num_handles:
 </pre>
 </dd>
 
-<dt><code>select(</code><em>[timeout]</em><code>)</code> -&gt;
+<dt><code>select(</code><em>timeout</em><code>)</code> -&gt;
 <em>number of ready file descriptors or -1 on timeout</em></dt>
 <dd>
 <p>This is a convenience function which simplifies the combined
@@ -100,7 +100,7 @@ while 1:
     ret, num_handles = m.perform()
     if ret != pycurl.E_CALL_MULTI_PERFORM: break
 while num_handles:
-    ret = m.select()
+    ret = m.select(1.0)
     if ret == -1:  continue
     while 1:
         ret, num_handles = m.perform()
@@ -129,7 +129,7 @@ returned.</p>
   <a href="http://validator.w3.org/check/referer"><img align="right"
      src="http://www.w3.org/Icons/valid-xhtml10"
      alt="Valid XHTML 1.0!" height="31" width="88" border="0" /></a>
-  $Id: curlmultiobject.html,v 1.4 2004/06/05 17:59:01 mfx Exp $
+  $Id: curlmultiobject.html,v 1.5 2005/03/11 13:32:12 kjetilja Exp $
 </p>
 
 </body>
