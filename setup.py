@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.36 2002/06/24 11:15:09 mfx Exp $
+# $Id: setup.py,v 1.37 2002/06/24 12:18:43 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -23,7 +23,6 @@ if sys.platform == "win32":
     # just examples and thus unlikely to match your installation.
     CURL_DIR = r"c:\src\curl-7.9.8"
     include_dirs.append(os.path.join(CURL_DIR, "include"))
-    define_macros.append(("WIN32", 1))
     extra_objects.append(os.path.join(CURL_DIR, "lib", "libcurl.lib"))
 else:
     # Find out the rest the hard way
