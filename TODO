@@ -1,5 +1,4 @@
-# $Id: TODO,v 1.20 2002/03/04 12:46:53 kjetilja Exp $
+# $Id: TODO,v 1.21 2002/03/05 16:44:06 kjetilja Exp $
 
 * Maybe use curl_formadd() instead of curl_formparse()
 * Throw in support for duphandle
-* Check for illegal combinations of options that promotes segfaults
