@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.129 2002/07/15 09:16:52 kjetilja Exp $ */
+/* $Id: curl.c,v 1.130 2002/07/15 15:41:29 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -235,7 +235,7 @@ do_init(PyObject *dummy, PyObject *args)
     res = curl_easy_setopt(self->handle, CURLOPT_ERRORBUFFER, self->error);
     if (res != CURLE_OK)
         goto error;
-    memset(self->error, 0, sizeof(char) * CURL_ERROR_SIZE);
+    memset(self->error, 0, sizeof(char) * CURL_ERROR_SIZE+1);
 
     /* Enable NOPROGRESS by default, i.e. no progress output */
     res = curl_easy_setopt(self->handle, CURLOPT_NOPROGRESS, 1);
