@@ -1,3 +1,5 @@
+# $Id: test.py,v 1.3 2001/08/20 10:41:40 kjetilja Exp $
+
 ## System modules
 import sys
 import threading

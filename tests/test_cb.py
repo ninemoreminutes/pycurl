@@ -1,12 +1,18 @@
+# $Id: test_cb.py,v 1.6 2001/08/20 10:41:40 kjetilja Exp $
+
+## PycURL module
 import pycurl
+
 
 def body(buf):
     print buf
     return len(buf)
 
+
 def header(buf):
     print buf
     return len(buf)
+
 
 c = pycurl.init()
 c.setopt(pycurl.URL, 'http://www.python.org/')
