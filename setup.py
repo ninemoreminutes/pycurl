@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.26 2002/01/02 12:26:30 kjetilja Exp $
+# $Id: setup.py,v 1.27 2002/02/21 18:15:42 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -26,7 +26,7 @@ if sys.platform == "win32":
     extra_link_args = ['/NODEFAULTLIB:LIBCMTD.lib']
 else:
     include_dirs = []
-    cflags=split(strip(os.popen('curl-config --cflags').read()), ' ')
+    cflags = split(strip(os.popen('curl-config --cflags').read()), ' ')
     for e in cflags[:]:
         if e[:2] == '-I':
             include_dirs.append(e[2:])
