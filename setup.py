@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.90 2003/05/15 13:47:45 mfx Exp $
+# $Id: setup.py,v 1.91 2003/05/15 13:56:44 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -172,11 +172,15 @@ setup_args = get_kw(
     license="GNU Lesser General Public License (LGPL)",
     data_files=get_data_files(),
     ext_modules=[ext],
-    packages = [PY_PACKAGE],
-    package_dir = { PY_PACKAGE: os.path.join('python', 'curl') },
     long_description="""
 This module provides Python bindings for the cURL library.""",
 )
+
+# FIXME - which Python version do we want to support ???
+if sys.version >= "2.2":
+    setup_args["packages"] = [PY_PACKAGE]
+    setup_args["package_dir"] = { PY_PACKAGE: os.path.join('python', 'curl') }
+
 
 ##print distutils.__version__
 if LooseVersion(distutils.__version__) > LooseVersion("1.0.1"):
