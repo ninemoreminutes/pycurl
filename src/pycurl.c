@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.70 2005/01/03 11:19:38 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.71 2005/02/04 01:38:21 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -48,8 +48,8 @@
 #if !defined(PY_VERSION_HEX) || (PY_VERSION_HEX < 0x02020000)
 #  error "Need Python version 2.2 or greater to compile pycurl."
 #endif
-#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070c03)
-#  error "Need libcurl version 7.12.3 or greater to compile pycurl."
+#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070d00)
+#  error "Need libcurl version 7.13.0 or greater to compile pycurl."
 #endif
 
 #undef UNUSED
@@ -1469,7 +1469,7 @@ do_curl_getinfo(CurlObject *self, PyObject *args)
             if (res != CURLE_OK) {
                 CURLERROR_RETVAL();
             }
-            return convert_slist(slist, 3);
+            return convert_slist(slist, 1 | 2);
         }
     }
 
