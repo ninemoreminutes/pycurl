@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.117 2002/07/04 22:33:56 mfx Exp $ */
+/* $Id: curl.c,v 1.118 2002/07/04 22:51:54 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -171,6 +171,17 @@ self_cleanup(CurlObject *self)
     handle = self->handle;
     self->handle = NULL;
     self->state = NULL;
+
+#if 1
+    /* FIXME: WHAT IS GOING ON HERE ???
+     *   Without this check, Python 1.5.2 and Python 1.6.1 crash at
+     *   the end of basicfirst.py (but more complex tests like
+     *   test_multi2.py work fine).
+     *   Python 2.0/2.1/2.2 are not affected at all.
+     */
+    if (handle == NULL)
+        return;
+#endif
 
     /* Disconnect from multi_stack, remove_handle in any case */
     if (self->multi_stack != NULL) {
