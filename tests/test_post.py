@@ -1,4 +1,4 @@
-# $Id: test_post.py,v 1.1 2002/04/11 15:18:31 mfx Exp $
+# $Id: test_post.py,v 1.2 2002/04/11 19:07:30 mfx Exp $
 
 import pycurl
 
@@ -12,7 +12,7 @@ pf = 'field1=value1'
 pf = 'field1=value1&field2=value2 with blanks&field3=value3'
 
 c = pycurl.init()
-c.setopt(pycurl.URL, 'http://pycurl.sourceforge.net/testpostvars.php')
+c.setopt(pycurl.URL, 'http://pycurl.sourceforge.net/tests/testpostvars.php')
 c.setopt(pycurl.POST, 1)
 c.setopt(pycurl.POSTFIELDS, pf)
 c.perform()
