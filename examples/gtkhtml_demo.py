@@ -1,4 +1,4 @@
-# $Id: gtkhtml_demo.py,v 1.16 2002/08/28 14:11:18 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.17 2002/08/29 09:42:23 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -115,8 +115,12 @@ class HtmlWindow(GtkHTML):
         self.statusbar.set_text("Done (%.3f seconds)" % (t2-t1))
 
     def submit(self, html, method, path, params):
-        print 'Submit is not supported yet'
-        print method, path, params
+        if method != 'GET':
+            print "Submit currently only works for GET requests"
+            return
+        if params != None: path += "?" + params
+        url = urllib.basejoin(history[-1], path)
+        self.load_url(html, url)
 
     def request_url(self, html, url, handle):
         url = urllib.basejoin(history[-1], url)
