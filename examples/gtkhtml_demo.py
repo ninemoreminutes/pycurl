@@ -1,4 +1,4 @@
-# $Id: gtkhtml_demo.py,v 1.8 2002/08/28 09:39:05 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.9 2002/08/28 09:51:02 kjetilja Exp $
 
 import sys
 import os
@@ -48,6 +48,7 @@ class WorkerThread(threading.Thread):
         curl = pycurl.Curl()
         curl.setopt(pycurl.FOLLOWLOCATION, 1)
         curl.setopt(pycurl.MAXREDIRS, 5)
+        curl.setopt(pycurl.HTTPHEADER, ["User-Agent: GtkHTML/PycURL demo browser"])
         while 1:
             url, handle = self.queue.get()
             if url == None:
