@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.98 2002/06/26 11:24:38 mfx Exp $ */
+/* $Id: curl.c,v 1.99 2002/06/26 17:04:46 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -30,7 +30,7 @@
 
 
 /* Ensure we have an updated libcurl */
-#if LIBCURL_VERSION_NUM < 0x070908
+#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070908)
 #  error "Need libcurl version 7.9.8 or greater to compile pycurl."
 #endif
 
