@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.191 2003/01/21 16:06:18 mfx Exp $ */
+/* $Id: curl.c,v 1.192 2003/01/21 16:30:10 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2140,8 +2140,15 @@ insint_m(PyObject *d, char *name, long value)
 
 
 /* Initialization function for the module */
+#if defined(PyMODINIT_FUNC)
+PyMODINIT_FUNC
+#else
+#if defined(__cplusplus)
+extern "C"
+#endif
 DL_EXPORT(void)
-    initpycurl(void)
+#endif
+initpycurl(void)
 {
     PyObject *m, *d;
     const curl_version_info_data *vi;
