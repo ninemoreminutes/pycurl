@@ -1,4 +1,4 @@
-# $Id: gtkhtml_demo.py,v 1.10 2002/08/28 10:11:09 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.11 2002/08/28 10:13:53 kjetilja Exp $
 
 import sys
 import os
@@ -150,6 +150,9 @@ class HtmlWindow(GtkHTML):
 
 
 
+# Setup windows and menus
+html = HtmlWindow()
+
 file_menu = [
     UIINFO_ITEM_STOCK('Quit', None, html.mainquit, STOCK_MENU_QUIT),
 ]
@@ -166,10 +169,6 @@ toolbar = [
     UIINFO_ITEM_STOCK('Forward', 'Next page', html.do_forward, STOCK_PIXMAP_FORWARD),
     UIINFO_ITEM_STOCK('Reload', 'Reload current page', html.do_reload, STOCK_PIXMAP_REFRESH)
 ]
-
-
-# Setup windows and menus
-html = HtmlWindow()
 
 win = GnomeApp("html_demo", "Python GtkHTML Test")
 win.set_wmclass("gtk_html_test", "GtkHTMLTest")
