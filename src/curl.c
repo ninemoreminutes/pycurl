@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.166 2002/10/24 20:10:05 mfx Exp $ */
+/* $Id: curl.c,v 1.167 2002/10/30 12:21:25 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1196,7 +1196,7 @@ do_curl_getinfo(CurlObject *self, PyObject *args)
         if (res != CURLE_OK) {
             CURLERROR();
         }
-        return PyLong_FromLong(l_res);
+        return PyInt_FromLong(l_res);
     }
 
     if (option == CURLINFO_EFFECTIVE_URL ||
