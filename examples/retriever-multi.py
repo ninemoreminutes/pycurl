@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.1 2003/01/10 13:02:07 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.2 2003/01/10 13:30:50 kjetilja Exp $
 
 import sys
 import pycurl
@@ -22,6 +22,8 @@ multi = pycurl.CurlMulti()
 for u in urls:
     queue.append((u, 'data_%d' % fileno))
     fileno += 1
+
+assert len(queue) > 0, "No URLs given"
 
 while len(queue) > 0 or conn > 0:
     while conn < num_conn:
@@ -55,5 +57,7 @@ while len(queue) > 0 or conn > 0:
         if num_q == 0:
             break
 
-assert len(curls) == 0
+del handles
 multi.close()
+
+assert len(curls) == 0
