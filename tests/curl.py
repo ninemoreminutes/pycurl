@@ -1,4 +1,4 @@
-# $Id: curl.py,v 1.3 2002/07/09 15:31:54 kjetilja Exp $
+# $Id: curl.py,v 1.4 2002/07/09 15:38:10 kjetilja Exp $
 
 ## System modules
 try:
@@ -13,7 +13,7 @@ import pycurl
 
 class Curl:
 
-    def __init__(self, url, filename=None, data=None):
+    def __init__(self, url, file=None, data=None):
         self.h = []
         self.status = None
         self.server_reply = StringIO()
@@ -23,11 +23,11 @@ class Curl:
         self.c.setopt(pycurl.URL, self.url)
         self.c.setopt(pycurl.HEADERFUNCTION, self.server_reply.write)
 
-        if filename == None:
+        if file == None:
             self.fp = StringIO()
             self.c.setopt(pycurl.WRITEFUNCTION, self.fp.write)
         else:
-            self.fp = open(filename, 'w')
+            self.fp = file
             self.c.setopt(pycurl.WRITEDATA, self.fp)
         if self.data != None:
             self.c.setopt(pycurl.POST, 1)
