@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.47 2002/03/07 11:31:38 kjetilja Exp $ */
+/* $Id: curl.c,v 1.48 2002/03/07 11:39:28 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -851,11 +851,12 @@ do_init(PyObject *arg)
     /* Zero memory buffer for setopt */
     memset(self->options, 0, sizeof(void *) * CURLOPT_LASTENTRY);
 
-    /* Set NOPROGRESS to 1 by default */
+    /* Enable NOPROGRESS by default */
     res = curl_easy_setopt(self->handle, CURLOPT_NOPROGRESS, 1);
     if (res != 0)
         goto error;
-    /* Set VERBOSE to 0 by default */
+
+    /* Disable VERBOSE by default */
     res = curl_easy_setopt(self->handle, CURLOPT_VERBOSE, 0);
     if (res != 0)
         goto error;
