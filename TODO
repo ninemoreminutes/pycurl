@@ -1,10 +1,12 @@
-# $Id: TODO,v 1.66 2003/08/22 11:14:28 mfx Exp $
+# $Id: TODO,v 1.67 2003/11/04 06:08:50 mfx Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
     * Use curl_formadd() instead of the deprecated curl_formparse().
 
     * Add support for new libcurl 7.10.7 features.
+
+    * Add support for new libcurl 7.10.8 features.
 
     * Add support for CURLOPT_SSL_CTX_FUNCTION and CURLOPT_SSL_CTX_DATA
       (can we do this without having to wrap the ssl-context structure?).
