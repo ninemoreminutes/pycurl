@@ -1,4 +1,4 @@
-# $Id: test_stringio.py,v 1.1 2001/12/01 14:32:21 mfx Exp $
+# $Id: test_stringio.py,v 1.2 2002/03/08 11:07:57 kjetilja Exp $
 
 import sys
 import pycurl
@@ -9,7 +9,7 @@ except ImportError:
 
 url = 'http://curl.haxx.se/dev/'
 
-print 'Testing curl version', pycurl.version
+print 'Testing', pycurl.version
 
 body = StringIO()
 c = pycurl.init()
