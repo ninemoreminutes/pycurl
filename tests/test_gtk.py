@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.1 2001/08/20 11:26:38 kjetilja Exp $
+# $Id: test_gtk.py,v 1.2 2001/08/20 11:29:38 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -25,11 +25,10 @@ def progress(download_t, download_d, upload_t, upload_d):
 
 class Test(threading.Thread):
 
-    def __init__(self, url, ofile):
+    def __init__(self, url):
         threading.Thread.__init__(self)
         self.curl = pycurl.init()
         self.curl.setopt(pycurl.URL, url)
-        self.curl.setopt(pycurl.FILE, ofile)
         self.curl.setopt(pycurl.FOLLOWLOCATION, 1)
         self.curl.setopt(pycurl.NOPROGRESS, 0)
         self.curl.setopt(pycurl.PROGRESSFUNCTION, progress)
@@ -48,7 +47,7 @@ win.set_statusbar(appbar)
 win.show()
 
 round = 0.0
-t = Test(sys.argv[1], sys.stdout)
+t = Test(sys.argv[1])
 t.start()
 
 threads_enter()
