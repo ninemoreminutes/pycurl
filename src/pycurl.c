@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.21 2003/11/04 16:12:36 mfx Exp $ */
+/* $Id: pycurl.c,v 1.22 2003/11/16 14:06:20 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -64,11 +64,11 @@
 
 
 /* Calculate the number of options we need to store */
-#define OPTIONS_SIZE    110
+#define OPTIONS_SIZE    116
 static int PYCURL_OPT(int o)
 {
-#if (LIBCURL_VERSION_NUM >= 0x070a06)
-    COMPILE_TIME_ASSERT(OPTIONS_SIZE == CURLOPT_SSL_CTX_DATA - CURLOPTTYPE_OBJECTPOINT + 1)
+#if (LIBCURL_VERSION_NUM >= 0x070a09)
+    COMPILE_TIME_ASSERT(OPTIONS_SIZE == CURLOPT_NETRC_FILE - CURLOPTTYPE_OBJECTPOINT + 1)
 #endif
     assert(o >= CURLOPTTYPE_OBJECTPOINT);
     assert(o < CURLOPTTYPE_OBJECTPOINT + OPTIONS_SIZE);
@@ -2551,6 +2551,9 @@ initpycurl(void)
     insint_c(d, "FTP_RESPONSE_TIMEOUT", CURLOPT_FTP_RESPONSE_TIMEOUT);
     insint_c(d, "IPRESOLVE", CURLOPT_IPRESOLVE);
     insint_c(d, "MAXFILESIZE", CURLOPT_MAXFILESIZE);
+#endif
+#if (LIBCURL_VERSION_NUM >= 0x070a09)
+    insint_c(d, "NETRC_FILE", CURLOPT_NETRC_FILE);
 #endif
 
 #if (LIBCURL_VERSION_NUM >= 0x070a08)
