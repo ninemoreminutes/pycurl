@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.24 2002/09/16 08:15:28 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.25 2002/09/16 16:36:19 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -110,7 +110,6 @@ class WorkerThread(threading.Thread):
             except:
                 msg = "Error retrieving URL: %s" % url
                 b.write(internal_error % msg)
-            print curl.getinfo(pycurl.CONTENT_TYPE)
             # Flag empty documents to the renderer
             if b.tell() == 0:
                 b.close()
