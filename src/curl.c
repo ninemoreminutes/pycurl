@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.209 2003/04/29 14:12:58 mfx Exp $ */
+/* $Id: curl.c,v 1.210 2003/04/29 14:13:27 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -106,7 +106,6 @@ typedef struct {
     char error[CURL_ERROR_SIZE+1];
 } CurlObject;
 
-/* forward declarations */
 static PyTypeObject* p_Curl_Type;
 static PyTypeObject* p_CurlMulti_Type;
 
