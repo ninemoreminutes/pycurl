@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.187 2003/01/16 11:22:36 kjetilja Exp $ */
+/* $Id: curl.c,v 1.188 2003/01/18 22:40:46 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2355,6 +2355,7 @@ DL_EXPORT(void)
     if (vi->version_num < LIBCURL_VERSION_NUM) {
         Py_FatalError("pycurl: libcurl link-time version is older than compile-time version!");
     }
+
     /* Finally initialize global interpreter lock */
     PyEval_InitThreads();
 }
