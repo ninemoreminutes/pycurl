@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.6 2003/06/10 14:32:29 mfx Exp $ */
+/* $Id: pycurl.c,v 1.7 2003/06/13 12:56:01 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -74,6 +74,8 @@ static int PYCURL_OPT(int o)
 
 
 static PyObject *ErrorObject = NULL;
+static PyTypeObject *p_Curl_Type = NULL;
+static PyTypeObject *p_CurlMulti_Type = NULL;
 
 typedef struct {
     PyObject_HEAD
@@ -110,9 +112,6 @@ typedef struct {
     void *options[OPTIONS_SIZE];
     char error[CURL_ERROR_SIZE+1];
 } CurlObject;
-
-static PyTypeObject *p_Curl_Type;
-static PyTypeObject *p_CurlMulti_Type;
 
 /* Throw exception based on return value `res' and `self->error' */
 #define CURLERROR_RETVAL() do {\
@@ -2317,10 +2316,10 @@ initpycurl(void)
 
     /* curl_httpauth: constants for setopt(HTTPAUTH, x) */
 #if (LIBCURL_VERSION_NUM >= 0x070a06)
-    insint_c(d, "HTTPAUTH_BASIC", CURLHTTP_BASIC);
-    insint_c(d, "HTTPAUTH_DIGEST", CURLHTTP_DIGEST);
-    insint_c(d, "HTTPAUTH_NEGOTIATE", CURLHTTP_NEGOTIATE);
-    insint_c(d, "HTTPAUTH_NTLM", CURLHTTP_NTLM);
+    insint_c(d, "HTTPAUTH_BASIC", CURLAUTH_BASIC);
+    insint_c(d, "HTTPAUTH_DIGEST", CURLAUTH_DIGEST);
+    insint_c(d, "HTTPAUTH_GSSNEGOTIATE", CURLAUTH_GSSNEGOTIATE);
+    insint_c(d, "HTTPAUTH_NTLM", CURLAUTH_NTLM);
 #endif
 
     /* CURLoption: symbolic constants for setopt() */
