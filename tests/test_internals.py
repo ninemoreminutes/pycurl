@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_internals.py,v 1.11 2002/08/29 14:39:20 mfx Exp $
+# $Id: test_internals.py,v 1.12 2002/08/29 17:46:13 mfx Exp $
 
 #
 # a simple self-test
@@ -43,6 +43,16 @@ if "-q" in sys.argv:
 print "Python", sys.version
 print "pycURL", pycurl.version
 print "  %s, compiled %s" % (pycurl.__file__, pycurl.__COMPILE_DATE__)
+
+
+# /***********************************************************************
+# // test misc
+# ************************************************************************/
+
+if 1:
+    c = Curl()
+    assert c.URL is pycurl.URL
+    del c
 
 
 # /***********************************************************************
