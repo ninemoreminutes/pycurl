@@ -1,7 +1,18 @@
-/* $Id: curl.c,v 1.68 2002/04/23 13:27:23 mfx Exp $ */
+/* $Id: curl.c,v 1.69 2002/04/29 12:33:03 kjetilja Exp $ */
 
-/* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
-
+/* PycURL -- cURL Python module 
+ * 
+ * Author:
+ *  Kjetil Jacobsen <kjetilja @ cs.uit.no>
+ * 
+ * Contributions:
+ *  Markus F.X.J. Oberhumer <markus @ oberhumer.com>
+ *  Tino Lange <Tino.Lange @ gmx.de>
+ *  Matt King <matt @ gnik.com> 
+ * 
+ * See file COPYING for license information.
+ * 
+ */
 #include "Python.h"
 #include <curl/curl.h>
 #include <string.h>
