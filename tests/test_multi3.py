@@ -1,4 +1,4 @@
-# $Id: test_multi3.py,v 1.3 2002/07/08 19:20:39 mfx Exp $
+# $Id: test_multi3.py,v 1.4 2002/07/15 05:23:01 mfx Exp $
 # vi:ts=4:et
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
@@ -61,11 +61,14 @@ for c in m.handles:
     if 0:
         m.remove_handle(c)
         c.cleanup()
-    else:
+    elif 0:
         # in the C API this is the wrong calling order, but pycurl
         # handles this automatically
         c.cleanup()
         m.remove_handle(c)
+    else:
+        # actually, remove_handle is called automatically on cleanup
+        c.cleanup()
 m.cleanup()
 
 # print result
