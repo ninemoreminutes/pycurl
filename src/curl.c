@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.199 2003/02/25 12:50:04 kjetilja Exp $ */
+/* $Id: curl.c,v 1.200 2003/02/25 18:34:08 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1570,6 +1570,10 @@ do_multi_fdset(CurlMultiObject *self, PyObject *args)
         PyErr_SetString(ErrorObject, "cannot invoke fdset, no curl-multi handle");
         return NULL;
     }
+    if (self->state != NULL) {
+        PyErr_SetString(ErrorObject, "cannot invoke fdset - multi_perform() is running");
+        return NULL;
+    }
 
     /* Clear file descriptor sets */
     FD_ZERO(&self->read_fd_set);
@@ -1638,6 +1642,10 @@ do_multi_info_read(CurlMultiObject *self, PyObject *args)
 
     if (self->multi_handle == NULL) {
         PyErr_SetString(ErrorObject, "cannot invoke info_read, no curl-multi handle");
+        return NULL;
+    }
+    if (self->state != NULL) {
+        PyErr_SetString(ErrorObject, "cannot invoke info_read - multi_perform() is running");
         return NULL;
     }
 
@@ -1709,7 +1717,11 @@ do_multi_select(CurlMultiObject *self, PyObject *args)
     }
 
     if (self->multi_handle == NULL) {
-        PyErr_SetString(ErrorObject, "cannot invoke fdset, no curl-multi handle");
+        PyErr_SetString(ErrorObject, "cannot invoke select, no curl-multi handle");
+        return NULL;
+    }
+    if (self->state != NULL) {
+        PyErr_SetString(ErrorObject, "cannot invoke select - multi_perform() is running");
         return NULL;
     }
 
