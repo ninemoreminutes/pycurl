@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.23 2005/01/08 19:15:42 mfx Exp $
+# $Id: retriever-multi.py,v 1.24 2005/02/11 11:09:11 mfx Exp $
 
 #
 # Usage: python retriever-multi.py <file with URLs to fetch> [<# of
@@ -59,7 +59,6 @@ m.handles = []
 for i in range(num_conn):
     c = pycurl.Curl()
     c.fp = None
-    c.setopt(pycurl.HTTPHEADER, ["User-Agent: PycURL"])
     c.setopt(pycurl.FOLLOWLOCATION, 1)
     c.setopt(pycurl.MAXREDIRS, 5)
     c.setopt(pycurl.CONNECTTIMEOUT, 30)

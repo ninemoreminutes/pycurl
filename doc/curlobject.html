@@ -45,7 +45,7 @@ integer, long integer, file objects, lists, or functions.</p>
 import pycurl
 c = pycurl.Curl()
 c.setopt(pycurl.URL, "http://www.python.org/")
-c.setopt(pycurl.HTTPHEADER, ["User-Agent: PycURL test", "Accept:"])
+c.setopt(pycurl.HTTPHEADER, ["Accept:"])
 import StringIO
 b = StringIO.StringIO()
 c.setopt(pycurl.WRITEFUNCTION, b.write)
@@ -95,7 +95,7 @@ print c.getinfo(pycurl.HTTP_CODE), c.getinfo(pycurl.EFFECTIVE_URL)
   <a href="http://validator.w3.org/check/referer"><img align="right"
      src="http://www.w3.org/Icons/valid-xhtml10"
      alt="Valid XHTML 1.0!" height="31" width="88" border="0" /></a>
-  $Id: curlobject.html,v 1.13 2004/03/15 10:57:04 kjetilja Exp $
+  $Id: curlobject.html,v 1.14 2005/02/11 11:09:09 mfx Exp $
 </p>
 
 </body>

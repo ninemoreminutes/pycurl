@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever.py,v 1.15 2004/12/26 17:31:53 mfx Exp $
+# $Id: retriever.py,v 1.16 2005/02/11 11:09:12 mfx Exp $
 
 import sys, threading, Queue
 import pycurl
@@ -29,7 +29,6 @@ class WorkerThread(threading.Thread):
                 raise SystemExit
             f = open(filename, "wb")
             curl = pycurl.Curl()
-            curl.setopt(pycurl.HTTPHEADER, ["User-Agent: PycURL"])
             curl.setopt(pycurl.FOLLOWLOCATION, 1)
             curl.setopt(pycurl.MAXREDIRS, 5)
             curl.setopt(pycurl.URL, url)

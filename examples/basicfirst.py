@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: basicfirst.py,v 1.4 2003/05/07 17:46:58 esr Exp $
+# $Id: basicfirst.py,v 1.5 2005/02/11 11:09:11 mfx Exp $
 
 import sys
 import pycurl
@@ -19,8 +19,6 @@ t = Test()
 c = pycurl.Curl()
 c.setopt(c.URL, 'http://curl.haxx.se/dev/')
 c.setopt(c.WRITEFUNCTION, t.body_callback)
-c.setopt(c.HTTPHEADER, ["I-am-a-silly-programmer: yes indeed you are",
-                        "User-Agent: Python interface for libcURL"])
 c.perform()
 c.close()
 

@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: xmlrpc_curl.py,v 1.9 2004/12/26 17:31:53 mfx Exp $
+# $Id: xmlrpc_curl.py,v 1.10 2005/02/11 11:09:12 mfx Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see
 # the libcurl tutorial for more info.
@@ -21,7 +21,7 @@ import xmlrpclib, pycurl
 class CURLTransport(xmlrpclib.Transport):
     """Handles a cURL HTTP transaction to an XML-RPC server."""
 
-    xmlrpc_h = [ "User-Agent: PycURL XML-RPC", "Content-Type: text/xml" ]
+    xmlrpc_h = [ "Content-Type: text/xml" ]
 
     def __init__(self, username=None, password=None):
         self.c = pycurl.Curl()
