@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.103 2002/07/02 13:48:13 kjetilja Exp $ */
+/* $Id: curl.c,v 1.104 2002/07/02 13:49:16 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -25,6 +25,7 @@
     - also try to figure out how to solve the problem of having deallocated
       curl objects in an active curl-multi stack (this causes a segfault when
       the multi-stack is cleaned up) 
+    - how do we best interface with the fd_set stuff?
 */ 
 
 #undef NDEBUG
