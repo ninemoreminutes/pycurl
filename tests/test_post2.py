@@ -1,4 +1,4 @@
-# $Id: test_post2.py,v 1.6 2002/08/12 13:46:25 kjetilja Exp $
+# $Id: test_post2.py,v 1.7 2002/08/16 16:23:06 kjetilja Exp $
 
 import pycurl
 
@@ -11,6 +11,7 @@ print "** scheme in test_post.py for posting instead!\n\n"
 c = pycurl.Curl()
 c.setopt(c.URL, 'http://pycurl.sourceforge.net/tests/testpostvars.php')
 c.setopt(c.HTTPPOST, pf)
+c.setopt(c.HTTPHEADER, ['Expect:'])
 c.setopt(c.VERBOSE, 1)
 c.perform()
 c.close()
