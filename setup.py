@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.21 2001/11/30 12:25:24 kjetilja Exp $
+# $Id: setup.py,v 1.22 2001/12/01 13:52:32 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -37,7 +37,7 @@ else:
             library_dirs.append(e[2:])
             libs.remove(e)
     libraries = ["curl"]
-    extra_link_args = libs 
+    extra_link_args = libs
     runtime_library_dirs = []
     extra_objects = []
 
@@ -49,7 +49,7 @@ setup (	name="pycurl",
       	author="Kjetil Jacobsen",
       	author_email="kjetilja@cs.uit.no",
       	url="http://pycurl.sourceforge.net/",
-      	ext_modules=[Extension(name="pycurl", 
+      	ext_modules=[Extension(name="pycurl",
                                sources=["src/curl.c"],
                                include_dirs=include_dirs,
                                library_dirs=library_dirs,
@@ -57,4 +57,4 @@ setup (	name="pycurl",
                                libraries=libraries,
                                extra_link_args=extra_link_args,
                                extra_objects=extra_objects)]
-        )	
+        )

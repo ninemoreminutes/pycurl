@@ -1,4 +1,4 @@
-# $Id: test.py,v 1.3 2001/08/20 10:41:40 kjetilja Exp $
+# $Id: test.py,v 1.4 2001/12/01 13:52:32 mfx Exp $
 
 ## System modules
 import sys
@@ -22,10 +22,10 @@ class Test(threading.Thread):
 
     def run(self):
         self.curl.perform()
-        self.curl.cleanup()        
+        self.curl.cleanup()
         sys.stdout.write('.')
         sys.stdout.flush()
-       
+
 
 # Read list of URIs from file specified on commandline
 try:

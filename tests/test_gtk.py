@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.14 2001/10/15 15:37:42 kjetilja Exp $
+# $Id: test_gtk.py,v 1.15 2001/12/01 13:52:32 mfx Exp $
 
 ## System modules
 import sys, threading
@@ -67,10 +67,10 @@ class Test(threading.Thread):
 
     def run(self):
         self.curl.perform()
-        self.curl.cleanup()        
+        self.curl.cleanup()
         self.target_file.close()
         self.progress(1.0, 1.0, 0, 0)
-        
+
 
 # Check command line args
 if len(sys.argv) < 3:

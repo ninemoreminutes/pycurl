@@ -1,4 +1,4 @@
-# $Id: basicfirst2.py,v 1.1 2001/10/12 14:50:51 kjetilja Exp $
+# $Id: basicfirst2.py,v 1.2 2001/12/01 13:52:32 mfx Exp $
 
 import sys
 import pycurl
@@ -11,7 +11,7 @@ class test:
     def body_callback(self, buf):
         self.contents = self.contents + buf
 
-print 'Testing curl version', pycurl.version 
+print 'Testing curl version', pycurl.version
 
 t = test()
 c = pycurl.init()
