@@ -1,4 +1,4 @@
-# $Id: crawler.py,v 1.4 2002/06/21 12:42:57 kjetilja Exp $
+# $Id: crawler.py,v 1.5 2002/06/24 11:29:21 kjetilja Exp $
 
 ## System modules
 import sys
@@ -40,7 +40,7 @@ class WorkerThread(threading.Thread):
 try:
     urls = open(sys.argv[1]).readlines()
     num_workers = int(sys.argv[2])
-except IndexError:
+except:
     # File or number of workers was not specified, show usage string
     print "Usage: %s <file with URLs to fetch> <number of workers>" % sys.argv[0]
     raise SystemExit
