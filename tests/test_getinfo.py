@@ -1,4 +1,4 @@
-# $Id: test_getinfo.py,v 1.7 2001/10/15 15:43:57 kjetilja Exp $
+# $Id: test_getinfo.py,v 1.8 2002/02/21 15:13:38 kjetilja Exp $
 
 ## PycURL module
 import pycurl
@@ -26,6 +26,7 @@ print
 print 'Download speed: %f bytes/second' % c.getinfo(pycurl.SPEED_DOWNLOAD)
 print 'Document size: %d bytes' % c.getinfo(pycurl.SIZE_DOWNLOAD)
 print 'Effective URL:', c.getinfo(pycurl.EFFECTIVE_URL)
+print 'Content-type:', c.getinfo(pycurl.CONTENT_TYPE)
 print
 print "Header is in file 'header', body is in file 'body'"
 
