@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.33 2002/05/20 12:32:31 kjetilja Exp $
+# $Id: setup.py,v 1.34 2002/06/18 16:45:55 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -48,7 +48,7 @@ else:
 ###############################################################################
 
 setup (name="pycurl",
-       version="7.9.7",
+       version="7.9.8",
        description="PycURL -- cURL library module for Python",
        author="Kjetil Jacobsen",
        author_email="kjetilja@cs.uit.no",
