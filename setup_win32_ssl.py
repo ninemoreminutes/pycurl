@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup_win32_ssl.py,v 1.3 2002/11/21 09:12:05 kjetilja Exp $
+# $Id: setup_win32_ssl.py,v 1.4 2002/11/29 10:26:52 kjetilja Exp $
 
 import os, sys, string
 assert sys.platform == "win32"
 
 
-CURL_DIR = r"c:\src\build\curl-7.10.2"
+CURL_DIR = r"c:\src\build\curl-7.10.3"
 OPENSSL_DIR = r"c:\src\build\openssl-0.9.6g"
 ZLIB_DIR = r"c:\src\build\zlib-1.1.4"
 sys.argv.insert(1, "--curl-dir=" + CURL_DIR)
