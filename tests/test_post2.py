@@ -1,6 +1,5 @@
-# $Id: test_post2.py,v 1.1 2002/04/12 13:50:47 kjetilja Exp $
+# $Id: test_post2.py,v 1.2 2002/04/12 14:00:32 kjetilja Exp $
 
-import urllib
 import pycurl
 
 pf = ['field1=this is a test using httppost & stuff', 'field2=value2']
