@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.181 2003/01/09 14:57:12 kjetilja Exp $ */
+/* $Id: curl.c,v 1.182 2003/01/09 15:25:11 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1638,12 +1638,14 @@ do_multi_info_read(CurlMultiObject *self, PyObject *args)
         /* Fetch the curl object that corresponds to the curl handle in the message */
         res = curl_easy_getinfo(msg->easy_handle, CURLINFO_PRIVATE, &co);
         if (res != CURLE_OK) {
-            goto error;
+            Py_DECREF(list);
+            CURLERROR_MSG("Unable to fetch curl handle from curl object");
         }
         assert(co != NULL);
         /* Append curl object to list of returned objects */
         if (PyList_Append(list, (PyObject *)co) == -1) {
-            goto error;
+            Py_DECREF(list);
+            return NULL;
         }
         /* Check for termination */
         num_results--;
@@ -1654,10 +1656,6 @@ do_multi_info_read(CurlMultiObject *self, PyObject *args)
 
     /* Return (number of queued messages, [curl objects]) */
     return Py_BuildValue("(iO)", in_queue, list);
-
-    error:
-        Py_DECREF(list);
-        return NULL;
 }
 
 /* --------------- select --------------- */
