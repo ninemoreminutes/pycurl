@@ -1,4 +1,4 @@
-# $Id: test_multi3.py,v 1.1 2002/07/04 22:10:43 mfx Exp $
+# $Id: test_multi3.py,v 1.2 2002/07/05 17:12:14 mfx Exp $
 # vi:ts=4:et
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
@@ -47,7 +47,7 @@ while 1:
         break
     # currently no more I/O is pending, could do something in the meantime
     # (display a progress bar, etc.)
-    time.sleep(0.1)
+    time.sleep(0.01)
 
 # close handles
 for c in m.handles:

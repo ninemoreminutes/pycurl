@@ -1,4 +1,4 @@
-# $Id: test_multi2.py,v 1.2 2002/07/04 22:09:47 mfx Exp $
+# $Id: test_multi2.py,v 1.3 2002/07/05 17:09:39 mfx Exp $
 # vi:ts=4:et
 
 import os, sys, time
@@ -46,7 +46,7 @@ while 1:
         break
     # currently no more I/O is pending, could do something in the meantime
     # (display a progress bar, etc.)
-    time.sleep(0.1)
+    time.sleep(0.01)
 
 # close handles
 for c in m.handles:
