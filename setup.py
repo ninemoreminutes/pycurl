@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.38 2002/06/24 12:36:20 kjetilja Exp $
+# $Id: setup.py,v 1.39 2002/06/25 08:20:23 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -44,7 +44,7 @@ if sys.platform[:-1] == "darwin":
 ###############################################################################
 
 setup (name="pycurl",
-       version="7.9.8",
+       version="7.9.9",
        description="PycURL -- cURL library module for Python",
        author="Kjetil Jacobsen",
        author_email="kjetilja@cs.uit.no",
