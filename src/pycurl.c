@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.18 2003/10/28 09:17:27 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.19 2003/11/03 12:31:06 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -24,6 +24,7 @@
  *   PyXXX_GetItem          returns a borrowed reference
  */
 
+#include <Python.h>
 #include <sys/types.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -33,7 +34,6 @@
 #if (defined(_WIN32) || defined(__WIN32__)) && !defined(WIN32)
 #  define WIN32 1
 #endif
-#include <Python.h>
 #define CURL_OLDSTYLE 1     /* needed for curl_formparse() in 7.10.6 - FIXME */
 #include <curl/curl.h>
 #include <curl/multi.h>
