@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.36 2004/04/30 15:12:28 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.37 2004/05/03 07:45:15 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2486,10 +2486,6 @@ initpycurl(void)
 #endif
 #if (LIBCURL_VERSION_NUM >= 0x070a06)
     insint_c(d, "HTTPAUTH", CURLOPT_HTTPAUTH);
-#if 0
-    /* FIXME */
-    insint_c(d, "SSL_CTX_FUNCTION", CURLOPT_SSL_CTX_FUNCTION);
-#endif
 #endif
 #if (LIBCURL_VERSION_NUM >= 0x070a07)
     insint_c(d, "FTP_CREATE_MISSING_DIRS", CURLOPT_FTP_CREATE_MISSING_DIRS);
