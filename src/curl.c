@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.186 2003/01/15 11:58:33 mfx Exp $ */
+/* $Id: curl.c,v 1.187 2003/01/16 11:22:36 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2207,7 +2207,7 @@ DL_EXPORT(void)
     insint_c(d, "HEADER", CURLOPT_HEADER);
     insint_c(d, "NOPROGRESS", CURLOPT_NOPROGRESS);
     insint_c(d, "NOBODY", CURLOPT_NOBODY);
-    insint_c(d, "FAILNOERROR", CURLOPT_FAILONERROR);
+    insint_c(d, "FAILONERROR", CURLOPT_FAILONERROR);
     insint_c(d, "UPLOAD", CURLOPT_UPLOAD);
     insint_c(d, "POST", CURLOPT_POST);
     insint_c(d, "FTPLISTONLY", CURLOPT_FTPLISTONLY);
