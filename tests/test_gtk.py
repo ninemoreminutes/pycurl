@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.6 2001/08/21 09:43:21 kjetilja Exp $
+# $Id: test_gtk.py,v 1.7 2001/08/21 09:44:53 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -15,6 +15,8 @@ def progress(download_t, download_d, upload_t, upload_d):
     if download_t == 0:
         pbar.set_activity_mode(1)
         round = round + 0.1
+        if round >= 1.0:
+            round = 0.0
     else:
         pbar.set_activity_mode(0)
         round = float(download_d) / float(download_t)
