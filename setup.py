@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.99 2003/11/04 16:12:34 mfx Exp $
+# $Id: setup.py,v 1.100 2003/11/17 11:34:02 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -63,7 +63,7 @@ if sys.platform == "win32":
     # Windows users have to configure the CURL_DIR path parameter to match
     # their cURL source installation.  The path set here is just an example
     # and thus unlikely to match your installation.
-    CURL_DIR = r"c:\src\build\curl-7.10.8"
+    CURL_DIR = r"c:\src\build\curl-%s" % VERSION
     CURL_DIR = scan_argv("--curl-dir=", CURL_DIR)
     print "Using curl directory:", CURL_DIR
     assert os.path.isdir(CURL_DIR), "please check CURL_DIR in setup.py"
