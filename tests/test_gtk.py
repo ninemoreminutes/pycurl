@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.5 2001/08/21 09:42:14 kjetilja Exp $
+# $Id: test_gtk.py,v 1.6 2001/08/21 09:43:21 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -45,9 +45,8 @@ class Test(threading.Thread):
         self.curl.perform()
         self.curl.cleanup()        
 
-# Read list of URIs from file specified on commandline
+# Check command line args
 if len(sys.argv) < 2:
-    # No uri was specified, show usage string
     print "Usage: %s <URI>" % sys.argv[0]
     raise SystemExit
 
