@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.22 2003/11/16 14:06:20 mfx Exp $ */
+/* $Id: pycurl.c,v 1.23 2004/01/07 12:02:43 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -50,7 +50,7 @@
 
 /* Beginning with Python 2.2 we support Cyclic Garbarge Collection */
 #undef USE_GC
-#if 1 && (PY_VERSION_HEX >= 0x02020000)
+#if 0 && (PY_VERSION_HEX >= 0x02020000)
 #  define USE_GC
 #endif
 
