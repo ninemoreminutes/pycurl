@@ -1,15 +1,10 @@
-# $Id: TODO,v 1.85 2004/06/08 18:03:14 mfx Exp $
+# $Id: TODO,v 1.86 2004/06/24 08:37:23 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
 
 NEW FEATURES/IMPROVEMENTS:
-
-    * Add new 3rdparty ftp transfer options from libcurl.
-
-    * HTTPPOST should take a dict instead of a list of tuples, this way it
-      would have the same interface as POSTFIELDS.
 
     * Support more of the CURLFORM_* API in HTTPPOST?
 
