@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.46 2002/07/09 16:05:20 kjetilja Exp $
+# $Id: setup.py,v 1.47 2002/07/10 18:40:20 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -51,22 +51,33 @@ else:
 
 ###############################################################################
 
-setup (name="pycurl",
-       version="7.9.8.2",
-       description="PycURL -- cURL library module for Python",
-       author="Kjetil Jacobsen, Markus F.X.J. Oberhumer",
-       author_email="kjetilja@cs.uit.no, markus@oberhumer.com",
-       url="http://pycurl.sourceforge.net/",
-       data_files = [(os.path.join('doc', 'pycurl'),
-                    ['README', 'COPYING', 'INSTALL', 'TODO'])],
-       ext_modules=[Extension(name="pycurl",
-                              sources=[os.path.join("src", "curl.c")],
-                              include_dirs=include_dirs,
-                              define_macros=define_macros,
-                              library_dirs=library_dirs,
-                              libraries=libraries,
-                              runtime_library_dirs=runtime_library_dirs,
-                              extra_objects=extra_objects,
-                              extra_compile_args=extra_compile_args,
-                              extra_link_args=extra_link_args)]
-        )
+ext = Extension(
+    name="pycurl",
+    sources=[
+        os.path.join("src", "curl.c"),
+    ],
+    include_dirs=include_dirs,
+    define_macros=define_macros,
+    library_dirs=library_dirs,
+    libraries=libraries,
+    runtime_library_dirs=runtime_library_dirs,
+    extra_objects=extra_objects,
+    extra_compile_args=extra_compile_args,
+    extra_link_args=extra_link_args,
+)
+##print ext.__dict__; sys.exit(1)
+
+setup(
+    name="pycurl",
+    version="7.9.8.2",
+    description="PycURL -- cURL library module for Python",
+    author="Kjetil Jacobsen, Markus F.X.J. Oberhumer",
+    author_email="kjetilja@cs.uit.no, markus@oberhumer.com",
+    url="http://pycurl.sourceforge.net/",
+    data_files = [
+        # tuple with path to install to and a list of files
+        (os.path.join("doc", "pycurl"), ["README", "COPYING", "INSTALL", "TODO"]),
+    ],
+    ext_modules=[ext],
+)
+
