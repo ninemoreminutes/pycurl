@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# $Id: setup.py,v 1.9 2001/08/20 10:42:07 kjetilja Exp $
+
 from distutils.core import setup, Extension
 
 setup(name="pycurl",

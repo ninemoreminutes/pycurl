@@ -1,3 +1,5 @@
+/* $Id: curl.c,v 1.25 2001/08/20 10:42:07 kjetilja Exp $ */
+
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
 #include "Python.h"
