@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.215 2003/05/02 11:28:57 mfx Exp $ */
+/* $Id: curl.c,v 1.216 2003/05/07 15:27:42 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2281,7 +2281,7 @@ extern "C"
 #endif
 DL_EXPORT(void)
 #endif
-initpycurl(void)
+init_pycurl(void)
 {
     PyObject *m, *d;
     const curl_version_info_data *vi;
@@ -2294,7 +2294,7 @@ initpycurl(void)
     CurlMulti_Type.ob_type = &PyType_Type;
 
     /* Create the module and add the functions */
-    m = Py_InitModule3("pycurl", curl_methods, module_doc);
+    m = Py_InitModule3("_pycurl", curl_methods, module_doc);
     assert(m != NULL && PyModule_Check(m));
 
     /* Add error object to the module */
