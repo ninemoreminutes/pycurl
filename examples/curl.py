@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: curl.py,v 1.5 2002/11/20 11:16:00 kjetilja Exp $
+# $Id: curl.py,v 1.6 2002/11/20 11:39:31 kjetilja Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
@@ -51,7 +51,6 @@ class Curl:
         if self.h:
             self.c.setopt(pycurl.HTTPHEADER, self.h)
         self.c.setopt(pycurl.CONNECTTIMEOUT, timeout)
-        self.c.setopt(pycurl.TIMEOUT, timeout)
         self.c.perform()
         self.fp.seek(0,0)
         return (self.fp, self.info())
