@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.85 2002/06/20 22:53:28 mfx Exp $ */
+/* $Id: curl.c,v 1.86 2002/06/24 11:07:24 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -856,6 +856,8 @@ do_getinfo(CurlObject *self, PyObject *args)
                 }
             }
     }
+
+    PyErr_Clear();
 
     /* Got wrong signature on the method call */
     PyErr_SetString(PyExc_TypeError, "invalid arguments to getinfo");
