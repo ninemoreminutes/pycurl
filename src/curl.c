@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.139 2002/08/08 14:12:12 kjetilja Exp $ */
+/* $Id: curl.c,v 1.140 2002/08/08 14:13:21 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -15,13 +15,6 @@
  * See file COPYING for license information.
  *
  */
-
-/*
-    TODO for the multi interface:
-    - add interface to the multi_read method, otherwise it's hard to use this
-      for anything
-    - how do we best interface with the fd_set stuff?
-*/
 
 #undef NDEBUG
 #include <assert.h>
