@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi3.py,v 1.10 2003/01/25 10:51:04 mfx Exp $
+# $Id: test_multi3.py,v 1.11 2003/02/25 12:36:23 kjetilja Exp $
 
 # same as test_multi2.py, but enforce some debugging and strange API-calls
 
@@ -42,10 +42,12 @@ if 1:
     c.close()
 
 # get data
-while 1:
-    ret, num_handles = m.perform()
-    if ret != pycurl.E_CALL_MULTI_PERFORM:
-        break
+num_handles = len(m.handles)
+while num_handles:
+    while 1:
+        ret, num_handles = m.perform()
+        if ret != pycurl.E_CALL_MULTI_PERFORM:
+            break
     # currently no more I/O is pending, could do something in the meantime
     # (display a progress bar, etc.)
     m.select()
