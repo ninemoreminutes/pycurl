@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_internals.py,v 1.16 2003/04/21 18:46:10 mfx Exp $
+# $Id: test_internals.py,v 1.17 2003/05/01 16:48:54 mfx Exp $
 
 #
 # a simple self-test
@@ -42,8 +42,8 @@ if "-q" in sys.argv:
 
 
 print "Python", sys.version
-print "pycURL %s (compiled against 0x%x)" % (pycurl.version, pycurl.COMPILE_LIBCURL_VERSION_NUM)
-print "pycURL version info", pycurl.version_info()
+print "PycURL %s (compiled against 0x%x)" % (pycurl.version, pycurl.COMPILE_LIBCURL_VERSION_NUM)
+print "PycURL version info", pycurl.version_info()
 print "  %s, compiled %s" % (pycurl.__file__, pycurl.COMPILE_DATE)
 
 
