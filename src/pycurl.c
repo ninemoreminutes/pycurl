@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.51 2004/06/08 18:03:15 mfx Exp $ */
+/* $Id: pycurl.c,v 1.52 2004/06/09 09:15:32 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -12,6 +12,7 @@
  *  Conrad Steenberg <conrad at hep.caltech.edu>
  *  Amit Mongia <amit_mongia at hotmail.com>
  *  Eric S. Raymond <esr at thyrsus.com>
+ *  Martin Muenstermann <mamuema at sourceforge.net>
  *
  * See file COPYING for license information.
  *
