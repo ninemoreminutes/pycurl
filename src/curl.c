@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.87 2002/06/24 12:18:43 mfx Exp $ */
+/* $Id: curl.c,v 1.88 2002/06/24 12:25:15 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -13,15 +13,19 @@
  * See file COPYING for license information.
  *
  */
-#include <string.h>
+
+#undef NDEBUG
+#include <assert.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <assert.h>
+#include <string.h>
 #if (defined(_WIN32) || defined(__WIN32__)) && !defined(WIN32)
 #  define WIN32 1
 #endif
 #include <Python.h>
 #include <curl/curl.h>
+
 
 /* Ensure we have an updated libcurl */
 #if LIBCURL_VERSION_NUM < 0x070908
