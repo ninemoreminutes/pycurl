@@ -1,4 +1,4 @@
-# $Id: crawler.py,v 1.1 2002/08/16 16:23:06 kjetilja Exp $
+# $Id: crawler.py,v 1.2 2002/08/16 16:37:54 mfx Exp $
 
 import sys, threading, Queue
 import pycurl
@@ -13,7 +13,7 @@ class WorkerThread(threading.Thread):
         while 1:
             try:
                 url, no = self.iq.get_nowait()
-            except:
+            except Queue.Empty:
                 break
             f = open(str(no), 'w')
             self.curl = pycurl.Curl()
