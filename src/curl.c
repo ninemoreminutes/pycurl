@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.176 2002/11/20 14:30:21 kjetilja Exp $ */
+/* $Id: curl.c,v 1.177 2002/11/21 09:06:51 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -47,7 +47,7 @@
 #endif
 
 /* Whether to enable curl_multi_info_read or not */
-#define ENABLE_INFO_READ 0
+#define ENABLE_INFO_READ 1
 
 
 static PyObject *ErrorObject;
