@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_getinfo.py,v 1.14 2002/08/29 14:39:20 mfx Exp $
+# $Id: test_getinfo.py,v 1.15 2002/11/25 13:03:15 kjetilja Exp $
 
 import time
 import pycurl
@@ -15,8 +15,8 @@ url = 'http://www.cnn.com'
 
 print 'Starting downloading', url
 print
-f = open('body', 'w')
-h = open('header', 'w')
+f = open('body', 'wb')
+h = open('header', 'wb')
 c = pycurl.Curl()
 c.setopt(c.URL, url)
 c.setopt(c.WRITEDATA, f)
