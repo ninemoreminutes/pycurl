@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi2.py,v 1.8 2002/08/29 14:39:21 mfx Exp $
+# $Id: test_multi2.py,v 1.9 2003/01/21 16:36:59 mfx Exp $
 
 import os, sys, time
 try:
@@ -20,7 +20,7 @@ urls = (
 
 # Read list of URIs from file specified on commandline
 try:
-    urls = open(sys.argv[1]).readlines()
+    urls = open(sys.argv[1], "rb").readlines()
 except IndexError:
     # No file was specified
     pass
