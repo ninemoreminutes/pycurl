@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-# $Id: setup.py,v 1.9 2001/08/20 10:42:07 kjetilja Exp $
+# $Id: setup.py,v 1.10 2001/08/20 10:49:13 kjetilja Exp $
 
 from distutils.core import setup, Extension
 
 setup(name="pycurl",
-      version="0.3.7",
+      version="0.4.0",
       description="PycURL -- cURL library module for Python",
       author="Kjetil Jacobsen",
       author_email="kjetilja@cs.uit.no",
