@@ -1,5 +1,6 @@
-# $Id: TODO,v 1.26 2002/04/23 13:36:32 mfx Exp $
+# $Id: TODO,v 1.27 2002/06/19 08:16:50 kjetilja Exp $
 
+* Documentation (this is actually starting to get critical)
 * duphandle() is not supported
 * Once set, callbacks cannot be subsequently disabled for a given handle
 * The multi interface is not supported, should make something that
