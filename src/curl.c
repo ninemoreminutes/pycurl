@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.56 2002/04/15 11:07:41 kjetilja Exp $ */
+/* $Id: curl.c,v 1.57 2002/04/15 11:10:20 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -92,6 +92,7 @@ self_cleanup(CurlObject *self)
     Py_XDECREF(self->pro_cb);
     Py_XDECREF(self->pwd_cb);
     Py_XDECREF(self->h_cb);
+    Py_XDECREF(self->d_cb);
 }
 
 
