@@ -1,4 +1,4 @@
-# $Id: test_post.py,v 1.6 2002/08/08 12:03:54 kjetilja Exp $
+# $Id: test_post.py,v 1.7 2002/08/12 13:43:00 kjetilja Exp $
 
 import urllib
 import pycurl
@@ -15,7 +15,6 @@ pf = {'field1':'value1', 'field2':'value2 with blanks and & chars',
 
 c = pycurl.Curl()
 c.setopt(c.URL, 'http://pycurl.sourceforge.net/tests/testpostvars.php')
-c.setopt(c.POST, 1)
 c.setopt(c.POSTFIELDS, urllib.urlencode(pf))
 c.setopt(c.VERBOSE, 1)
 c.perform()
