@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.152 2002/08/14 14:54:24 kjetilja Exp $ */
+/* $Id: curl.c,v 1.153 2002/08/16 11:48:19 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1634,8 +1634,7 @@ do_multi_select(CurlMultiObject *self, PyObject *args)
     }
 
     Py_BEGIN_ALLOW_THREADS
-    n = select(max_fd + 1, &self->read_fd_set, &self->write_fd_set, &self->exc_fd_set, tvp)
-;
+    n = select(max_fd + 1, &self->read_fd_set, &self->write_fd_set, &self->exc_fd_set, tvp);
     Py_END_ALLOW_THREADS
 
     return PyInt_FromLong(n);
