@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.32 2001/12/01 14:29:57 mfx Exp $ */
+/* $Id: curl.c,v 1.33 2001/12/01 14:34:28 mfx Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -706,7 +706,7 @@ static PyMethodDef curlobject_methods[] = {
     {"setopt", (PyCFunction)do_setopt, METH_VARARGS, co_setopt_doc},
     {"perform", (PyCFunction)do_perform, METH_VARARGS, co_perform_doc},
     {"getinfo", (PyCFunction)do_getinfo, METH_VARARGS, co_getinfo_doc},
-    {NULL, NULL}
+    {NULL, NULL, 0, NULL}
 };
 
 
