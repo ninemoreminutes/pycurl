@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: basicfirst.py,v 1.3 2003/01/13 15:23:26 mfx Exp $
+# $Id: basicfirst.py,v 1.4 2003/05/07 17:46:58 esr Exp $
 
 import sys
 import pycurl
@@ -13,7 +13,7 @@ class Test:
     def body_callback(self, buf):
         self.contents = self.contents + buf
 
-print 'Testing', pycurl.version
+print >>sys.stderr, 'Testing', pycurl.version
 
 t = Test()
 c = pycurl.Curl()
