@@ -1,12 +1,18 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.20 2002/08/29 14:52:05 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.21 2002/09/04 21:01:09 mfx Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
 from gnome.ui import *
 from gtkhtml import *
 import pycurl
+
+# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
+# documentation `libcurl-the-guide' for more info.
+import signal
+signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+
 
 # URL history
 history = []
@@ -49,6 +55,7 @@ class WorkerThread(threading.Thread):
         curl = pycurl.Curl()
         curl.setopt(pycurl.FOLLOWLOCATION, 1)
         curl.setopt(pycurl.MAXREDIRS, 5)
+        curl.setopt(pycurl.NOSIGNAL, 1)
         curl.setopt(pycurl.HTTPHEADER, ["User-Agent: GtkHTML/PycURL demo browser"])
         while 1:
             url, handle = self.queue.get()

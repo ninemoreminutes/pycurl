@@ -1,9 +1,14 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: retriever.py,v 1.6 2002/09/02 09:56:37 kjetilja Exp $
+# $Id: retriever.py,v 1.7 2002/09/04 21:01:09 mfx Exp $
 
 import sys, threading, Queue
 import pycurl
+
+# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
+# documentation `libcurl-the-guide' for more info.
+import signal
+signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 
 
 class WorkerThread(threading.Thread):
@@ -24,6 +29,7 @@ class WorkerThread(threading.Thread):
             curl.setopt(pycurl.MAXREDIRS, 5)
             curl.setopt(pycurl.URL, url)
             curl.setopt(pycurl.WRITEDATA, f)
+            curl.setopt(pycurl.NOSIGNAL, 1)
             try:
                 curl.perform()
             except:
