@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: gtkhtml_demo.py,v 1.19 2002/08/29 14:47:38 kjetilja Exp $
+# $Id: gtkhtml_demo.py,v 1.20 2002/08/29 14:52:05 kjetilja Exp $
 
 import sys, os, urllib, cStringIO, threading, Queue, time
 from gtk import *
@@ -113,6 +113,7 @@ class HtmlWindow(GtkHTML):
                 html.write(handle, buf.getvalue())
                 buf.close()
             html.end(handle, HTML_STREAM_OK)
+        # Finished rendering page
         t2 = time.time()
         self.statusbar.set_text("Done (%.3f seconds)" % (t2-t1))
 
