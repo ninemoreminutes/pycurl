@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.88 2002/06/24 12:25:15 mfx Exp $ */
+/* $Id: curl.c,v 1.89 2002/06/24 14:02:49 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -79,6 +79,8 @@ self_cleanup(CurlObject *self)
     if (self->handle == NULL) {
         return;
     }
+    /* Zero thread-state to disallow callbacks to be run from now on */
+    self->state = NULL;
     /* Free curl handle */
     if (self->handle != NULL) {
         CURL *handle = self->handle;
@@ -116,8 +118,6 @@ self_cleanup(CurlObject *self)
             self->options[i] = NULL;
         }
     }
-    /* Zero thread-state to disallow callbacks to be run from now on */
-    self->state = NULL;
     /* Decrement refcount for python callbacks */
     Py_XDECREF(self->w_cb);
     Py_XDECREF(self->r_cb);
@@ -957,6 +957,9 @@ do_init(PyObject *arg)
     self->pwd_cb = NULL;
     self->d_cb = NULL;
 
+    /* Zero string pointer memory buffer used by setopt */
+    memset(self->options, 0, sizeof(void *) * CURLOPT_LASTENTRY);
+
     /* Initialize curl handle */
     self->handle = curl_easy_init();
     if (self->handle == NULL)
@@ -967,9 +970,6 @@ do_init(PyObject *arg)
     if (res != CURLE_OK)
         goto error;
     memset(self->error, 0, sizeof(char) * CURL_ERROR_SIZE);
-
-    /* Zero string pointer memory buffer used by setopt */
-    memset(self->options, 0, sizeof(void *) * CURLOPT_LASTENTRY);
 
     /* Enable NOPROGRESS by default, i.e. no progress output */
     res = curl_easy_setopt(self->handle, CURLOPT_NOPROGRESS, 1);
