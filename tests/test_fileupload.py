@@ -1,9 +1,9 @@
-# $Id: test_fileupload.py,v 1.1 2002/06/24 13:42:14 kjetilja Exp $
+# $Id: test_fileupload.py,v 1.2 2002/06/26 11:24:38 mfx Exp $
 # Python code to http post a file using the following form
 # Written by Amit Mongia
 """
-<form name="form1" method="post" 
-action="http://mywebsite.com/uploadfile/using/codeword/" 
+<form name="form1" method="post"
+action="http://mywebsite.com/uploadfile/using/codeword/"
 enctype="multipart/form-data">
   <p>Codeword:
     <input type="text" name="codeword" value="uploadfile">
