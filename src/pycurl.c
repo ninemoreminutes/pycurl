@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.17 2003/08/12 15:16:04 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.18 2003/10/28 09:17:27 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1040,6 +1040,7 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         case CURLOPT_COOKIEJAR:
         case CURLOPT_CUSTOMREQUEST:
         case CURLOPT_EGDSOCKET:
+        case CURLOPT_ENCODING:
         case CURLOPT_FTPPORT:
         case CURLOPT_INTERFACE:
         case CURLOPT_KRB4LEVEL:
