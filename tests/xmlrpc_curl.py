@@ -1,4 +1,4 @@
-# $Id: xmlrpc_curl.py,v 1.5 2002/02/21 15:16:24 kjetilja Exp $
+# $Id: xmlrpc_curl.py,v 1.6 2002/02/21 15:24:41 kjetilja Exp $
 
 import xmlrpclib, pycurl, cStringIO
 
@@ -24,9 +24,9 @@ class CURLTransport(xmlrpclib.Transport):
         try:
             self.c.perform()
         except pycurl.error, v:
-            raise ProtocolError(
+            raise xmlrpclib.ProtocolError(
                 host + handler,
-                -1, v, None
+                v[0], v[1], None
                 )
         b.seek(0)
         return self.parse_response(b)
