@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.49 2002/03/08 11:12:03 kjetilja Exp $ */
+/* $Id: curl.c,v 1.50 2002/03/08 11:24:36 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -666,7 +666,7 @@ do_perform(CurlObject *self, PyObject *args)
     }
 
     /* Save handle to current thread (used to run the callbacks in) */
-    self->state = PyThreadState_New(PyThreadState_Get()->interp);
+    self->state = PyThreadState_Get();
 
     /* Release global lock and start */
     Py_BEGIN_ALLOW_THREADS
