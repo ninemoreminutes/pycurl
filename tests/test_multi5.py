@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi5.py,v 1.7 2002/09/26 11:11:05 kjetilja Exp $
+# $Id: test_multi5.py,v 1.8 2002/09/30 12:30:44 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -51,3 +51,7 @@ c3.body.close()
 c1.close()
 c2.close()
 c3.close()
+print 'http://www.python.org is in file doc1'
+print 'http://curl.haxx.se is in file doc2'
+print 'http://slashdot.org is in file doc3'
+
