@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.61 2003/07/28 17:26:54 mfx Exp $
+# $Id: TODO,v 1.62 2003/07/30 18:08:50 mfx Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
@@ -10,5 +10,3 @@ If you want to hack on pycurl, here's our list of unresolved issues:
     * Add more options to Curl.unsetopt(). Have to carefully check
       the libcurl source code for each option we want to support.
 
-    * Are we possibly leaking references with CURLOPT_PROGRESSDATA
-      and CURLOPT_PASSWDDATA ??
