@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.155 2002/08/24 19:33:44 mfx Exp $ */
+/* $Id: curl.c,v 1.156 2002/08/24 19:35:54 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1826,7 +1826,7 @@ statichere PyTypeObject CurlMulti_Type = {
 
 /*************************************************************************
 // module level
-// Note that the object constructors (do_curl_new, do_curl_multi_new)
+// Note that the object constructors (do_curl_new, do_multi_new)
 // are module-level functions as well.
 **************************************************************************/
 
