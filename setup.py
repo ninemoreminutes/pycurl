@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.82 2003/02/25 12:50:02 kjetilja Exp $
+# $Id: setup.py,v 1.83 2003/04/03 17:03:31 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -176,9 +176,10 @@ This module provides Python bindings for the cURL library.""",
 )
 
 ##print distutils.__version__
-setup_args["licence"] = setup_args["license"]
 if LooseVersion(distutils.__version__) > LooseVersion("1.0.1"):
     setup_args["platforms"] = "All"
+if LooseVersion(distutils.__version__) < LooseVersion("1.0.3"):
+    setup_args["licence"] = setup_args["license"]
 
 if __name__ == "__main__":
     for o in ext.extra_objects:
