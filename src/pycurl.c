@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.84 2005/03/03 11:49:12 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.85 2005/03/03 16:06:30 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1395,6 +1395,15 @@ do_curl_setopt(CurlObject *self, PyObject *args)
                         }
 
                         val = PyLong_AsLong(PyTuple_GET_ITEM(t, j));
+                        if (val != CURLFORM_COPYCONTENTS &&
+                            val != CURLFORM_FILE &&
+                            val != CURLFORM_CONTENTTYPE)
+                        {
+                            PyErr_SetString(PyExc_TypeError, "unsupported option");
+                            PyMem_Free(forms);
+                            curl_formfree(post);
+                            return NULL;
+                        }
                         PyString_AsStringAndSize(PyTuple_GET_ITEM(t, j+1), &ostr, &olen);
                         forms[k].option = val;
                         forms[k].value = ostr;
@@ -1420,7 +1429,7 @@ do_curl_setopt(CurlObject *self, PyObject *args)
                 } else {
                     /* Some other type was given, ignore */
                     curl_formfree(post);
-                    PyErr_SetString(PyExc_TypeError, "unsupported second value in tuple");
+                    PyErr_SetString(PyExc_TypeError, "unsupported second type in tuple");
                     return NULL;
                 }
             }
