@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.9 2002/09/09 10:23:28 kjetilja Exp $
+# $Id: test_multi_vs_thread.py,v 1.10 2002/09/09 10:29:53 kjetilja Exp $
 
 import os, sys, time
 from threading import Thread, RLock
@@ -20,7 +20,7 @@ signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 # FIXME FIXME FIXME - this is a very first version and
 #     needs much cleanup and comments
 #
-# anyway, the conclusion is: threads (test_thread_pool) are much faster!
+# anyway, the conclusion is: the multi interface is fastest!
 #
 #
 # XXX after this program is finished I'd like to add some real-world
