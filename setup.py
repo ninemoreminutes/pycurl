@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.101 2004/01/13 15:17:26 kjetilja Exp $
+# $Id: setup.py,v 1.102 2004/01/30 05:22:03 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -196,5 +196,5 @@ if LooseVersion(distutils.__version__) < LooseVersion("1.0.3"):
 if __name__ == "__main__":
     for o in ext.extra_objects:
         assert os.path.isfile(o), o
-    setup(**setup_args)
+    apply(setup, (), setup_args)
 
