@@ -1,13 +1,13 @@
-# $Id: test_post.py,v 1.3 2002/04/12 09:22:46 kjetilja Exp $
+# $Id: test_post.py,v 1.4 2002/04/12 09:24:17 kjetilja Exp $
 
 import urllib
 import pycurl
 
 # simple
-pf = 'field1=value1'
+pf = {'field1': 'value1'}
 
 # multiple fields
-pf = 'field1=value1&field2=value2 with blanks&field3=value3'
+pf = {'field1':'value1', 'field2':'value2 with blanks', 'field3':'value3'}
 
 # multiple fields with & in field
 pf = {'field1':'value1', 'field2':'value2 with blanks and & chars',
