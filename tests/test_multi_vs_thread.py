@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.12 2003/01/25 09:59:28 mfx Exp $
+# $Id: test_multi_vs_thread.py,v 1.13 2003/02/25 12:39:17 kjetilja Exp $
 
 import os, sys, time
 from threading import Thread, RLock
@@ -19,17 +19,7 @@ try:
 except ImportError:
     pass
 
-
-#
-# FIXME FIXME FIXME - this is a very first version and
-#     needs much cleanup and comments
-#
-# anyway, the conclusion is: the multi interface is fastest!
-#
-#
-# XXX after this program is finished I'd like to add some real-world
-#   timings here
-#
+# The conclusion is: the multi interface is fastest!
 
 NUM_PAGES = 30
 NUM_THREADS = 10
@@ -99,7 +89,7 @@ def test_multi():
 
     # get data
     while num_handles:
-        m.select(1)
+        m.select()
         while 1:
             ret, num_handles = m.perform()
             if ret != pycurl.E_CALL_MULTI_PERFORM:
