@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.128 2002/07/15 05:39:29 mfx Exp $ */
+/* $Id: curl.c,v 1.129 2002/07/15 09:16:52 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -80,7 +80,7 @@ typedef struct {
     PyObject *writedata;
     PyObject *writeheader;
     int writeheader_set;
-    char error[CURL_ERROR_SIZE];
+    char error[CURL_ERROR_SIZE+1]; 
     void *options[CURLOPT_LASTENTRY];
 } CurlObject;
 
