@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi.py,v 1.9 2003/04/21 18:46:10 mfx Exp $
+# $Id: test_multi.py,v 1.10 2005/03/11 13:24:45 kjetilja Exp $
 
 import pycurl
 
@@ -23,7 +23,7 @@ while num_handles:
         ret, num_handles = m.perform()
         if ret != pycurl.E_CALL_MULTI_PERFORM:
             break
-    m.select()
+    m.select(1.0)
 
 m.remove_handle(c2)
 m.remove_handle(c1)

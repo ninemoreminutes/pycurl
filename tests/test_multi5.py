@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi5.py,v 1.11 2003/04/21 18:46:10 mfx Exp $
+# $Id: test_multi5.py,v 1.12 2005/03/11 13:24:45 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -25,7 +25,7 @@ m.add_handle(c2)
 m.add_handle(c3)
 
 # Number of seconds to wait for a timeout to happen
-SELECT_TIMEOUT = 10
+SELECT_TIMEOUT = 1.0
 
 # Stir the state machine into action
 while 1:

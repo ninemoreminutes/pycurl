@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi2.py,v 1.13 2003/04/21 18:46:10 mfx Exp $
+# $Id: test_multi2.py,v 1.14 2005/03/11 13:24:45 kjetilja Exp $
 
 import os, sys
 try:
@@ -50,7 +50,7 @@ while num_handles:
              break
      # currently no more I/O is pending, could do something in the meantime
      # (display a progress bar, etc.)
-     m.select()
+     m.select(1.0)
 
 # close handles
 for c in m.handles:
