@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.159 2002/09/04 20:36:13 mfx Exp $ */
+/* $Id: curl.c,v 1.160 2002/09/07 20:37:19 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -22,8 +22,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
-#include <sys/time.h>
 #undef NDEBUG
 #include <assert.h>
 
