@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.54 2003/05/01 20:43:36 mfx Exp $
+# $Id: TODO,v 1.55 2003/05/01 20:55:12 mfx Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
@@ -10,6 +10,9 @@ If you want to hack on pycurl, here's our list of unresolved issues:
       the libcurl source code for each option we want to support.
 
     * Add an entry for Curl.errstr() to the HTML docs.
+
+    * Are we possibly leaking references with CURLOPT_PROGRESSDATA
+      and CURLOPT_PASSWDDATA ??
 
     * A high-level interface to pycurl, like the standard urllib (see
       the file 'doc/examples/curl.py' for a simple example)
