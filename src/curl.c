@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.108 2002/07/03 14:16:16 kjetilja Exp $ */
+/* $Id: curl.c,v 1.109 2002/07/03 14:47:36 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1215,12 +1215,13 @@ do_init(PyObject *arg)
 
     /* Set python curl object initial values */
     self->handle = NULL;
+    self->state = NULL;
+    self->multi_stack = NULL;
     self->httpheader = NULL;
     self->quote = NULL;
     self->postquote = NULL;
     self->prequote = NULL;
     self->httppost = NULL;
-    self->state = NULL;
     self->writeheader_set = 0;
 
     /* Set file object pointers to NULL by default */
