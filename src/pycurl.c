@@ -1,10 +1,10 @@
-/* $Id: pycurl.c,v 1.69 2004/12/24 01:28:53 mfx Exp $ */
+/* $Id: pycurl.c,v 1.70 2005/01/03 11:19:38 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
  * Authors:
- *  Copyright (C) 2001-2004 by Kjetil Jacobsen <kjetilja at cs.uit.no>
- *  Copyright (C) 2001-2004 by Markus F.X.J. Oberhumer <markus at oberhumer.com>
+ *  Copyright (C) 2001-2005 by Kjetil Jacobsen <kjetilja at cs.uit.no>
+ *  Copyright (C) 2001-2005 by Markus F.X.J. Oberhumer <markus at oberhumer.com>
  *
  * Contributions:
  *  Tino Lange <Tino.Lange at gmx.de>
