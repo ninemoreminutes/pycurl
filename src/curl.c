@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.80 2002/06/19 12:47:45 kjetilja Exp $ */
+/* $Id: curl.c,v 1.81 2002/06/19 12:54:18 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1211,6 +1211,11 @@ DL_EXPORT(void)
     insint(d, "CLOSEPOLICY_LEAST_TRAFFIC", CURLCLOSEPOLICY_LEAST_TRAFFIC);
     insint(d, "CLOSEPOLICY_SLOWEST", CURLCLOSEPOLICY_SLOWEST);
     insint(d, "CLOSEPOLICY_CALLBACK", CURLCLOSEPOLICY_CALLBACK);
+
+    /* NETRC constants for setopt */
+    insint(d, "NETRC_OPTIONAL", CURL_NETRC_OPTIONAL);
+    insint(d, "NETRC_IGNORED", CURL_NETRC_IGNORED);
+    insint(d, "NETRC_REQUIRED", CURL_NETRC_REQUIRED);
 
     /* global_init options */
     insint(d, "GLOBAL_ALL", CURL_GLOBAL_ALL);
