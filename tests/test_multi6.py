@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi6.py,v 1.1 2002/11/19 11:49:05 kjetilja Exp $
+# $Id: test_multi6.py,v 1.2 2002/11/20 14:53:41 kjetilja Exp $
 
 import sys, select, time
 import pycurl
@@ -39,7 +39,7 @@ while num_handles:
     while 1:
         ret, num_handles = m.perform()
         # Print the message, if any
-        print m.info_read()
+        print m.info_read(1)
         if ret != pycurl.E_CALL_MULTI_PERFORM: break
 
 # Cleanup
