@@ -1,14 +1,16 @@
-/* $Id: curl.c,v 1.96 2002/06/25 15:36:24 kjetilja Exp $ */
+/* $Id: curl.c,v 1.97 2002/06/26 09:07:33 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
- * Author:
+ * Authors:
  *  Kjetil Jacobsen <kjetilja at cs.uit.no>
+ *  Markus F.X.J. Oberhumer <markus at oberhumer.com>
  *
  * Contributions:
- *  Markus F.X.J. Oberhumer <markus at oberhumer.com>
  *  Tino Lange <Tino.Lange at gmx.de>
  *  Matt King <matt at gnik.com>
+ *  Conrad Steenberg <conrad at hep.caltech.edu>
+ *  Amit Mongia <amit_mongia at hotmail.com>
  *
  * See file COPYING for license information.
  *
