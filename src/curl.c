@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.123 2002/07/10 11:18:39 kjetilja Exp $ */
+/* $Id: curl.c,v 1.124 2002/07/10 11:40:58 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1029,7 +1029,7 @@ do_getinfo(CurlObject *self, PyObject *args)
         if (res != CURLE_OK) {
             CURLERROR();
         }
-        /* If the resultng string is NULL, return None */
+        /* If the resulting string is NULL, return None */
         if (s_res == NULL) {
             Py_INCREF(Py_None);
             return Py_None;
