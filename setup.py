@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # vi:ts=4:et
 
-# $Id: setup.py,v 1.68 2002/10/24 11:03:21 mfx Exp $
+# $Id: setup.py,v 1.69 2002/10/28 23:06:17 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -46,10 +46,9 @@ if sys.platform == "win32":
     CURL_DIR = r"c:\src\curl-7.10.1"
     CURL_DIR = scan_argv("--curl-dir=", CURL_DIR)
     print "Using curl directory:", CURL_DIR
+    assert os.path.isdir(CURL_DIR), "please check CURL_DIR in setup.py"
     include_dirs.append(os.path.join(CURL_DIR, "include"))
     extra_objects.append(os.path.join(CURL_DIR, "lib", "libcurl.lib"))
-    assert os.path.isdir(CURL_DIR), "please check CURL_DIR in setup.py"
-    assert os.path.isfile(extra_objects[-1]), "please check CURL_DIR in setup.py"
 else:
     # Find out the rest the hard way
     CURL_CONFIG = "curl-config"
@@ -133,5 +132,8 @@ setup_args["licence"] = setup_args["license"]
 if LooseVersion(distutils.__version__) > LooseVersion("1.0.1"):
     setup_args["platforms"] = "All"
 
-apply(setup, (), setup_args)
+if __name__ == "__main__":
+    for o in ext.extra_objects:
+        assert os.path.isfile(o), o
+    apply(setup, (), setup_args)
 
