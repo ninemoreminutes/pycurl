@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.52 2002/03/08 14:12:39 kjetilja Exp $ */
+/* $Id: curl.c,v 1.53 2002/04/15 10:19:36 kjetilja Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -1061,6 +1061,9 @@ DL_EXPORT(void)
     insint(d, "SSLKEYPASSWD", CURLOPT_SSLKEYPASSWD);
     insint(d, "SSLENGINE", CURLOPT_SSLENGINE);
     insint(d, "SSLENGINE_DEFAULT", CURLOPT_SSLENGINE_DEFAULT);
+
+    insint(d, "DNS_CACHE_TIMEOUT", CURLOPT_DNS_CACHE_TIMEOUT);
+    insint(d, "DNS_USE_GLOBAL_CACHE", CURLOPT_DNS_USE_GLOBAL_CACHE);
 
     /* Symbolic constants for getinfo */
     insint(d, "EFFECTIVE_URL", CURLINFO_EFFECTIVE_URL);
