@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.15 2003/07/30 18:15:01 mfx Exp $ */
+/* $Id: pycurl.c,v 1.16 2003/08/08 14:22:32 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1365,6 +1365,7 @@ do_curl_setopt(CurlObject *self, PyObject *args)
             ZAP(self->ssl_ctx_cb);
             self->ssl_ctx_cb = obj;
             curl_easy_setopt(self->handle, CURLOPT_SSL_CTX_FUNCTION, ssl_ctx_cb);
+            curl_easy_setopt(self->handle, CURLOPT_SSL_CTX_DATA, self);
             break;
 #endif
 #endif
@@ -2524,7 +2525,6 @@ initpycurl(void)
 #if 0
     /* FIXME */
     insint_c(d, "SSL_CTX_FUNCTION", CURLOPT_SSL_CTX_FUNCTION);
-    insint_c(d, "SSL_CTX_DATA", CURLOPT_SSL_CTX_DATA);
 #endif
 #endif
 
