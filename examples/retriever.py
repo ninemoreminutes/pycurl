@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever.py,v 1.13 2003/01/27 13:15:51 kjetilja Exp $
+# $Id: retriever.py,v 1.14 2003/03/23 13:42:24 kjetilja Exp $
 
 import sys, threading, Queue
 import pycurl
@@ -65,7 +65,7 @@ queue = Queue.Queue()
 # Fill the work input queue with URLs
 for url in urls:
     fileno = fileno + 1
-    filename = "data_%d" % (fileno,)
+    filename = "doc_%d" % (fileno,)
     queue.put((url, filename))
 
 # Start a bunch of threads

@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.17 2003/01/27 13:14:41 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.18 2003/03/23 13:42:24 kjetilja Exp $
 
 import sys
 assert sys.version[:3] >= "2.2", "requires Python 2.2 or better"
@@ -32,7 +32,7 @@ for url in urls:
     url = url.strip()
     if not url or url[0] == "#":
         continue
-    filename = "data_%d" % (fileno)
+    filename = "doc_%d" % (fileno)
     queue.append((url, filename))
     fileno += 1
 del fileno, url, urls
