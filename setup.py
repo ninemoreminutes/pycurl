@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.108 2004/05/05 19:17:41 mfx Exp $
+# $Id: setup.py,v 1.109 2004/05/18 11:24:56 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -107,12 +107,6 @@ else:
         extra_link_args.append("-flat_namespace")
 
 
-# Find out whether to support GC or not, default to using the GC
-USE_GC = scan_argv("--use-gc=", "1")
-if USE_GC == "0":
-    define_macros.append(("WITHOUT_GC", "1"))
-
-
 ###############################################################################
 
 def get_kw(**kw): return kw
@@ -187,7 +181,6 @@ setup_args = get_kw(
 This module provides Python bindings for the cURL library.""",
 )
 
-# FIXME - which Python version do we want to support ???
 if sys.version >= "2.2":
     setup_args["packages"] = [PY_PACKAGE]
     setup_args["package_dir"] = { PY_PACKAGE: os.path.join('python', 'curl') }
