@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.91 2003/05/15 13:56:44 mfx Exp $
+# $Id: setup.py,v 1.92 2003/05/18 15:05:03 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -71,6 +71,9 @@ if sys.platform == "win32":
     extra_objects.append(os.path.join(CURL_DIR, "lib", "libcurl.lib"))
     extra_link_args.extend(["gdi32.lib", "winmm.lib", "ws2_32.lib",])
     add_libdirs("LIB", ";")
+    if 1:
+        ##extra_compile_args.append("-GF")
+        extra_compile_args.append("-Gy")
 else:
     # Find out the rest the hard way
     CURL_CONFIG = "curl-config"
