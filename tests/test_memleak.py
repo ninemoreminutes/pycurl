@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_memleak.py,v 1.1 2003/01/13 12:30:35 mfx Exp $
+# $Id: test_memleak.py,v 1.2 2003/01/17 15:52:24 mfx Exp $
 
 #
 # just a simple self-test
@@ -23,7 +23,6 @@ if 1:
     flags = flags | gc.DEBUG_STATS
 gc.set_debug(flags)
 gc.collect()
-gc.get_objects()    # dummy
 
 print "Tracked objects:", len(gc.get_objects())
 
@@ -42,6 +41,7 @@ for curl in t:
 
 print "Tracked objects:", len(gc.get_objects())
 
+del curl
 del t
 del multi
 
