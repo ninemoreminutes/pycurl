@@ -1,4 +1,4 @@
-# $Id: crawler.py,v 1.3 2002/06/20 16:35:20 kjetilja Exp $
+# $Id: crawler.py,v 1.4 2002/06/21 12:42:57 kjetilja Exp $
 
 ## System modules
 import sys
@@ -36,21 +36,21 @@ class WorkerThread(threading.Thread):
             sys.stdout.write('.')
             sys.stdout.flush()
 
-# Read list of URIs from file specified on commandline
+# Read list of URLs from file specified on commandline
 try:
     urls = open(sys.argv[1]).readlines()
     num_workers = int(sys.argv[2])
 except IndexError:
-    # No file was specified, show usage string
-    print "Usage: %s <file with uris to fetch> <number of workers>" % sys.argv[0]
+    # File or number of workers was not specified, show usage string
+    print "Usage: %s <file with URLs to fetch> <number of workers>" % sys.argv[0]
     raise SystemExit
 
-# Initialize thread array and the file number
+# Initialize thread array and the file number used to store documents
 threads = []
 fileno = 0
 iq = Queue.Queue()
 
-# Fill the work queue with uris
+# Fill the work input queue with URLs
 for url in urls:
     fileno = fileno + 1
     iq.put((url, fileno))
