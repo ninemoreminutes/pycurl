@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.83 2002/06/20 07:41:01 kjetilja Exp $ */
+/* $Id: curl.c,v 1.84 2002/06/20 13:06:38 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -54,14 +54,13 @@ typedef struct {
 staticforward PyTypeObject Curl_Type;
 #endif
 
-#define CURLERROR() \
-{\
+#define CURLERROR() do {\
     PyObject *v; \
     v = Py_BuildValue("(is)", res, self->error); \
     PyErr_SetObject(ErrorObject, v); \
     Py_DECREF(v); \
     return NULL; \
-}
+} while (0);
 
 /* --------------------------------------------------------------------- */
 
