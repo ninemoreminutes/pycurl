@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.7 2002/08/29 14:39:21 mfx Exp $
+# $Id: test_multi_vs_thread.py,v 1.8 2002/09/04 20:58:08 mfx Exp $
 
 import os, sys, time
 from threading import Thread, RLock
@@ -9,6 +9,11 @@ try:
 except ImportError:
     from StringIO import StringIO
 import pycurl
+
+# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
+# documentation `libcurl-the-guide' for more info.
+import signal
+signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 
 
 #
@@ -43,6 +48,7 @@ class Curl:
         self._curl = pycurl.Curl()
         self._curl.setopt(pycurl.URL, self.url)
         self._curl.setopt(pycurl.WRITEFUNCTION, self.body.write)
+        self._curl.setopt(pycurl.NOSIGNAL, 1)
 
     def perform(self):
         self._curl.perform()

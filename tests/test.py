@@ -1,9 +1,14 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test.py,v 1.10 2002/08/29 14:39:20 mfx Exp $
+# $Id: test.py,v 1.11 2002/09/04 20:58:07 mfx Exp $
 
 import sys, threading, time
 import pycurl
+
+# We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
+# documentation `libcurl-the-guide' for more info.
+import signal
+signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 
 
 class Test(threading.Thread):
@@ -14,6 +19,7 @@ class Test(threading.Thread):
         self.curl.setopt(pycurl.WRITEDATA, ofile)
         self.curl.setopt(pycurl.FOLLOWLOCATION, 1)
         self.curl.setopt(pycurl.MAXREDIRS, 5)
+        self.curl.setopt(pycurl.NOSIGNAL, 1)
 
     def run(self):
         self.curl.perform()
