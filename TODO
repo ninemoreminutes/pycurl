@@ -1,10 +1,10 @@
-# $Id: TODO,v 1.81 2004/05/18 11:24:56 kjetilja Exp $
+# $Id: TODO,v 1.82 2004/06/03 08:08:14 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
 
-NEW FEATURES:
+NEW FEATURES/IMPROVEMENTS:
 
     * HTTPPOST should take a dict instead of a list of tuples, this way it
       would have the same interface as POSTFIELDS.
