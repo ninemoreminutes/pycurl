@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_internals.py,v 1.12 2002/08/29 17:46:13 mfx Exp $
+# $Id: test_internals.py,v 1.13 2002/09/07 20:37:45 mfx Exp $
 
 #
 # a simple self-test
 #
 
 try:
-    # need Python 2.2 or better
+    # need Python 2.2 or better for garbage collection
     from gc import get_objects
     import gc
     del get_objects
@@ -236,7 +236,7 @@ if 1 and gc:
     ##print gc.get_objects()
     if opts.verbose >= 1:
         print "Tracked objects:", len(gc.get_objects())
-    # The `del' should delete these 4 objects:
+    # The `del' below should delete these 4 objects:
     #   Curl + internal dict, CurlMulti + internal dict
     del c
     gc.collect()
