@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: retriever-multi.py,v 1.3 2003/01/10 14:05:22 kjetilja Exp $
+# $Id: retriever-multi.py,v 1.4 2003/01/10 14:10:36 kjetilja Exp $
 
 import sys
 import pycurl
@@ -9,7 +9,7 @@ try:
     urls = open(sys.argv[1]).readlines()
     num_conn = int(sys.argv[2])
 except:
-    print "Usage: %s <file with URLs to fetch> <concurrency>" % sys.argv[0]
+    print "Usage: %s <file with URLs to fetch> <# of concurrent connections>" % sys.argv[0]
     raise SystemExit
 
 fileno = 0
