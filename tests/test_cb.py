@@ -1,14 +1,14 @@
-# $Id: test_cb.py,v 1.6 2001/08/20 10:41:40 kjetilja Exp $
+# $Id: test_cb.py,v 1.7 2001/08/20 10:45:53 kjetilja Exp $
 
 ## PycURL module
 import pycurl
 
-
+## Callback function invoked when body data is ready
 def body(buf):
     print buf
     return len(buf)
 
-
+## Callback function invoked when header data is ready
 def header(buf):
     print buf
     return len(buf)

@@ -1,11 +1,12 @@
-# $Id: test_getinfo.py,v 1.5 2001/08/20 10:41:40 kjetilja Exp $
+# $Id: test_getinfo.py,v 1.6 2001/08/20 10:45:53 kjetilja Exp $
 
 ## PycURL module
 import pycurl
 
-
+## Callback function invoked when progress information is updated
 def progress(download_t, download_d, upload_t, upload_d):
-    print 'total to download %d bytes, have %d bytes so far' % (download_t, download_d)
+    print 'total to download %d bytes, have %d bytes so far' % \
+          (download_t, download_d)
     return 0 # Anything else indicates an error
 
 
