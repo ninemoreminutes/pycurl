@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-# $Id: setup.py,v 1.22 2001/12/01 13:52:32 mfx Exp $
+# $Id: setup.py,v 1.23 2001/12/01 13:56:18 mfx Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -27,12 +27,12 @@ if sys.platform == "win32":
 else:
     include_dirs = []
     cflags=split(strip(os.popen('curl-config --cflags').read()), ' ')
-    for e in cflags:
+    for e in cflags[:]:
         if e[:2] == '-I':
             include_dirs.append(e[2:])
     library_dirs = []
     libs = split(strip(os.popen('curl-config --libs').read()), ' ')
-    for e in libs:
+    for e in libs[:]:
         if e[:2] == '-L':
             library_dirs.append(e[2:])
             libs.remove(e)
