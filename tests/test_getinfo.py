@@ -1,4 +1,6 @@
-# $Id: test_getinfo.py,v 1.10 2002/06/18 12:09:54 kjetilja Exp $
+# $Id: test_getinfo.py,v 1.11 2002/06/18 12:55:01 kjetilja Exp $
+
+import time
 
 ## PycURL module
 import pycurl
@@ -32,7 +34,8 @@ print 'Effective URL:', c.getinfo(pycurl.EFFECTIVE_URL)
 print 'Content-type:', c.getinfo(pycurl.CONTENT_TYPE)
 print 'Redirect-time:', c.getinfo(pycurl.REDIRECT_TIME)
 print 'Redirect-count:', c.getinfo(pycurl.REDIRECT_COUNT)
-print 'Filetime:', c.getinfo(pycurl.INFO_FILETIME)
+epoch = c.getinfo(pycurl.INFO_FILETIME)
+print 'Filetime: %d (%s)' % (epoch, time.ctime(epoch))
 print
 print "Header is in file 'header', body is in file 'body'"
 
