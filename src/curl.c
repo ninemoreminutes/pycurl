@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.82 2002/06/19 13:49:10 kjetilja Exp $ */
+/* $Id: curl.c,v 1.83 2002/06/20 07:41:01 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -129,10 +129,6 @@ self_cleanup(CurlObject *self)
 static void
 curl_dealloc(CurlObject *self)
 {
-    /* If this happens, there's a reference bug and we cannot recover */
-    assert(self->state != NULL);
-    assert(self != NULL);
-
     self_cleanup(self);
 #if (PY_VERSION_HEX < 0x01060000)
     PyMem_DEL(self);
