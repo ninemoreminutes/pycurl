@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.10 2002/09/09 10:29:53 kjetilja Exp $
+# $Id: test_multi_vs_thread.py,v 1.11 2002/12/29 13:44:55 mfx Exp $
 
 import os, sys, time
 from threading import Thread, RLock
@@ -12,8 +12,12 @@ import pycurl
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see the libcurl
 # documentation `libcurl-the-guide' for more info.
-import signal
-signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+try:
+    import signal
+    from signal import SIGPIPE, SIG_IGN
+    signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+except ImportError:
+    pass
 
 
 #
