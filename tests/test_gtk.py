@@ -1,4 +1,4 @@
-# $Id: test_gtk.py,v 1.15 2001/12/01 13:52:32 mfx Exp $
+# $Id: test_gtk.py,v 1.16 2002/06/18 15:14:58 kjetilja Exp $
 
 ## System modules
 import sys, threading
@@ -59,7 +59,7 @@ class Test(threading.Thread):
         self.progress = progress
         self.curl = pycurl.init()
         self.curl.setopt(pycurl.URL, url)
-        self.curl.setopt(pycurl.FILE, self.target_file)
+        self.curl.setopt(pycurl.WRITEDATA, self.target_file)
         self.curl.setopt(pycurl.FOLLOWLOCATION, 1)
         self.curl.setopt(pycurl.NOPROGRESS, 0)
         self.curl.setopt(pycurl.PROGRESSFUNCTION, self.progress)

@@ -1,4 +1,4 @@
-# $Id: test_getinfo.py,v 1.11 2002/06/18 12:55:01 kjetilja Exp $
+# $Id: test_getinfo.py,v 1.12 2002/06/18 15:14:58 kjetilja Exp $
 
 import time
 
@@ -18,7 +18,7 @@ f = open('body', 'w')
 h = open('header', 'w')
 c = pycurl.init()
 c.setopt(pycurl.URL, url)
-c.setopt(pycurl.FILE, f)
+c.setopt(pycurl.WRITEDATA, f)
 c.setopt(pycurl.NOPROGRESS, 0)
 c.setopt(pycurl.PROGRESSFUNCTION, progress)
 c.setopt(pycurl.FOLLOWLOCATION, 1)
