@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.34 2004/04/21 12:19:39 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.35 2004/04/26 08:35:09 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1061,20 +1061,20 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         return Py_None;
     }
 
-    /* Handle the case of long arguments (used by large varables) */
+    /* Handle the case of long arguments (used by *LARGE options) */
     if (PyLong_Check(obj)) {
 #if (LIBCURL_VERSION_NUM >= 0x070b01)
   #if (PY_VERSION_HEX >= 0x02020000)
         curl_off_t longdata = PyLong_AsLongLong(obj);
   #else
-  #warning "Longs are not properly supported by this Python version, this may affect largefile support"
+  #warning "Long longs are not properly supported by this Python version, this may affect largefile support"
         curl_off_t longdata = PyLong_AsLong(obj);
   #endif
 #else
   #if (PY_VERSION_HEX >= 0x02020000)
         off_t longdata = PyLong_AsLongLong(obj);
   #else
-  #warning "Longs are not properly supported by this Python version, this may affect largefile support"
+  #warning "Longs longs are not properly supported by this Python version, this may affect largefile support"
         off_t longdata = PyLong_AsLong(obj);
   #endif
 #endif
