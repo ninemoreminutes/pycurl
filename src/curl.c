@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.188 2003/01/18 22:40:46 mfx Exp $ */
+/* $Id: curl.c,v 1.189 2003/01/21 15:12:43 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1696,25 +1696,24 @@ do_multi_select(CurlMultiObject *self, PyObject *args)
         return NULL;
     }
 
-    if (tout == Py_None)
+    if (tout == Py_None) {
         tvp = (struct timeval *)0;
+    }
     else if (!PyArg_Parse(tout, "d", &timeout)) {
-                PyErr_SetString(PyExc_TypeError,
-                                "timeout must be a float or None");
-                return NULL;
+        PyErr_SetString(PyExc_TypeError, "timeout must be a float or None");
+        return NULL;
+    }
+    else {
+        if (timeout > (double)LONG_MAX) {
+            PyErr_SetString(PyExc_OverflowError, "timeout period too long");
+            return NULL;
         }
-        else {
-                if (timeout > (double)LONG_MAX) {
-                        PyErr_SetString(PyExc_OverflowError,
-                                        "timeout period too long");
-                        return NULL;
-                }
-                seconds = (long)timeout;
-                timeout = timeout - (double)seconds;
-                tv.tv_sec = seconds;
-                tv.tv_usec = (long)(timeout*1000000.0);
-                tvp = &tv;
-        }
+        seconds = (long)timeout;
+        timeout = timeout - (double)seconds;
+        tv.tv_sec = seconds;
+        tv.tv_usec = (long)(timeout*1000000.0);
+        tvp = &tv;
+    }
 
     FD_ZERO(&self->read_fd_set);
     FD_ZERO(&self->write_fd_set);
