@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.66 2002/04/16 11:40:31 kjetilja Exp $ */
+/* $Id: curl.c,v 1.67 2002/04/22 17:59:53 mfx Exp $ */
 
 /* cURL Python module by Kjetil Jacobsen <kjetilja @ cs.uit.no> */
 
@@ -90,8 +90,8 @@ self_cleanup(CurlObject *self)
 	if (self->options[i] != NULL) {
 	    free(self->options[i]);
 	    self->options[i] = NULL;
-	}		
-    }	
+	}
+    }
     self->state = NULL;
     Py_XDECREF(self->w_cb);
     Py_XDECREF(self->r_cb);
@@ -454,7 +454,7 @@ do_setopt(CurlObject *self, PyObject *args)
 	strcpy(buf, stringdata);
 	self->options[opt_masked] = buf;
 	/* Call setopt */
-	res = curl_easy_setopt(self->handle, option, 
+	res = curl_easy_setopt(self->handle, option,
 			       (char *)self->options[opt_masked]);
 	/* Check for errors */
 	if (res == CURLE_OK) {
@@ -876,6 +876,7 @@ do_init(PyObject *arg)
     self->postquote = NULL;
     self->prequote = NULL;
     self->httppost = NULL;
+    self->state = NULL;
     self->writeheader_set = 0;
 
     /* Set callback pointers to NULL */
@@ -896,7 +897,7 @@ do_init(PyObject *arg)
     if (res != CURLE_OK)
         goto error;
     memset(self->error, 0, sizeof(char) * CURL_ERROR_SIZE);
-    
+
     /* Zero memory buffer for setopt */
     memset(self->options, 0, sizeof(void *) * CURLOPT_LASTENTRY);
 
@@ -1101,7 +1102,7 @@ DL_EXPORT(void)
     insint(d, "HTTP_VERSION_1_1", CURL_HTTP_VERSION_1_1);
     insint(d, "FTP_USE_EPSV", CURLOPT_FTP_USE_EPSV);
 
-    insint(d, "SSLCERTTYPE", CURLOPT_SSLCERTTYPE); 
+    insint(d, "SSLCERTTYPE", CURLOPT_SSLCERTTYPE);
     insint(d, "SSLKEY", CURLOPT_SSLKEY);
     insint(d, "SSLKEYTYPE", CURLOPT_SSLKEYTYPE);
     insint(d, "SSLKEYPASSWD", CURLOPT_SSLKEYPASSWD);
