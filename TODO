@@ -1,8 +1,9 @@
-# $Id: TODO,v 1.51 2003/04/01 12:27:03 mfx Exp $
+# $Id: TODO,v 1.52 2003/04/01 12:46:48 kjetilja Exp $
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
-    * I think CURLOPT_FILETIME needs to be checked.
+    * I think CURLOPT_FILETIME needs to be checked (check test_getinfo.py
+      for the current namespace prefix hack used -- kjetilja)
 
     * A nicer mechanism to decrease the reference count on container
       objects and classes passed as options to setopt (this has to be
