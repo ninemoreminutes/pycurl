@@ -1,4 +1,4 @@
-# $Id: TODO,v 1.89 2004/08/11 13:22:20 kjetilja Exp $
+# $Id: TODO,v 1.90 2004/08/19 07:40:31 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
@@ -17,6 +17,8 @@ NEW FEATURES/IMPROVEMENTS:
     * curl_easy_reset() should probably be supported.  But we have to be
       careful since curl_easy_reset() e.g. modifies callbacks and other
       pointers which could leave pycurl and libcurl out of sync.
+
+    * Use METH_O and METH_NOARGS where appropriate instead of METH_VARAGS.
 
 
 DEFICIENICES:
