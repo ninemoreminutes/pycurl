@@ -1,4 +1,4 @@
-# $Id: test.py,v 1.5 2002/04/15 12:15:54 kjetilja Exp $
+# $Id: test.py,v 1.6 2002/04/16 11:05:49 kjetilja Exp $
 
 ## System modules
 import sys
@@ -19,8 +19,6 @@ class Test(threading.Thread):
         self.curl.setopt(pycurl.NOPROGRESS, 1)
         self.curl.setopt(pycurl.FOLLOWLOCATION, 1)
         self.curl.setopt(pycurl.MAXREDIRS, 5)
-        self.curl.setopt(pycurl.DNS_USE_GLOBAL_CACHE, 1)
-        self.curl.setopt(pycurl.DNS_CACHE_TIMEOUT, 10)
 
     def run(self):
         self.curl.perform()
