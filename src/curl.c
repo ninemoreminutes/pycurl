@@ -1,4 +1,4 @@
-/* $Id: curl.c,v 1.197 2003/01/25 11:51:39 mfx Exp $ */
+/* $Id: curl.c,v 1.198 2003/02/04 08:09:11 mfx Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -29,6 +29,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 #undef NDEBUG
 #include <assert.h>
 
@@ -2376,10 +2377,10 @@ initpycurl(void)
      * some cases. */
     vi = curl_version_info(CURLVERSION_NOW);
     if (vi == NULL) {
-        Py_FatalError("pycurl: curl_version_info()");
+        Py_FatalError("pycurl: FATAL: curl_version_info() failed");
     }
     if (vi->version_num < LIBCURL_VERSION_NUM) {
-        Py_FatalError("pycurl: libcurl link-time version is older than compile-time version!");
+        Py_FatalError("pycurl: FATAL: libcurl link-time version is older than compile-time version");
     }
 
     /* Finally initialize global interpreter lock */
