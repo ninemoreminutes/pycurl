@@ -1,4 +1,4 @@
-# $Id: test_internals.py,v 1.9 2002/08/06 19:59:54 mfx Exp $
+# $Id: test_internals.py,v 1.10 2002/08/21 23:29:46 mfx Exp $
 # vi:ts=4:et
 
 #
@@ -23,6 +23,10 @@ try:
     import pickle
 except ImportError:
     pickle = None
+
+# update sys.path when running in the build directory
+from util import get_sys_path
+sys.path = get_sys_path()
 
 import pycurl
 from pycurl import Curl, CurlMulti
