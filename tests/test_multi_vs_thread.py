@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi_vs_thread.py,v 1.15 2004/12/26 17:31:53 mfx Exp $
+# $Id: test_multi_vs_thread.py,v 1.16 2005/04/12 03:39:01 mfx Exp $
 
 import os, sys, time
 from threading import Thread, RLock
@@ -90,7 +90,7 @@ def test_multi():
 
     # get data
     while num_handles:
-        m.select()
+        m.select(1.0)
         while 1:
             ret, num_handles = m.perform()
             if ret != pycurl.E_CALL_MULTI_PERFORM:
