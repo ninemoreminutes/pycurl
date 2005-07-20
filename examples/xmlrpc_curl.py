@@ -1,13 +1,12 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: xmlrpc_curl.py,v 1.10 2005/02/11 11:09:12 mfx Exp $
+# $Id: xmlrpc_curl.py,v 1.11 2005/07/20 08:17:10 kjetilja Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see
 # the libcurl tutorial for more info.
 try:
     import signal
-    from signal import SIGPIPE, SIG_IGN
     signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 except ImportError:
     pass

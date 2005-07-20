@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: retriever.py,v 1.17 2005/02/13 08:28:01 mfx Exp $
+# $Id: retriever.py,v 1.18 2005/07/20 08:17:10 kjetilja Exp $
 
 #
 # Usage: python retriever.py <file with URLs to fetch> [<# of
@@ -15,7 +15,6 @@ import pycurl
 # the libcurl tutorial for more info.
 try:
     import signal
-    from signal import SIGPIPE, SIG_IGN
     signal.signal(signal.SIGPIPE, signal.SIG_IGN)
 except ImportError:
     pass
