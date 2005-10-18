@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.94 2005/10/18 07:14:38 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.95 2005/10/18 07:17:46 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -49,8 +49,8 @@
 #if !defined(PY_VERSION_HEX) || (PY_VERSION_HEX < 0x02020000)
 #  error "Need Python version 2.2 or greater to compile pycurl."
 #endif
-#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070e01)
-#  error "Need libcurl version 7.14.1 or greater to compile pycurl."
+#if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x070f00)
+#  error "Need libcurl version 7.15.0 or greater to compile pycurl."
 #endif
 
 #undef UNUSED
