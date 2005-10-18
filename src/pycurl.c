@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.93 2005/09/05 12:05:09 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.94 2005/10/18 07:14:38 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2698,6 +2698,7 @@ initpycurl(void)
     insint_c(d, "FTP_ACCOUNT", CURLOPT_FTP_ACCOUNT);
     insint_c(d, "IGNORE_CONTENT_LENGTH", CURLOPT_IGNORE_CONTENT_LENGTH);
     insint_c(d, "COOKIELIST", CURLOPT_COOKIELIST);
+    insint_c(d, "FTP_SKIP_PASV_IP", CURLOPT_FTP_SKIP_PASV_IP);
 
     /* constants for setopt(IPRESOLVE, x) */
     insint_c(d, "IPRESOLVE_WHATEVER", CURL_IPRESOLVE_WHATEVER);
