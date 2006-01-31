@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup_win32_ssl.py,v 1.32 2005/10/18 07:17:46 kjetilja Exp $
+# $Id: setup_win32_ssl.py,v 1.33 2006/01/31 08:58:58 kjetilja Exp $
 
 import os, sys, string
 assert sys.platform == "win32", "Only for building on Win32 with SSL and zlib"
 
 
-CURL_DIR = r"c:\src\build\pycurl\curl-7.15.0-ssl"
+CURL_DIR = r"c:\src\build\pycurl\curl-7.15.1-ssl"
 OPENSSL_DIR = r"c:\src\build\pycurl\openssl-0.9.7g"
 sys.argv.insert(1, "--curl-dir=" + CURL_DIR)
 
