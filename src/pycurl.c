@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.98 2006/03/03 13:56:20 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.99 2006/03/03 14:13:20 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -15,6 +15,7 @@
  *  Martin Muenstermann <mamuema at sourceforge.net>
  *  Domenico Andreoli <cavok at libero.it>
  *  Dominique <curl-and-python at d242.net>
+ *  Paul Pacheco
  *
  * See file COPYING for license information.
  *
