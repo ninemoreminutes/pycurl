@@ -1,13 +1,13 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.131 2006/06/18 19:17:14 kjetilja Exp $
+# $Id: setup.py,v 1.132 2006/06/28 10:27:46 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
 PACKAGE = "pycurl"
 PY_PACKAGE = "curl"
-VERSION = "7.15.4"
+VERSION = "7.15.4.1"
 
 import glob, os, re, sys, string
 import distutils
