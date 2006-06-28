@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.101 2006/06/13 19:06:28 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.102 2006/06/28 10:02:52 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2209,7 +2209,7 @@ do_multi_fdset(CurlMultiObject *self)
     /* Don't bother releasing the gil as this is just a data structure operation */
     res = curl_multi_fdset(self->multi_handle, &self->read_fd_set,
                            &self->write_fd_set, &self->exc_fd_set, &max_fd);
-    if (res != CURLM_OK || max_fd < 0) {
+    if (res != CURLM_OK) {
         CURLERROR_MSG("curl_multi_fdset() failed due to internal errors");
     }
 
