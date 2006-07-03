@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.107 2006/07/03 13:14:11 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.108 2006/07/03 13:21:04 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -3339,7 +3339,7 @@ initpycurl(void)
     }
 
     /* Initialize callback locks if ssl is enabled */
-#if defined(PYCURL_NEEDS_SSL_TSL)
+#if defined(PYCURL_NEED_SSL_TSL)
     pycurl_ssl_init();
 #endif
 
