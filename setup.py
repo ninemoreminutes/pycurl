@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.132 2006/06/28 10:27:46 kjetilja Exp $
+# $Id: setup.py,v 1.133 2006/07/03 13:14:11 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -96,10 +96,17 @@ else:
     for e in split_quoted(os.popen("'%s' --libs" % CURL_CONFIG).read()):
         if e[:2] == "-l":
             libraries.append(e[2:])
+            if e[2:] == 'ssl':
+                define_macros.append(('HAVE_CURL_OPENSSL', 1))
+            if e[2:] == 'gnutls':
+                define_macros.append(('HAVE_CURL_GNUTLS', 1))
         elif e[:2] == "-L":
             library_dirs.append(e[2:])
         else:
             extra_link_args.append(e)
+    for e in split_quoted(os.popen("'%s' --features" % CURL_CONFIG).read()):
+        if e == 'SSL':
+            define_macros.append(('HAVE_CURL_SSL', 1))
     if not libraries:
         libraries.append("curl")
     # Add extra compile flag for MacOS X
