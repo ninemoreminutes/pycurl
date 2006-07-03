@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup_win32_ssl.py,v 1.35 2006/06/18 19:17:14 kjetilja Exp $
+# $Id: setup_win32_ssl.py,v 1.36 2006/07/03 13:16:00 kjetilja Exp $
 
 import os, sys, string
 assert sys.platform == "win32", "Only for building on Win32 with SSL and zlib"
@@ -15,9 +15,11 @@ from setup import *
 
 setup_args["name"] = "pycurl-ssl"
 
-
 for l in ("libeay32.lib", "ssleay32.lib",):
     ext.extra_objects.append(os.path.join(OPENSSL_DIR, "out32", l))
+
+define_macros.append(('HAVE_CURL_SSL', 1))
+define_macros.append(('HAVE_CURL_OPENSSL', 1))
 
 pool = "\\" + r"pool\win32\vc6" + "\\"
 if string.find(sys.version, "MSC v.1310") >= 0:
