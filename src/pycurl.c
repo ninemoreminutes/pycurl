@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.108 2006/07/03 13:21:04 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.109 2006/07/04 08:25:35 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2773,7 +2773,7 @@ do_global_cleanup(PyObject *dummy)
 {
     UNUSED(dummy);
     curl_global_cleanup();
-#ifdef PHP_CURL_NEED_SSL_TSL
+#ifdef PYCURL_NEED_SSL_TSL
     pycurl_ssl_cleanup();
 #endif
     Py_INCREF(Py_None);
