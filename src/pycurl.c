@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.111 2006/07/04 10:03:58 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.112 2006/07/05 06:52:19 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2929,7 +2929,7 @@ insobj2(PyObject *dict1, PyObject *dict2, char *name, PyObject *value)
     Py_DECREF(value);
     return;
 error:
-    Py_FatalError("pycurl: FATAL: insobj2() failed");
+    Py_FatalError("pycurl: insobj2() failed");
     assert(0);
 }
 
@@ -3323,11 +3323,11 @@ initpycurl(void)
      * some cases. */
     vi = curl_version_info(CURLVERSION_NOW);
     if (vi == NULL) {
-        Py_FatalError("pycurl: FATAL: curl_version_info() failed");
+        Py_FatalError("pycurl: curl_version_info() failed");
         assert(0);
     }
     if (vi->version_num < LIBCURL_VERSION_NUM) {
-        Py_FatalError("pycurl: FATAL: libcurl link-time version is older than compile-time version");
+        Py_FatalError("pycurl: libcurl link-time version is older than compile-time version");
         assert(0);
     }
 
