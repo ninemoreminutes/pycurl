@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.134 2006/07/05 06:52:19 kjetilja Exp $
+# $Id: setup.py,v 1.135 2006/07/05 10:31:54 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -78,6 +78,9 @@ if sys.platform == "win32":
         extra_link_args.append("/opt:nowin98")  # use small section alignment
 else:
     # Find out the rest the hard way
+    OPENSSL_DIR = scan_argv("--openssl-dir=", "")
+    if OPENSSL_DIR != "":
+        include_dirs.append(os.path.join(OPENSSL_DIR, "include"))
     CURL_CONFIG = "curl-config"
     CURL_CONFIG = scan_argv("--curl-config=", CURL_CONFIG)
     d = os.popen("'%s' --version" % CURL_CONFIG).read()
