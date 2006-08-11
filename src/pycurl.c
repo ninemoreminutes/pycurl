@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.114 2006/08/10 11:41:16 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.115 2006/08/11 10:34:49 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -416,7 +416,7 @@ static int pycurl_ssl_mutex_destroy(void **m)
 
 static int pycurl_ssl_mutex_lock(void **m)
 {
-    return PyThread_acquire_lock(*((PyThread_type_lock *) m), 1);
+    return !PyThread_acquire_lock(*((PyThread_type_lock *) m), 1);
 }
 
 static int pycurl_ssl_mutex_unlock(void **m)
