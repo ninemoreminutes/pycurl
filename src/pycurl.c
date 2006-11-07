@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.117 2006/11/07 15:14:11 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.118 2006/11/07 15:30:04 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -3178,6 +3178,11 @@ initpycurl(void)
     insint_c(d, "FTP_ALTERNATIVE_TO_USER", CURLOPT_FTP_ALTERNATIVE_TO_USER);
     insint_c(d, "MAX_SEND_SPEED_LARGE", CURLOPT_MAX_SEND_SPEED_LARGE);
     insint_c(d, "MAX_RECV_SPEED_LARGE", CURLOPT_MAX_RECV_SPEED_LARGE);
+    insint_c(d, "SSL_SESSIONID_CACHE", CURLOPT_SSL_SESSIONID_CACHE);
+
+    insint_c(d, "M_TIMERFUNCTION", CURLMOPT_TIMERFUNCTION);
+    insint_c(d, "M_TIMERDATA", CURLMOPT_TIMERDATA);
+    insint_c(d, "M_PIPELINING", CURLMOPT_PIPELINING);
 
     /* constants for setopt(IPRESOLVE, x) */
     insint_c(d, "IPRESOLVE_WHATEVER", CURL_IPRESOLVE_WHATEVER);
