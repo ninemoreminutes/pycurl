@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.121 2006/11/08 14:15:59 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.122 2006/11/10 12:23:09 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -2234,7 +2234,7 @@ int multi_timer_callback(CURLM *multi,
         goto silent_error;
 
     /* run callback */
-    arglist = Py_BuildValue("i", timeout_ms);
+    arglist = Py_BuildValue("(i)", timeout_ms);
     if (arglist == NULL)
         goto verbose_error;
     result = PyEval_CallObject(self->t_cb, arglist);
