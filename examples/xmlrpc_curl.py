@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: xmlrpc_curl.py,v 1.12 2005/07/28 11:04:13 mfx Exp $
+# $Id: xmlrpc_curl.py,v 1.13 2007/03/04 19:26:59 kjetilja Exp $
 
 # We should ignore SIGPIPE when using pycurl.NOSIGNAL - see
 # the libcurl tutorial for more info.
@@ -31,6 +31,7 @@ class CURLTransport(xmlrpclib.Transport):
         self.c.setopt(pycurl.HTTPHEADER, self.xmlrpc_h)
         if username != None and password != None:
             self.c.setopt(pycurl.USERPWD, '%s:%s' % (username, password))
+        self._use_datetime = False
 
     def request(self, host, handler, request_body, verbose=0):
         b = StringIO()
