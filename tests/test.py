@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test.py,v 1.16 2004/12/26 17:31:53 mfx Exp $
+# $Id: test.py,v 1.17 2007/04/10 13:25:17 kjetilja Exp $
 
 import sys, threading, time
 import pycurl
@@ -49,7 +49,7 @@ fileno = 0
 t1 = time.time()
 for url in urls:
     f = open(str(fileno), "wb")
-    t = Test(url, f)
+    t = Test(url.rstrip(), f)
     t.start()
     threads.append((t, f))
     fileno = fileno + 1
@@ -65,7 +65,7 @@ fileno = 0
 t1 = time.time()
 for url in urls:
     f = open(str(fileno), "wb")
-    t = Test(url, f)
+    t = Test(url.rstrip(), f)
     t.start()
     fileno = fileno + 1
     t.join()

@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: test_multi2.py,v 1.14 2005/03/11 13:24:45 kjetilja Exp $
+# $Id: test_multi2.py,v 1.15 2007/04/10 13:26:45 kjetilja Exp $
 
 import os, sys
 try:
@@ -32,7 +32,7 @@ m.handles = []
 for url in urls:
     c = pycurl.Curl()
     # save info in standard Python attributes
-    c.url = url
+    c.url = url.rstrip()
     c.body = StringIO()
     c.http_code = -1
     m.handles.append(c)
