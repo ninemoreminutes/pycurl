@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.126 2007/04/13 11:39:22 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.127 2007/04/13 12:07:04 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -3291,6 +3291,10 @@ initpycurl(void)
     insint_c(d, "IOE_OK", CURLIOE_OK);
     insint_c(d, "IOE_UNKNOWNCMD", CURLIOE_UNKNOWNCMD);
     insint_c(d, "IOE_FAILRESTART", CURLIOE_FAILRESTART);
+
+    /* constants for ioctl callback argument values */
+    insint_c(d, "IOCMD_NOP", CURLIOCMD_NOP);
+    insint_c(d, "IOCMD_RESTARTREAD", CURLIOCMD_RESTARTREAD);
 
     /* curl_infotype: the kind of data that is passed to information_callback */
 /* XXX do we actually need curl_infotype in pycurl ??? */
