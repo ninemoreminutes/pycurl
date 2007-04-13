@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.127 2007/04/13 12:07:04 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.128 2007/04/13 12:09:33 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -20,6 +20,7 @@
  *  K.S.Sreeram <sreeram at tachyontech.net>
  *  Jayne <corvine at gmail.com>
  *  Bastian Kleineidam
+ *  Mark Eichin
  *
  * See file COPYING for license information.
  */
