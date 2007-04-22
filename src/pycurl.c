@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.128 2007/04/13 12:09:33 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.129 2007/04/22 17:27:16 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -51,6 +51,13 @@
 #endif
 #if !defined(LIBCURL_VERSION_NUM) || (LIBCURL_VERSION_NUM < 0x071002)
 #  error "Need libcurl version 7.16.2 or greater to compile pycurl."
+#endif
+
+/* Python < 2.5 compat for Py_ssize_t */
+#if PY_VERSION_HEX < 0x02050000 && !defined(PY_SSIZE_T_MIN)
+typedef int Py_ssize_t;
+#define PY_SSIZE_T_MAX INT_MAX
+#define PY_SSIZE_T_MIN INT_MIN
 #endif
 
 #undef UNUSED
