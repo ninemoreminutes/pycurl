@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.130 2007/04/22 18:12:04 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.131 2007/04/23 10:29:36 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1164,7 +1164,7 @@ read_callback(char *ptr, size_t size, size_t nmemb, void *stream)
     /* handle result */
     if (PyString_Check(result)) {
         char *buf = NULL;
-        int obj_size = -1;
+        Py_ssize_t obj_size = -1;
         Py_ssize_t r;
         r = PyString_AsStringAndSize(result, &buf, &obj_size);
         if (r != 0 || obj_size < 0 || obj_size > total_size) {
