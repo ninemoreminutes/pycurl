@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.136 2007/07/11 17:31:07 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.137 2007/07/31 17:26:41 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -22,7 +22,7 @@
  *  Bastian Kleineidam
  *  Mark Eichin
  *  Aaron Hill <visine19 at hotmail.com>
- *  Daniel Peña Arteaga <dpena ph.tum.de>
+ *  Daniel Pena Arteaga <dpena ph.tum.de>
  *
  * See file COPYING for license information.
  */
