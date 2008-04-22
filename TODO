@@ -1,10 +1,12 @@
-# $Id: TODO,v 1.98 2007/04/23 19:49:15 kjetilja Exp $
+# $Id: TODO,v 1.99 2008/04/22 13:47:15 kjetilja Exp $
 # vi:ts=4:et
 
 If you want to hack on pycurl, here's our list of unresolved issues:
 
 
 NEW FEATURES/IMPROVEMENTS:
+
+    * Callback handling for opening socket and stream seek.
 
     * Add docs to the high-level interface.
 
