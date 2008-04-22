@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.146 2008/04/22 13:47:15 kjetilja Exp $
+# $Id: setup.py,v 1.147 2008/04/22 14:00:45 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -153,7 +153,7 @@ def get_data_files():
     else:
         datadir = os.path.join("share", "doc", PACKAGE)
     #
-    files = ["ChangeLog", "COPYING", "INSTALL", "README", "TODO",]
+    files = ["ChangeLog", "COPYING", "COPYING2", "INSTALL", "README", "TODO",]
     if files:
         data_files.append((os.path.join(datadir), files))
     files = glob.glob(os.path.join("doc", "*.html"))
