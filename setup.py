@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: iso-8859-1 -*-
 # vi:ts=4:et
-# $Id: setup.py,v 1.144 2008/04/22 12:57:18 kjetilja Exp $
+# $Id: setup.py,v 1.145 2008/04/22 13:26:41 kjetilja Exp $
 
 """Setup script for the PycURL module distribution."""
 
@@ -96,7 +96,10 @@ else:
                 include_dirs.append(e[2:])
         else:
             extra_compile_args.append(e)
-    for e in split_quoted(os.popen("'%s' --libs" % CURL_CONFIG).read()):
+    libs = split_quoted(
+        os.popen("'%s' --libs" % CURL_CONFIG).read()+\
+        os.popen("'%s' --static-libs" % CURL_CONFIG).read())
+    for e in libs:
         if e[:2] == "-l":
             libraries.append(e[2:])
             if e[2:] == 'ssl':
