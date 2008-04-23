@@ -1,4 +1,4 @@
-/* $Id: pycurl.c,v 1.138 2008/04/22 13:47:15 kjetilja Exp $ */
+/* $Id: pycurl.c,v 1.139 2008/04/23 08:02:34 kjetilja Exp $ */
 
 /* PycURL -- cURL Python module
  *
@@ -1711,6 +1711,14 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         len = PyList_Size(obj);
         if (len == 0) {
             /* Empty list - do nothing */
+            if (!(option == CURLOPT_HTTPHEADER ||
+                  option == CURLOPT_QUOTE ||
+                  option == CURLOPT_POSTQUOTE ||
+                  option == CURLOPT_PREQUOTE)) {
+                /* Empty list - do nothing */
+                Py_INCREF(Py_None);
+                return Py_None;
+            }
             Py_INCREF(Py_None);
             return Py_None;
         }
@@ -3575,6 +3583,7 @@ initpycurl(void)
     insint_c(d, "PROXY_TRANSFER_MODE", CURLOPT_PROXY_TRANSFER_MODE);
     insint_c(d, "COPYPOSTFIELDS", CURLOPT_COPYPOSTFIELDS);
     insint_c(d, "SSH_HOST_PUBLIC_KEY_MD5", CURLOPT_SSH_HOST_PUBLIC_KEY_MD5);
+    insint_c(d, "AUTOREFERER", CURLOPT_AUTOREFERER);
 
     insint_c(d, "M_TIMERFUNCTION", CURLMOPT_TIMERFUNCTION);
     insint_c(d, "M_SOCKETFUNCTION", CURLMOPT_SOCKETFUNCTION);
