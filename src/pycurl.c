@@ -151,6 +151,7 @@ typedef struct {
     PyObject *ioctl_cb;
     PyObject *opensocket_cb;
     PyObject *seek_cb;
+    PyObject *interleave_cb;
     /* file objects */
     PyObject *readdata_fp;
     PyObject *writedata_fp;
@@ -729,6 +730,7 @@ util_curl_new(void)
     self->ioctl_cb = NULL;
     self->opensocket_cb = NULL;
     self->seek_cb = NULL;
+    self->interleave_cb = NULL;
 
     /* Set file object pointers to NULL by default */
     self->readdata_fp = NULL;
@@ -1058,7 +1060,21 @@ util_write_callback(int flags, char *ptr, size_t size, size_t nmemb, void *strea
     PyEval_AcquireThread(tmp_state);
 
     /* check args */
-    cb = flags ? self->h_cb : self->w_cb;
+    //cb = flags ? self->h_cb : self->w_cb;
+    switch(flags) {
+        case 0:
+            cb = self->w_cb;
+            break;
+        case 1:
+            cb = self->h_cb;
+            break;
+        case 2:
+            cb = self->interleave_cb;
+            break;
+        default:
+            break;
+    }
+        
     if (cb == NULL)
         goto silent_error;
     if (size <= 0 || nmemb <= 0)
@@ -1124,6 +1140,12 @@ static size_t
 header_callback(char *ptr, size_t size, size_t nmemb, void *stream)
 {
     return util_write_callback(1, ptr, size, nmemb, stream);
+}
+
+static size_t
+interleave_callback(char *ptr, size_t size, size_t nmemb, void *stream)
+{
+    return util_write_callback(2, ptr, size, nmemb, stream);
 }
 
 /* curl_socket_t is just an int on unix/windows (with limitations that
@@ -2068,6 +2090,7 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         const curl_ioctl_callback ioctl_cb = ioctl_callback;
         const curl_opensocket_callback opensocket_cb = opensocket_callback;
         const curl_seek_callback seek_cb = seek_callback;
+        const curl_write_callback interleave_cb = interleave_callback;
 
         switch(option) {
         case CURLOPT_WRITEFUNCTION:
@@ -2131,6 +2154,13 @@ do_curl_setopt(CurlObject *self, PyObject *args)
             self->seek_cb = obj;
             curl_easy_setopt(self->handle, CURLOPT_SEEKFUNCTION, seek_cb);
             curl_easy_setopt(self->handle, CURLOPT_SEEKDATA, self);
+            break;
+        case CURLOPT_INTERLEAVEFUNCTION:
+            Py_INCREF(obj);
+            ZAP(self->interleave_cb);
+            self->interleave_cb = obj;
+            curl_easy_setopt(self->handle, CURLOPT_INTERLEAVEFUNCTION, interleave_cb);
+            curl_easy_setopt(self->handle, CURLOPT_INTERLEAVEDATA, self);
             break;
 
         default:
@@ -3728,6 +3758,7 @@ initpycurl(void)
     insint_c(d, "COOKIEJAR", CURLOPT_COOKIEJAR);
     insint_c(d, "SSL_CIPHER_LIST", CURLOPT_SSL_CIPHER_LIST);
     insint_c(d, "HTTP_VERSION", CURLOPT_HTTP_VERSION);
+    insint_c(d, "RTSP_REQUEST", CURLOPT_RTSP_REQUEST);
     insint_c(d, "FTP_USE_EPSV", CURLOPT_FTP_USE_EPSV);
     insint_c(d, "SSLCERTTYPE", CURLOPT_SSLCERTTYPE);
     insint_c(d, "SSLKEY", CURLOPT_SSLKEY);
@@ -3793,6 +3824,8 @@ initpycurl(void)
     insint_c(d, "CRLFILE", CURLOPT_CRLFILE);
     insint_c(d, "ISSUERCERT", CURLOPT_ISSUERCERT);
     insint_c(d, "ADDRESS_SCOPE", CURLOPT_ADDRESS_SCOPE);
+    insint_c(d, "INTERLEAVEFUNCTION", CURLOPT_INTERLEAVEFUNCTION);
+    insint_c(d, "INTERLEAVEDATA", CURLOPT_INTERLEAVEDATA);
 
     insint_c(d, "M_TIMERFUNCTION", CURLMOPT_TIMERFUNCTION);
     insint_c(d, "M_SOCKETFUNCTION", CURLMOPT_SOCKETFUNCTION);
@@ -3809,6 +3842,18 @@ initpycurl(void)
     insint_c(d, "CURL_HTTP_VERSION_1_0", CURL_HTTP_VERSION_1_0);
     insint_c(d, "CURL_HTTP_VERSION_1_1", CURL_HTTP_VERSION_1_1);
     insint_c(d, "CURL_HTTP_VERSION_LAST", CURL_HTTP_VERSION_LAST);
+
+    insint_c(d, "CURL_RTSPREQ_OPTIONS", CURL_RTSPREQ_OPTIONS);
+    insint_c(d, "CURL_RTSPREQ_DESCRIBE", CURL_RTSPREQ_DESCRIBE);
+    insint_c(d, "CURL_RTSPREQ_ANNOUNCE", CURL_RTSPREQ_ANNOUNCE);
+    insint_c(d, "CURL_RTSPREQ_SETUP", CURL_RTSPREQ_SETUP);
+    insint_c(d, "CURL_RTSPREQ_PLAY", CURL_RTSPREQ_PLAY);
+    insint_c(d, "CURL_RTSPREQ_PAUSE", CURL_RTSPREQ_PAUSE);
+    insint_c(d, "CURL_RTSPREQ_TEARDOWN", CURL_RTSPREQ_TEARDOWN);
+    insint_c(d, "CURL_RTSPREQ_GET_PARAMETER", CURL_RTSPREQ_GET_PARAMETER);
+    insint_c(d, "CURL_RTSPREQ_SET_PARAMETER", CURL_RTSPREQ_SET_PARAMETER);
+    insint_c(d, "CURL_RTSPREQ_RECORD", CURL_RTSPREQ_RECORD);
+    insint_c(d, "CURL_RTSPREQ_RECEIVE", CURL_RTSPREQ_RECEIVE);
 
     /* CURL_NETRC_OPTION: constants for setopt(NETRC, x) */
     insint_c(d, "NETRC_OPTIONAL", CURL_NETRC_OPTIONAL);
