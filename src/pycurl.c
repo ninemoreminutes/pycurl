@@ -1714,6 +1714,8 @@ do_curl_setopt(CurlObject *self, PyObject *args)
         case CURLOPT_SSH_HOST_PUBLIC_KEY_MD5:
         case CURLOPT_CRLFILE:
         case CURLOPT_ISSUERCERT:
+	case CURLOPT_RTSP_STREAM_URI:
+	case CURLOPT_RTSP_TRANSPORT:
 /* FIXME: check if more of these options allow binary data */
             str = PyString_AsString_NoNUL(obj);
             if (str == NULL)
@@ -3826,6 +3828,8 @@ initpycurl(void)
     insint_c(d, "ADDRESS_SCOPE", CURLOPT_ADDRESS_SCOPE);
     insint_c(d, "INTERLEAVEFUNCTION", CURLOPT_INTERLEAVEFUNCTION);
     insint_c(d, "INTERLEAVEDATA", CURLOPT_INTERLEAVEDATA);
+    insint_c(d, "RTSP_STREAM_URI", CURLOPT_RTSP_STREAM_URI);
+    insint_c(d, "RTSP_TRANSPORT", CURLOPT_RTSP_TRANSPORT);
 
     insint_c(d, "M_TIMERFUNCTION", CURLMOPT_TIMERFUNCTION);
     insint_c(d, "M_SOCKETFUNCTION", CURLMOPT_SOCKETFUNCTION);
