@@ -7,7 +7,7 @@
 
 PACKAGE = "pycurl"
 PY_PACKAGE = "curl"
-VERSION = "7.26.0-9mm"
+VERSION = "7.27.0-9mm"
 
 import glob, os, re, sys, string, subprocess
 import distutils
@@ -58,24 +58,35 @@ def add_libdirs(envvar, sep, fatal=0):
             print "FATAL: bad directory %s in environment variable %s" % (dir, envvar)
             sys.exit(1)
 
+# Build command with mingw32:
+# python setup.py build -c mingw32 bdist_wininst
+
 
 if sys.platform == "win32":
     # Windows users have to configure the CURL_DIR path parameter to match
     # their cURL source installation.  The path set here is just an example
     # and thus unlikely to match your installation.
-    CURL_DIR = r"c:\src\build\pycurl\curl-7.16.2.1"
+    #CURL_DIR = r"c:\src\build\pycurl\curl-7.16.2.1"
+    CURL_DIR = os.path.join(os.path.dirname(__file__), 'curl-7.27.0-devel-mingw32')
     CURL_DIR = scan_argv("--curl-dir=", CURL_DIR)
     print "Using curl directory:", CURL_DIR
     assert os.path.isdir(CURL_DIR), "please check CURL_DIR in setup.py"
     include_dirs.append(os.path.join(CURL_DIR, "include"))
-    extra_objects.append(os.path.join(CURL_DIR, "lib", "libcurl.lib"))
-    extra_link_args.extend(["gdi32.lib", "wldap32.lib", "winmm.lib", "ws2_32.lib",])
+    if 0: # VCPP
+        extra_objects.append(os.path.join(CURL_DIR, "lib", "libcurl.a"))
+        #extra_link_args.extend(["gdi32.lib", "wldap32.lib", "winmm.lib", "ws2_32.lib",])
+    else: # MinGW
+        library_dirs.append(os.path.join(CURL_DIR, "lib"))
+        libraries.extend(["curl", "rtmp", "ssl", "crypto", "idn", "ssh2", "z"])
+        library_dirs.append('C:\\MinGW\\lib')
+        libraries.extend(["gdi32", "wldap32", "winmm", "ws2_32",])
+        #runtime_library_dirs.append(os.path.join(CURL_DIR, "bin"))
     add_libdirs("LIB", ";")
     if string.find(sys.version, "MSC") >= 0:
-        extra_compile_args.append("-O2")
-        extra_compile_args.append("-GF")        # enable read-only string pooling
-        extra_compile_args.append("-WX")        # treat warnings as errors
-        extra_link_args.append("/opt:nowin98")  # use small section alignment
+        pass#extra_compile_args.append("-O2")
+        #extra_compile_args.append("-GF")        # enable read-only string pooling
+        #extra_compile_args.append("-WX")        # treat warnings as errors
+        #extra_link_args.append("/opt:nowin98")  # use small section alignment
 else:
     # Find out the rest the hard way
     OPENSSL_DIR = scan_argv("--openssl-dir=", "")
